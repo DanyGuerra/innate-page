@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+// import "../src/styles/globals.css";
+const ThemeProvider = require("theme-ui");
+// import theme from "../theme";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    // <ThemeProvider theme={theme}>
+    <Component {...pageProps} />
+    // </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
