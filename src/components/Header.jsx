@@ -3,66 +3,235 @@ import Link from "next/link";
 import logo from "../../assets/img/INNATE-logo_innate_icon.svg";
 import logoText from "../../assets/img/INNATE-logo_innate_text.svg";
 import Image from "next/image";
+import { useState } from "react";
+import { Flex } from "theme-ui";
 
-const Header = () => (
-  <header
-    sx={{
-      width: "100%",
-      height: "50px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      color: "primary",
-      fontSize: 2,
-      pl: "20px",
-    }}
-  >
-    <Link
-      href="/"
+const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleSchedule = () => {
+    console.log("hola");
+  };
+  const handleCloseMenu = () => {
+    setShowMenu(false);
+  };
+
+  handleCloseMenu;
+
+  return (
+    <header
       sx={{
-        width: "10%",
-      }}
-    >
-      <a
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          cursor: "pointer",
-        }}
-      >
-        <Image src={logo} alt="Innate Logo" width="20px" />
-        <Image src={logoText} alt="Innate Text Logo" width="145px" />
-      </a>
-    </Link>
-    <nav
-      sx={{
+        width: "100%",
+        height: "50px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        gap: "20px",
-        width: "60%",
+        color: "primary",
+        fontSize: 1,
+        pl: "20px",
+        position: "relative",
+
+        "@media screen and (max-width: 1080px)": {
+          fontSize: 0,
+        },
       }}
     >
-      <Link href="/sobre-innate">
-        <a sx={{ cursor: "pointer" }}>Acerca de</a>
-      </Link>
-      <Link href="/faq">
-        <a sx={{ cursor: "pointer" }}>Preguntas Frecuentes</a>
-      </Link>
-      <Link href="/testimoniales">
-        <a sx={{ cursor: "pointer" }}>Testimoniales</a>
-      </Link>
-    </nav>
+      {showMenu ? (
+        <section
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100vh",
+            bg: "blur",
+            zIndex: 10,
+          }}
+        >
+          <nav
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "300px",
+              height: "100vh",
+              bg: "primary",
+              color: "textInverted",
+              fontSize: 2,
+              padding: "40px",
+              pt: "80px",
+              gap: "30px",
+              position: "relative",
+            }}
+          >
+            <a
+              sx={{
+                cursor: "pointer",
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+              }}
+              onClick={handleCloseMenu}
+            >
+              X
+            </a>
+            <Link href="/sobre-innate">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Sobre Innate
+              </a>
+            </Link>
+            <Link href="/sobre-innate#equipoSection">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Nuestros Quiroprácticos
+              </a>
+            </Link>
 
-    <div
-      sx={{
-        width: "10%",
-        height: "100%",
-        bg: "primary",
-      }}
-    ></div>
-  </header>
-);
+            <Link href="/faq">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Preguntas Frecuentes
+              </a>
+            </Link>
+            <Link href="/faq#sucursales">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Sucursales
+              </a>
+            </Link>
+            <Link href="/testimoniales">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Testimoniales
+              </a>
+            </Link>
+            <Link href="/testimoniales#contacto">
+              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
+                Contacto
+              </a>
+            </Link>
+          </nav>
+        </section>
+      ) : (
+        <></>
+      )}
+      <Link
+        href="/"
+        sx={{
+          width: "10%",
+        }}
+      >
+        <a
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            cursor: "pointer",
+          }}
+        >
+          <Image
+            src={logo}
+            alt="Innate Logo"
+            width="20px"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              cursor: "pointer",
+            }}
+          />
+          <Image src={logoText} alt="Innate Text Logo" width="145px" />
+        </a>
+      </Link>
+      <nav
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "20px",
+          width: "60%",
+          textAlign: "center",
+
+          "@media screen and (max-width: 779px)": {
+            bg: "red",
+            display: "none",
+          },
+        }}
+      >
+        <Link href="/sobre-innate">
+          <a sx={{ cursor: "pointer" }}>Sobre Innate</a>
+        </Link>
+        <Link href="/sobre-innate#equipoSection">
+          <a sx={{ cursor: "pointer" }}>Nuestros Quiroprácticos</a>
+        </Link>
+
+        <Link href="/faq">
+          <a sx={{ cursor: "pointer" }}>Preguntas Frecuentes</a>
+        </Link>
+        <Link href="/faq#sucursales">
+          <a sx={{ cursor: "pointer" }}>Sucursales</a>
+        </Link>
+        <Link href="/testimoniales">
+          <a sx={{ cursor: "pointer" }}>Testimoniales</a>
+        </Link>
+        <Link href="/testimoniales#contacto">
+          <a sx={{ cursor: "pointer" }}>Contacto</a>
+        </Link>
+      </nav>
+
+      <div
+        sx={{
+          width: "15%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center ",
+          gap: "10px",
+
+          "@media screen and (max-width: 779px)": {
+            width: "25%",
+          },
+          "@media screen and (max-width: 600px)": {
+            width: "40%",
+          },
+        }}
+      >
+        <div
+          sx={{
+            display: "none",
+            fontSize: 2,
+            "&:hover": {
+              cursor: "pointer ",
+            },
+            "@media screen and (max-width: 779px)": {
+              display: "block",
+            },
+          }}
+          onClick={() => {
+            setShowMenu(true);
+          }}
+        >
+          MENÚ
+        </div>
+        <button
+          sx={{
+            width: "70%",
+            minWidth: "60%",
+            height: "100%",
+            bg: "primary",
+            padding: "20px",
+            color: "textInverted",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "none",
+            fontSize: 1,
+            "&:hover": {
+              cursor: "pointer ",
+            },
+          }}
+          onClick={handleSchedule}
+        >
+          AGENDAR
+        </button>
+      </div>
+    </header>
+  );
+};
 
 export default Header;

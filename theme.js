@@ -19,10 +19,12 @@ const theme = {
   },
   colors: {
     text: "#000",
+    textInverted: "#fff",
     background: "#fffcf2",
     primary: "#008833",
     secondary: "#d7c29e",
     muted: "#f6f6f6",
+    blur: "#7f7d784d",
   },
   styles: {
     root: {

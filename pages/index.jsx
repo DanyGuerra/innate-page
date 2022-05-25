@@ -9,7 +9,7 @@ export default function Home() {
         <title>INNATE-Inicio</title>
       </Head>
       <Header></Header>
-      <h1>HOME</h1>;
+      <h1>HOME</h1>
     </>
   );
 }
