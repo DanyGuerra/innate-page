@@ -16,8 +16,6 @@ const Header = () => {
     setShowMenu(false);
   };
 
-  handleCloseMenu;
-
   return (
     <header
       sx={{
@@ -39,7 +37,7 @@ const Header = () => {
       {showMenu ? (
         <section
           sx={{
-            position: "absolute",
+            position: "fixed",
             top: 0,
             left: 0,
             width: "100%",
@@ -61,14 +59,15 @@ const Header = () => {
               pt: "80px",
               gap: "30px",
               position: "relative",
+              overflowY: "auto",
             }}
           >
             <a
               sx={{
                 cursor: "pointer",
-                position: "absolute",
+                position: "fixed",
                 top: "10px",
-                right: "10px",
+                left: "280px",
               }}
               onClick={handleCloseMenu}
             >
@@ -110,32 +109,26 @@ const Header = () => {
       ) : (
         <></>
       )}
-      <Link
-        href="/"
-        sx={{
-          width: "10%",
-        }}
-      >
+      <Link href="/">
         <a
           sx={{
             display: "flex",
             alignItems: "center",
             gap: "10px",
             cursor: "pointer",
+            width: "20%",
+            "@media screen and (max-width: 779px)": {
+              width: "40%",
+            },
           }}
         >
+          <Image src={logo} alt="Innate Logo" width="20px" height="50px" />
           <Image
-            src={logo}
-            alt="Innate Logo"
-            width="20px"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              cursor: "pointer",
-            }}
+            src={logoText}
+            alt="Innate Text Logo"
+            width="145px"
+            height="50px"
           />
-          <Image src={logoText} alt="Innate Text Logo" width="145px" />
         </a>
       </Link>
       <nav
@@ -187,7 +180,7 @@ const Header = () => {
             width: "25%",
           },
           "@media screen and (max-width: 600px)": {
-            width: "40%",
+            width: "50%",
           },
         }}
       >
@@ -221,6 +214,7 @@ const Header = () => {
             alignItems: "center",
             border: "none",
             fontSize: 1,
+            fontFamily: "Roboto Condensed",
             "&:hover": {
               cursor: "pointer ",
             },

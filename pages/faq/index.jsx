@@ -1,6 +1,7 @@
 import Header from "../../src/components/Header";
 
 import Head from "next/head";
+import Footer from "../../src/components/Footer";
 
 export default function Faq() {
   return (
@@ -10,6 +11,7 @@ export default function Faq() {
       </Head>
       <Header></Header>
       <h1>FAQ</h1>
+      <Footer></Footer>
     </div>
   );
 }

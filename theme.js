@@ -3,7 +3,7 @@
 const theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body: "Roboto, sans-serif",
+    body: "Roboto Condensed, sans-serif",
     heading: "Playfair Display, serif",
     monospace: "Menlo, monospace",
   },
@@ -109,6 +109,9 @@ const theme = {
     },
     img: {
       maxWidth: "100%",
+    },
+    button: {
+      fontFamily: "Roboto Condensed, sans-serif",
     },
   },
 };
