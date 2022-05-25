@@ -3,8 +3,8 @@ import Link from "next/link";
 import logo from "../../assets/img/INNATE-logo_innate_icon.svg";
 import logoText from "../../assets/img/INNATE-logo_innate_text.svg";
 import Image from "next/image";
-import { useState } from "react";
-import { Flex } from "theme-ui";
+import { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,6 +15,16 @@ const Header = () => {
   const handleCloseMenu = () => {
     setShowMenu(false);
   };
+
+  const navHeader = useRef(null);
+  const selectorNav = gsap.utils.selector(navHeader);
+
+  useEffect(() => {
+    gsap.set(selectorNav("a"), {
+      opacity: 0,
+    });
+    gsap.to(selectorNav("a"), { opacity: 1, stagger: 0.1 });
+  }, []);
 
   return (
     <header
@@ -145,6 +155,7 @@ const Header = () => {
             display: "none",
           },
         }}
+        ref={navHeader}
       >
         <Link href="/sobre-innate">
           <a sx={{ cursor: "pointer" }}>Sobre Innate</a>
