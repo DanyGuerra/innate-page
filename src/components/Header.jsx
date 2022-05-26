@@ -67,11 +67,12 @@ const Header = () => {
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "flex-start",
             gap: "10px",
             cursor: "pointer",
           }}
         >
-          <Image src={logo} alt="Innate Logo" width="20px" height="50px" />
+          <Image src={logo} alt="Innate Logo" width="15px" height="40px" />
           <Image
             src={logoText}
             alt="Innate Text Logo"
