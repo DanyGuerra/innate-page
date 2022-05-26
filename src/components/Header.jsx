@@ -23,7 +23,7 @@ const Header = () => {
     gsap.set(selectorNav("a"), {
       opacity: 0,
     });
-    gsap.to(selectorNav("a"), { opacity: 1, stagger: 0.1 });
+    gsap.to(selectorNav("a"), { opacity: 1, stagger: 0.3 });
   }, []);
 
   return (
@@ -38,9 +38,11 @@ const Header = () => {
         fontSize: 1,
         pl: "20px",
         position: "relative",
+        gap: "5%",
 
-        "@media screen and (max-width: 1080px)": {
-          fontSize: 0,
+        "@media screen and (min-width: 1080px)": {
+          fontSize: 2,
+          gap: "3%",
         },
       }}
     >
@@ -126,9 +128,9 @@ const Header = () => {
             alignItems: "center",
             gap: "10px",
             cursor: "pointer",
-            width: "20%",
-            "@media screen and (max-width: 779px)": {
-              width: "40%",
+            width: "40%",
+            "@media screen and (min-width: 779px)": {
+              width: "20%",
             },
           }}
         >
@@ -143,16 +145,16 @@ const Header = () => {
       </Link>
       <nav
         sx={{
-          display: "flex",
+          display: "none",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "20px",
-          width: "60%",
           textAlign: "center",
+          width: "10%",
 
-          "@media screen and (max-width: 779px)": {
-            bg: "red",
-            display: "none",
+          "@media screen and (min-width: 779px)": {
+            display: "flex",
+            width: "60%",
           },
         }}
         ref={navHeader}
@@ -180,30 +182,30 @@ const Header = () => {
 
       <div
         sx={{
-          width: "15%",
+          width: "50%",
           height: "100%",
           display: "flex",
           justifyContent: "flex-end",
           alignItems: "center ",
           gap: "10px",
 
-          "@media screen and (max-width: 779px)": {
-            width: "25%",
+          "@media screen and (min-width: 600px)": {
+            width: "35%",
           },
-          "@media screen and (max-width: 600px)": {
-            width: "50%",
+          "@media screen and (min-width: 992px )": {
+            width: "10%",
           },
         }}
       >
         <div
           sx={{
-            display: "none",
+            display: "block",
             fontSize: 2,
             "&:hover": {
               cursor: "pointer ",
             },
-            "@media screen and (max-width: 779px)": {
-              display: "block",
+            "@media screen and (min-width: 779px)": {
+              display: "none",
             },
           }}
           onClick={() => {
@@ -228,6 +230,10 @@ const Header = () => {
             fontFamily: "Roboto Condensed",
             "&:hover": {
               cursor: "pointer ",
+            },
+
+            "@media screen and (min-width: 779px)": {
+              width: "90%",
             },
           }}
           onClick={handleSchedule}

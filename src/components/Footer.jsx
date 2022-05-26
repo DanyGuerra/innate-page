@@ -35,16 +35,16 @@ const Footer = () => {
       >
         <div
           sx={{
-            width: "30%",
+            width: "80%",
             textAlign: "center",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             gap: "20px",
-            "@media screen and (max-width: 992px)": {
-              width: "80%",
-              flexDirection: "column",
+            "@media screen and (min-width: 992px)": {
+              width: "30%",
+              flexDirection: "row",
             },
           }}
         >
@@ -58,11 +58,11 @@ const Footer = () => {
             justifyContent: "center",
             alignItems: "center",
             gap: "10px",
-            width: "30%",
-            order: 0,
-            "@media screen and (max-width: 992px)": {
-              width: "80%",
-              order: -1,
+            width: "80%",
+            order: -1,
+            "@media screen and (min-width: 992px)": {
+              width: "30%",
+              order: 0,
             },
           }}
         >
@@ -74,9 +74,9 @@ const Footer = () => {
             justifyContent: "center",
             alignItems: "center",
             gap: "10%",
-            width: "30%",
-            "@media screen and (max-width: 992px)": {
-              width: "80%",
+            width: "80%",
+            "@media screen and (min-width: 992px)": {
+              width: "30%",
             },
           }}
         >

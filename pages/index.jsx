@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>INNATE-Inicio</title>
+        <title>INNATE-Centro Quiroprácticos</title>
       </Head>
       <Header></Header>
       <h1>HOME</h1>
