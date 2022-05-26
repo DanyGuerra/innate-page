@@ -5,15 +5,18 @@ import logoText from "../../assets/img/INNATE-logo_innate_text.svg";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import ModalMenu from "./ModalMenu";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleSchedule = () => {
-    console.log("hola");
-  };
+  const handleSchedule = () => {};
+
   const handleCloseMenu = () => {
     setShowMenu(false);
+  };
+  const handleOpenMenu = () => {
+    setShowMenu(true);
   };
 
   const navHeader = useRef(null);
@@ -23,7 +26,12 @@ const Header = () => {
     gsap.set(selectorNav("a"), {
       opacity: 0,
     });
-    gsap.to(selectorNav("a"), { opacity: 1, stagger: 0.3 });
+    gsap.to(selectorNav("a"), {
+      opacity: 1,
+      stagger: 0.1,
+      ease: "expo.in",
+      duration: 0.4,
+    });
   }, []);
 
   return (
@@ -36,7 +44,7 @@ const Header = () => {
         justifyContent: "space-between",
         color: "primary",
         fontSize: 1,
-        pl: "20px",
+        pl: "10px",
         position: "relative",
         gap: "5%",
 
@@ -47,77 +55,10 @@ const Header = () => {
       }}
     >
       {showMenu ? (
-        <section
-          sx={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100vh",
-            bg: "blur",
-            zIndex: 10,
-          }}
-        >
-          <nav
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: "300px",
-              height: "100vh",
-              bg: "primary",
-              color: "textInverted",
-              fontSize: 2,
-              padding: "40px",
-              pt: "80px",
-              gap: "30px",
-              position: "relative",
-              overflowY: "auto",
-            }}
-          >
-            <a
-              sx={{
-                cursor: "pointer",
-                position: "fixed",
-                top: "10px",
-                left: "280px",
-              }}
-              onClick={handleCloseMenu}
-            >
-              X
-            </a>
-            <Link href="/sobre-innate">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Sobre Innate
-              </a>
-            </Link>
-            <Link href="/sobre-innate#equipoSection">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Nuestros Quiroprácticos
-              </a>
-            </Link>
-
-            <Link href="/faq">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Preguntas Frecuentes
-              </a>
-            </Link>
-            <Link href="/faq#sucursales">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Sucursales
-              </a>
-            </Link>
-            <Link href="/testimoniales">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Testimoniales
-              </a>
-            </Link>
-            <Link href="/testimoniales#contacto">
-              <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
-                Contacto
-              </a>
-            </Link>
-          </nav>
-        </section>
+        <ModalMenu
+          handleCloseMenu={handleCloseMenu}
+          handleOpenMenu={handleOpenMenu}
+        ></ModalMenu>
       ) : (
         <></>
       )}
@@ -128,10 +69,6 @@ const Header = () => {
             alignItems: "center",
             gap: "10px",
             cursor: "pointer",
-            width: "40%",
-            "@media screen and (min-width: 779px)": {
-              width: "20%",
-            },
           }}
         >
           <Image src={logo} alt="Innate Logo" width="20px" height="50px" />
@@ -154,7 +91,7 @@ const Header = () => {
 
           "@media screen and (min-width: 779px)": {
             display: "flex",
-            width: "60%",
+            width: "70%",
           },
         }}
         ref={navHeader}
@@ -208,9 +145,7 @@ const Header = () => {
               display: "none",
             },
           }}
-          onClick={() => {
-            setShowMenu(true);
-          }}
+          onClick={handleOpenMenu}
         >
           MENÚ
         </div>
@@ -226,7 +161,7 @@ const Header = () => {
             justifyContent: "center",
             alignItems: "center",
             border: "none",
-            fontSize: 1,
+            fontSize: 2,
             fontFamily: "Roboto Condensed",
             "&:hover": {
               cursor: "pointer ",
