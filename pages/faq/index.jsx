@@ -1,5 +1,5 @@
+/** @jsxImportSource theme-ui */
 import Header from "../../src/components/Header";
-
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
 

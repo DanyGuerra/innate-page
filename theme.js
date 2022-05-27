@@ -4,7 +4,7 @@ const theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
     body: "Roboto Condensed, sans-serif",
-    heading: "'Playfair Display', serif",
+    heading: "Playfair Display, serif",
     monospace: "Menlo, monospace",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
@@ -26,6 +26,13 @@ const theme = {
     muted: "#f6f6f6",
     blur: "#7f7d784d",
   },
+  text: {
+    heading: {
+      fontFamily: "heading",
+      fontWeight: "heading",
+      lineHeight: "heading",
+    },
+  },
   styles: {
     root: {
       fontFamily: "body",
@@ -33,11 +40,8 @@ const theme = {
       fontWeight: "body",
     },
     h1: {
-      color: "text",
-      fontFamily: "heading",
-      lineHeight: "heading",
-      fontWeight: "heading",
-      fontSize: 5,
+      variant: "text.heading",
+      fontSize: [5, 6, 7],
     },
     h2: {
       color: "text",
