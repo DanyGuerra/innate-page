@@ -2,12 +2,17 @@
 import Link from "next/link";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-import headerBack from "../../assets/img/header-back.png";
 import Image from "next/image";
+import headerBack from "../../assets/img/header-back.png";
+import headerButton1 from "../../assets/img/header-button.png";
+import headerButton2 from "../../assets/img/header-button-2.png";
+import videoIcon from "../../assets/icons/conocer-btn.png";
 
 const FirstSection = () => {
   const imageBack = useRef(null);
   const titleHeader = useRef(null);
+  const buttonOneHeader = useRef(null);
+  const buttonTwoHeader = useRef(null);
 
   useEffect(() => {
     animationOneSideToOther(imageBack.current, -200, 2);
@@ -41,7 +46,7 @@ const FirstSection = () => {
           width: "90%",
           height: "calc(100vh - 50px)",
           display: "grid",
-          gridTemplate: "55% 25% 30%/ 50% 50% ",
+          gridTemplate: "55% 15% 40%/ 50% 50% ",
           "@media screen and (min-width: 779px)": {
             gridTemplate: "25% 20% 20% 35%/ 50% 50%",
             width: "70%",
@@ -131,25 +136,50 @@ const FirstSection = () => {
             justifyContent: "space-between",
             div: {
               width: "80%",
-              height: "50px",
-              bg: "primary",
+              color: "white",
+              position: "relative",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "white",
+              cursor: "pointer",
+              gap: "5px",
+            },
+            p: {
+              m: 0,
             },
             "@media screen and (min-width: 779px)": {
               flexDirection: "row",
               justifyContent: "space-evenly",
               gridRow: "3/4",
               div: {
-                width: "25%",
+                width: "40%",
               },
             },
           }}
         >
-          <div>Agendar Consulta</div>
-          <div> Conocer mas</div>
+          <div>
+            <span
+              sx={{
+                position: "absolute",
+                zIndex: -1,
+              }}
+            >
+              <Image src={headerButton1}></Image>
+            </span>
+            <p>Agendar Consulta</p>
+          </div>
+          <div>
+            <span
+              sx={{
+                position: "absolute",
+                zIndex: -1,
+              }}
+            >
+              <Image src={headerButton2}></Image>
+            </span>
+            <Image src={videoIcon} width="25px" height="25px"></Image>
+            <p>Conocer mas</p>
+          </div>
         </div>
       </div>
     </section>
