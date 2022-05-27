@@ -33,17 +33,22 @@ const ModalMenu = ({ handleCloseMenu }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "300px",
+          width: "70%",
           height: "100vh",
           bg: "primary",
           color: "textInverted",
           fontSize: 2,
           padding: "40px",
           pt: "80px",
+          pl: "20px",
           gap: "30px",
           position: "relative",
           overflowY: "auto",
           zIndex: 100,
+          "@media screen and (min-width: 1080px)": {
+            width: "20%",
+            pl: "40px",
+          },
         }}
         ref={navModal}
       >
@@ -52,7 +57,7 @@ const ModalMenu = ({ handleCloseMenu }) => {
             cursor: "pointer",
             position: "fixed",
             top: "10px",
-            left: "280px",
+            left: "90%",
           }}
           onClick={handleCloseMenu}
         >

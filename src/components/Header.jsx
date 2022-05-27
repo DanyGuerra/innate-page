@@ -28,7 +28,7 @@ const Header = () => {
     });
     gsap.to(selectorNav("a"), {
       opacity: 1,
-      stagger: 0.1,
+      stagger: -0.1,
       ease: "expo.in",
       duration: 0.4,
     });
@@ -45,7 +45,9 @@ const Header = () => {
         color: "primary",
         fontSize: 1,
         pl: "10px",
-        position: "relative",
+        position: "fixed",
+        bg: "background",
+        zIndex: 100,
         gap: "5%",
 
         "@media screen and (min-width: 1080px)": {

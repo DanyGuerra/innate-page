@@ -15,6 +15,7 @@ const FirstSection = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        pt: "50px",
       }}
     >
       <div
@@ -23,7 +24,7 @@ const FirstSection = () => {
           width: "90%",
           height: "calc(100vh - 50px)",
           display: "grid",
-          gridTemplate: "40% 15% 45%/ 30% 70%",
+          gridTemplate: "55% 25% 30%/ 50% 50% ",
           "@media screen and (min-width: 779px)": {
             gridTemplate: "25% 20% 20% 35%/ 50% 50%",
             width: "70%",
@@ -36,7 +37,8 @@ const FirstSection = () => {
             top: 0,
             left: 0,
             width: "112px",
-            opacity: 0.7,
+            opacity: 1,
+            zIndex: -1,
             "@media screen and (min-width: 779px)": {
               left: "calc(50% - 75px)",
               width: "150px",
@@ -85,7 +87,7 @@ const FirstSection = () => {
           </h1>
           <p
             sx={{
-              fontSize: 3,
+              fontSize: 2,
               textAlign: "left",
               color: "primary",
               fontWeight: 400,
@@ -109,7 +111,7 @@ const FirstSection = () => {
             alignItems: "center",
             justifyContent: "space-between",
             div: {
-              width: "350px",
+              width: "80%",
               height: "50px",
               bg: "primary",
               display: "flex",
@@ -121,6 +123,9 @@ const FirstSection = () => {
               flexDirection: "row",
               justifyContent: "space-evenly",
               gridRow: "3/4",
+              div: {
+                width: "25%",
+              },
             },
           }}
         >
