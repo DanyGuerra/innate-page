@@ -6,11 +6,28 @@ import headerBack from "../../assets/img/header-back.png";
 import Image from "next/image";
 
 const FirstSection = () => {
+  const imageBack = useRef(null);
+  const titleHeader = useRef(null);
+
+  useEffect(() => {
+    animationOneSideToOther(imageBack.current, -200, 2);
+    animationOneSideToOther(titleHeader.current, 200, 2);
+  }, []);
+
+  const animationOneSideToOther = (el, distance, time) => {
+    gsap.set(el, { translateX: distance });
+    gsap.to(el, {
+      translateX: 0,
+      duration: time,
+      ease: "expo.out",
+    });
+  };
+
   return (
     <section
       sx={{
         width: "100%",
-        height: "calc(100vh - 50px)",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -45,6 +62,7 @@ const FirstSection = () => {
               opacity: 0.3,
             },
           }}
+          ref={imageBack}
         >
           <Image
             src={headerBack}
@@ -68,6 +86,7 @@ const FirstSection = () => {
               gridRow: "2/3",
             },
           }}
+          ref={titleHeader}
         >
           <h1
             sx={{

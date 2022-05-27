@@ -28,9 +28,10 @@ const Header = () => {
     });
     gsap.to(selectorNav("a"), {
       opacity: 1,
-      stagger: -0.1,
+      stagger: 0.1,
       ease: "expo.in",
       duration: 0.4,
+      delay: 2,
     });
   }, []);
 
