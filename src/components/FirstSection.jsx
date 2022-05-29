@@ -16,8 +16,8 @@ const FirstSection = () => {
   useEffect(() => {
     animationOneSideToOther(imageBack.current, -200, 2.5);
     animationOneSideToOther(titleHeader.current, 200, 2.5);
-    revealAnimation(buttonOneHeader.current, 0.5, 1);
-    revealAnimation(buttonTwoHeader.current, 0.5, 1);
+    animationOneSideToOther(buttonTwoHeader.current, 800, 1, 1);
+    animationOneSideToOther(buttonOneHeader.current, 800, 1, 1);
   }, []);
 
   const animationOneSideToOther = (el, distance, time, delay = 0) => {
@@ -148,6 +148,7 @@ const FirstSection = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "space-between",
+            gap: "60px",
             div: {
               width: "80%",
               color: "white",
@@ -161,40 +162,112 @@ const FirstSection = () => {
             p: {
               m: 0,
             },
+
             "@media screen and (min-width: 779px)": {
               flexDirection: "row",
               justifyContent: "space-evenly",
               gridRow: "3/4",
               div: {
-                width: "40%",
+                width: "35%",
               },
             },
           }}
         >
-          <div>
-            <span
+          <div
+            sx={{
+              position: "relative",
+              zIndex: -1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              className="svg"
+              viewBox="0 0 300 60"
               sx={{
                 position: "absolute",
+                right: 0,
                 zIndex: -1,
               }}
             >
-              <Image src={headerButton1} ref={buttonTwoHeader}></Image>
-              <span
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  top: 0,
-                  left: 0,
-                  bg: "background",
-                  zIndex: 1,
-                }}
-                ref={buttonOneHeader}
-              ></span>
-            </span>
+              <clipPath id="rect-mask">
+                <rect width="100%" height="100%" ref={buttonOneHeader} />
+              </clipPath>
+              <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+              bWFnZVJlYWR5ccllPAAAADNQTFRFQKZmv+HMf8OZEI9An9KycLyNYLWAIJdN7/jyj8ulr9q/z+nZ
+              MJ5Z3/DlUK1zAIgz////W6McvQAAABF0Uk5T/////////////////////wAlrZliAAAC9ElEQVR4
+              2uyc23ajMAxFZfmCbTDw/19bzCVAShoIiNXpnPPSpqEK2QhZNrKohYTk/fIVnbCksthVTUM2pu1D
+              mGpTtm0ZXXeM8RuH2KKhYOrOSkEhW4zMjkg3syiLRxlROEqF/uOJ44cmSjX+1MU50MmwMm7JYVZl
+              a90U7tXbjVbf7YUXx75WVU0QfLRWGba0VFCf4DGWnk5ETwZr3m2x7L95lf+r+0UdB+07V7LZq6hq
+              TolVB2Y68aSyWf2BmdpwUKHed13ImXynpN7dJpUznMj0zkaG7rj7TOaonjWbSk/fpQ7lQdDcXCvd
+              XbO6aO5VsfbZwWOrKyxXY1jbMmaOgPZ3M/lL2gm6G+7YgrMU6MhDUNbgdB1o1Q8RgYqCaHBdOPCF
+              Gl2ZPJxWVtNg6IBCVHpK7+DQsnITaKCQlQXou2JHAOg78zuABug/owTQ94gB+sa5IUAD9B8DjZnh
+              TaDh0jeBrgFCWlUPmgFCXLnKghQ4iCv0T1gwGt4SpKk1ACEtPTwzBGlxpeEpuAUJYZmx3AApnrB4
+              BO2BQlZuKqDB9FBWxQQaFTPCUiNo5NLiQXoAjQxPPO2gqVIdMGRHw0c1KZJp2SA9l+0qpB6Secey
+              ProMDNhSei5Et0hAZDjTxlY7wL5ecXNrhUcEERwM19vd4NT3gG69cZiXX6iSftyM7HSjySKQXJBz
+              vNtn2G8mTliwPidd7t2ijHnjKYX93Q1Q/nHGoQ+0kfAVeJ2aFe7v1xEtysc+kivt4cYoKcCxj6rw
+              n3Wg8Z1nI8M+NhCe6KlUGgvf3jknPN28Kpnc9yZyjHg884Mu6BL2bdK+ap1DZC32EzzWoa8DPQdx
+              ZqPSox+b+Q8HUHLmuT3d9aA3ZDZHz7HzFnPuG+Zo9fehn9k/uu+Dttr73QJ63XKQF/3LVu8E4xWr
+              9Jzk5IvRRSXXL249uuT85pW69jeAPqM0XKKUb4GQu2qtFHhXjCrq3LouvL9ZtF30tqubqnsZ36xk
+              6jwoFZvn/iXAAF8h4nBEqXTbAAAAAElFTkSuQmCC"
+                width="100%"
+                height="60px"
+                clipPath="url(#rect-mask)"
+              ></image>
+            </svg>
             <p>Agendar Consulta</p>
           </div>
-          <div>
+          <div
+            sx={{
+              position: "relative",
+              zIndex: -1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              className="svg"
+              viewBox="0 0 300 60"
+              sx={{
+                position: "absolute",
+                right: 0,
+                zIndex: -1,
+              }}
+            >
+              <clipPath id="rect-mask">
+                <rect width="100%" height="100%" ref={buttonTwoHeader} />
+              </clipPath>
+              <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+                  bWFnZVJlYWR5ccllPAAAADNQTFRFf39/QEBAv7+/EBAQYGBgn5+fj4+PUFBQ7+/vMDAwICAg39/f
+                  z8/Pr6+vcHBwAAAA////Omtc8AAAABF0Uk5T/////////////////////wAlrZliAAADNUlEQVR4
+                  2uycyZajMAxFZXkEG5P//9q2gXQI8yBzqrv0FrUgp5L4RsiSkAWvpxSMEkkRGhyuoHs9J9+AFQoA
+                  VP5rQn/VIRpEbEDJdqxaQEP77eChZX6vo03E8xUprD60Hn/+R8FBxk4+u1flXk5X7ZZqlX8E9D8I
+                  NILZ/DrNxoqk0p2tR1iVGNbdfL+rQw3p/sDPx/z9D7uNMMsq2Z6SNXegE4B2ugNRGdev3sRErRkW
+                  nb1F1ZLJAuo4fz+ZPqV9XLWI/gHQTk9tR6pGtb9M0RUHHbOrrdrfLqmLWzTmnbtlSZtubCzso5E5
+                  DwpFQQMDfgtKgfZpL6yZ74h0KAEaBZNd8NaGDLQzoFOyxaa8IgE5l7wP2nE4dyiT0TdBM+fDTkTp
+                  cB20Z85n/ch50MC7373t8SBow8wuVsFOgA4AioldUaX9CdehGdhVqTObYWBeJMHHLmiONG5H1UKF
+                  fdBcNiKx7F3Q7Dho5HdAa8mMSIRboNk708lsgOawjpT0OmjOuSkjDwR+GlhY4Lfi6KB4G6QyZtmK
+                  xTjaYxP5CQpxHL0QdXCdrojiFDTX6Uq5auZMLhFzb+e3+xXAnEkZw+dZ4bhMVDngHIU0ARzFx/bN
+                  vuvMA94ICWUNwuSAgVysR2vg+Jk4itarhX9OvYliZ7Pd1+E5WaGR3m6gcew6iLTXqQT9wTTWbdeh
+                  NO4+BUcNgoFTZN7H2g089+feNesV0B7/ynltreGH4PekFkE3bL/UgiXQbL0lYzzggtIzMR68hkMX
+                  zLnoXviCPoarLFMpuhe+QbOKGPRo+AEE4I6kQhJukhl6LtgVEc5rHUy6hBaKSs4KTlYuqrKgqjyI
+                  KB8pHu941Wr1DhG4djdXPdvELPRBmoy40U7e7B7oDAhRsIknU4V+SJjT/SQ36MtA7+EOX5R9ejkO
+                  RlpbmB0I3+n493kS1aD/xdSlSAQ1duPu+olQtej6MOr3StVnNt+50SXdsLPlUWJnjih348/sPwi+
+                  GhEMyyOLCEbS4eZsPqIBg1jMuddiNgDvIN1hkJ6h4fhTJzmGT2XbqMspkZjOLTTpmvqA726vvN2D
+                  6puwkl9tsmWFR8dxHtEfAQYA8Wnh8vDmUzUAAAAASUVORK5CYII="
+                width="100%"
+                height="60px"
+                clipPath="url(#rect-mask)"
+              ></image>
+            </svg>
+            <Image src={videoIcon} width="25px" height="25px"></Image>
+            <p>Conocer mas</p>
+          </div>
+          {/* <div>
             <span
               sx={{
                 position: "absolute",
@@ -217,7 +290,7 @@ const FirstSection = () => {
             </span>
             <Image src={videoIcon} width="25px" height="25px"></Image>
             <p>Conocer mas</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
