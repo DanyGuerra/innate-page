@@ -83,24 +83,28 @@ const Footer = () => {
           <a
             href="https://www.instagram.com/quiropracticos.innate/"
             target="_blank"
+            rel="noreferrer"
           >
             <Image src={iconIg} alt="" />
           </a>
           <a
             href="https://www.facebook.com/Quiropracticos.Innate/"
             target="_blank"
+            rel="noreferrer"
           >
             <Image src={iconFb} alt="" />
           </a>
           <a
             href="https://www.tiktok.com/@quiropracticosinnate/"
             target="_blank"
+            rel="noreferrer"
           >
             <Image src={iconTk} alt="" />
           </a>
           <a
             href="https://www.youtube.com/channel/UCatxwbMglOUe8McB4BkRZrw"
             target="_blank"
+            rel="noreferrer"
           >
             <Image src={iconYt} alt="" />
           </a>

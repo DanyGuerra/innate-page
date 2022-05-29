@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import Link from "next/link";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -15,15 +14,27 @@ const FirstSection = () => {
   const buttonTwoHeader = useRef(null);
 
   useEffect(() => {
-    animationOneSideToOther(imageBack.current, -200, 2);
-    animationOneSideToOther(titleHeader.current, 200, 2);
+    animationOneSideToOther(imageBack.current, -200, 2.5);
+    animationOneSideToOther(titleHeader.current, 200, 2.5);
+    revealAnimation(buttonOneHeader.current, 0.5, 1);
+    revealAnimation(buttonTwoHeader.current, 0.5, 1);
   }, []);
 
-  const animationOneSideToOther = (el, distance, time) => {
+  const animationOneSideToOther = (el, distance, time, delay = 0) => {
     gsap.set(el, { translateX: distance });
     gsap.to(el, {
       translateX: 0,
       duration: time,
+      delay: delay,
+      ease: "expo.out",
+    });
+  };
+
+  const revealAnimation = (el, time, delay) => {
+    gsap.to(el, {
+      width: 0,
+      duration: time,
+      delay: delay,
       ease: "expo.out",
     });
   };
@@ -46,6 +57,7 @@ const FirstSection = () => {
           width: "90%",
           height: "calc(100vh - 50px)",
           display: "grid",
+          overflow: "hidden",
           gridTemplate: "55% 15% 40%/ 50% 50% ",
           "@media screen and (min-width: 779px)": {
             gridTemplate: "25% 20% 20% 35%/ 50% 50%",
@@ -61,6 +73,8 @@ const FirstSection = () => {
             width: "112px",
             opacity: 1,
             zIndex: -1,
+            objectFit: "cover",
+            overflow: "hidden",
             "@media screen and (min-width: 779px)": {
               left: "calc(50% - 75px)",
               width: "150px",
@@ -164,7 +178,19 @@ const FirstSection = () => {
                 zIndex: -1,
               }}
             >
-              <Image src={headerButton1}></Image>
+              <Image src={headerButton1} ref={buttonTwoHeader}></Image>
+              <span
+                sx={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  top: 0,
+                  left: 0,
+                  bg: "background",
+                  zIndex: 1,
+                }}
+                ref={buttonOneHeader}
+              ></span>
             </span>
             <p>Agendar Consulta</p>
           </div>
@@ -176,6 +202,18 @@ const FirstSection = () => {
               }}
             >
               <Image src={headerButton2}></Image>
+              <span
+                sx={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  top: 0,
+                  left: 0,
+                  bg: "background",
+                  zIndex: 1,
+                }}
+                ref={buttonTwoHeader}
+              ></span>
             </span>
             <Image src={videoIcon} width="25px" height="25px"></Image>
             <p>Conocer mas</p>
