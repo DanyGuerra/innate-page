@@ -2,7 +2,7 @@ import Header from "../src/components/Header";
 import styles from "../src/styles/Home.module.css";
 import Head from "next/head";
 import Footer from "../src/components/Footer";
-import FirstSection from "../src/components/FirstSection";
+import MainPage from "../src/components/MainPage";
 
 export default function Home() {
   return (
@@ -10,9 +10,9 @@ export default function Home() {
       <Head>
         <title>INNATE-Centro Quiroprácticos</title>
       </Head>
-      <Header></Header>
-      <FirstSection></FirstSection>
-      <Footer></Footer>
+      <Header />
+      <MainPage />
+      <Footer />
     </>
   );
 }

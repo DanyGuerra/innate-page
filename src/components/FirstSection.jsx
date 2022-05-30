@@ -16,8 +16,8 @@ const FirstSection = () => {
   useEffect(() => {
     animationOneSideToOther(imageBack.current, -200, 2.5);
     animationOneSideToOther(titleHeader.current, 200, 2.5);
-    animationOneSideToOther(buttonTwoHeader.current, 800, 1, 1);
-    animationOneSideToOther(buttonOneHeader.current, 800, 1, 1);
+    animationOneSideToOther(buttonTwoHeader.current, 800, 0.5, 1);
+    animationOneSideToOther(buttonOneHeader.current, 800, 0.5, 1);
   }, []);
 
   const animationOneSideToOther = (el, distance, time, delay = 0) => {
