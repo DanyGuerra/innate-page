@@ -1,27 +1,56 @@
 /** @jsxImportSource theme-ui */
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import newsLetterBack from "../../assets/img/newsletter-back.png";
 import newsLetterEnvelope from "../../assets/img/newsletter-envelope.png";
 import { SecondaryButton } from "./Buttons";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const NewsLetter = () => {
-  const animationOneSideToOther = (el, distance, time, delay = 0) => {
-    gsap.set(el, { translateX: distance });
-    gsap.to(el, {
-      translateX: 0,
-      duration: time,
-      delay: delay,
-      ease: "expo.out",
-    });
-  };
+  gsap.registerPlugin(ScrollTrigger);
+  const mySection = useRef(null);
+  const envelope = useRef(null);
+  const sectionAnimation = useRef(null);
+  const selectorAnimation = gsap.utils.selector(sectionAnimation);
 
-  const revealAnimation = (el, time, delay) => {
-    gsap.to(el, {
-      width: 0,
-      duration: time,
-      delay: delay,
-      ease: "expo.out",
-    });
+  useEffect(() => {
+    gsap.fromTo(
+      envelope.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: mySection.current,
+        },
+      }
+    );
+
+    animation();
+  }, []);
+
+  const animation = () => {
+    gsap.fromTo(
+      selectorAnimation(".item"),
+      {
+        translateX: -100,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateX: 0,
+        duration: 0.5,
+        delay: 0.5,
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: mySection.current,
+        },
+      }
+    );
   };
 
   return (
@@ -36,6 +65,7 @@ const NewsLetter = () => {
         bg: "primary",
         position: "relative",
       }}
+      ref={mySection}
     >
       <div
         sx={{
@@ -48,6 +78,7 @@ const NewsLetter = () => {
           alignItems: "center",
           textAlign: "center",
           color: "white",
+          overflow: "hidden",
         }}
       >
         <span
@@ -56,61 +87,79 @@ const NewsLetter = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          ref={envelope}
         >
           <Image src={newsLetterEnvelope} width="71px" height="31px"></Image>
         </span>
-        <h1
-          sx={{
-            textAlign: "center",
-            fontFamily: "heading",
-            fontSize: 5,
-            fontWeight: "body",
-          }}
-        >
-          Recibe un descuento en tu primera visita*
-        </h1>
-        <form
+
+        <div
+          ref={sectionAnimation}
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
-            gap: "20px",
           }}
         >
-          <input
-            type="email"
+          <h1
+            className="item"
             sx={{
-              width: "100%",
-              height: "47px",
-              bg: "transparent",
-              border: "1px solid white",
-              outlineColor: "transparent",
-              pl: "10px",
-              color: "white",
-              "&::placeholder": {
-                color: "white",
-              },
+              textAlign: "center",
+              fontFamily: "heading",
+              fontSize: 5,
+              fontWeight: "body",
             }}
-            placeholder="Escribe tu e-mail..."
-          />
-          <SecondaryButton height="45px" width="230px">
-            Quiero mi descuento
-          </SecondaryButton>
-        </form>
-        <p>
-          Esporádicamente te enviaremos promociones exclusivas y tips para
-          mejorar tu salud.
-        </p>
-        <p
-          sx={{
-            fontSize: 0,
-          }}
-        >
-          Respetamos tu privacidad y NUNCA TE ENVIAREMOS SPAM. <br />
-          *No aplica con otras promociones.
-        </p>
+          >
+            Recibe un descuento en tu primera visita*
+          </h1>
+          <form
+            className="item"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              gap: "20px",
+              width: "90%",
+            }}
+          >
+            <input
+              type="email"
+              sx={{
+                width: "100%",
+                height: "47px",
+                bg: "transparent",
+                border: "1px solid white",
+                outlineColor: "transparent",
+                pl: "10px",
+                color: "white",
+                "&::placeholder": {
+                  color: "white",
+                },
+              }}
+              placeholder="Escribe tu e-mail..."
+            />
+            <SecondaryButton height="45px" width="230px">
+              Quiero mi descuento
+            </SecondaryButton>
+          </form>
+          <div className="item">
+            <p>
+              Esporádicamente te enviaremos promociones exclusivas y tips para
+              mejorar tu salud.
+            </p>
+            <p
+              sx={{
+                fontSize: 0,
+              }}
+            >
+              Respetamos tu privacidad y NUNCA TE ENVIAREMOS SPAM. <br />
+              *No aplica con otras promociones.
+            </p>
+          </div>
+        </div>
       </div>
 
       <span
