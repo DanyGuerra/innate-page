@@ -2,6 +2,7 @@
 import Image from "next/image";
 import newsLetterBack from "../../assets/img/newsletter-back.png";
 import newsLetterEnvelope from "../../assets/img/newsletter-envelope.png";
+import { SecondaryButton } from "./Buttons";
 
 const NewsLetter = () => {
   const animationOneSideToOther = (el, distance, time, delay = 0) => {
@@ -68,6 +69,48 @@ const NewsLetter = () => {
         >
           Recibe un descuento en tu primera visita*
         </h1>
+        <form
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            gap: "20px",
+          }}
+        >
+          <input
+            type="email"
+            sx={{
+              width: "100%",
+              height: "47px",
+              bg: "transparent",
+              border: "1px solid white",
+              outlineColor: "transparent",
+              pl: "10px",
+              color: "white",
+              "&::placeholder": {
+                color: "white",
+              },
+            }}
+            placeholder="Escribe tu e-mail..."
+          />
+          <SecondaryButton height="45px" width="230px">
+            Quiero mi descuento
+          </SecondaryButton>
+        </form>
+        <p>
+          Esporádicamente te enviaremos promociones exclusivas y tips para
+          mejorar tu salud.
+        </p>
+        <p
+          sx={{
+            fontSize: 0,
+          }}
+        >
+          Respetamos tu privacidad y NUNCA TE ENVIAREMOS SPAM. <br />
+          *No aplica con otras promociones.
+        </p>
       </div>
 
       <span
