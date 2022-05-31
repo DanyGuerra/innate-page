@@ -48,6 +48,9 @@ const NewsLetter = () => {
         stagger: 0.5,
         scrollTrigger: {
           trigger: mySection.current,
+          // scrub: true,
+          // start: "top top",
+          // end: "100",
         },
       }
     );
@@ -69,7 +72,7 @@ const NewsLetter = () => {
     >
       <div
         sx={{
-          width: "360px",
+          width: "100%",
           bg: "none",
           zIndex: 1,
           display: "flex",
@@ -79,6 +82,9 @@ const NewsLetter = () => {
           textAlign: "center",
           color: "white",
           overflow: "hidden",
+          "@media screen and (min-width: 779px)": {
+            width: "30%",
+          },
         }}
       >
         <span
@@ -100,6 +106,7 @@ const NewsLetter = () => {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
+            width: "100%",
           }}
         >
           <h1

@@ -28,7 +28,8 @@ export const SecondaryButton = ({ width, height, children }) => {
       sx={{
         bg: "primary",
         borderRadius: "50px",
-        border: "1px solid white",
+        border: "1px solid transparent",
+        borderColor: "primary",
         width: `${width}`,
         height: `${height}`,
         bg: "white",
