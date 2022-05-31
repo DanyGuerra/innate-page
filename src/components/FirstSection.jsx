@@ -49,6 +49,7 @@ const FirstSection = () => {
         justifyContent: "center",
         alignItems: "center",
         pt: "50px",
+        pb: "100px",
       }}
     >
       <div

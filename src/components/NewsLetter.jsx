@@ -69,6 +69,7 @@ const NewsLetter = () => {
         alignItems: "center",
         bg: "primary",
         position: "relative",
+        mb: "100px",
       }}
       ref={mySection}
     >

@@ -77,7 +77,7 @@ const Padecimientos = () => {
     <section
       sx={{
         width: "100%",
-        mt: "100px",
+        mb: "100px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
