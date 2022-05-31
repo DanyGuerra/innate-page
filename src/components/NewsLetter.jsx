@@ -26,6 +26,7 @@ const NewsLetter = () => {
         delay: 0.5,
         scrollTrigger: {
           trigger: mySection.current,
+          start: "top center",
         },
       }
     );
@@ -35,7 +36,7 @@ const NewsLetter = () => {
 
   const animation = () => {
     gsap.fromTo(
-      selectorAnimation(".item"),
+      selectorAnimation(".animation-one"),
       {
         translateX: -100,
         opacity: 0,
@@ -48,6 +49,7 @@ const NewsLetter = () => {
         stagger: 0.5,
         scrollTrigger: {
           trigger: mySection.current,
+          start: "top center",
           // scrub: true,
           // start: "top top",
           // end: "100",
@@ -110,7 +112,7 @@ const NewsLetter = () => {
           }}
         >
           <h1
-            className="item"
+            className="animation-one"
             sx={{
               textAlign: "center",
               fontFamily: "heading",
@@ -121,7 +123,7 @@ const NewsLetter = () => {
             Recibe un descuento en tu primera visita*
           </h1>
           <form
-            className="item"
+            className="animation-one"
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -152,7 +154,7 @@ const NewsLetter = () => {
               Quiero mi descuento
             </SecondaryButton>
           </form>
-          <div className="item">
+          <div className="animation-one">
             <p>
               Esporádicamente te enviaremos promociones exclusivas y tips para
               mejorar tu salud.

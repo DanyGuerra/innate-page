@@ -15,7 +15,12 @@ const Footer = () => {
 
   return (
     <footer
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        mt: "50px",
+      }}
     >
       <section
         sx={{

@@ -1,20 +1,24 @@
 /** @jsxImportSource theme-ui */
-import Image from "next/image";
 import { useEffect, useRef } from "react";
-import newsLetterBack from "../../assets/img/newsletter-back.png";
-import { SecondaryButton } from "./Buttons";
-import gsap, { wrap } from "gsap";
+import { PrimaryButtonAnimation } from "./Buttons";
+import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Padecimientos = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const mySection = useRef(null);
 
-  useEffect(() => {}, []);
+  const mySection = useRef(null);
+  const motionPath = useRef(null);
+  const sectionAnimation = useRef(null);
+  const selectorAnimation = gsap.utils.selector(sectionAnimation);
+
+  useEffect(() => {
+    animation();
+  }, []);
 
   const animation = () => {
     gsap.fromTo(
-      selectorAnimation(".item"),
+      selectorAnimation(".animation-one"),
       {
         translateX: -100,
         opacity: 0,
@@ -22,11 +26,48 @@ const Padecimientos = () => {
       {
         opacity: 1,
         translateX: 0,
-        duration: 0.5,
-        delay: 0.5,
-        stagger: 0.5,
+        duration: 1,
+        ease: "power1.out",
         scrollTrigger: {
-          trigger: mySection.current,
+          trigger: sectionAnimation.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      selectorAnimation("li"),
+      {
+        translateY: -50,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 0.25,
+        stagger: 0.2,
+        delay: 0.5,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: sectionAnimation.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      motionPath.current,
+
+      {
+        translateY: -500,
+      },
+      {
+        translateY: 0,
+        duration: 0.25,
+        delay: 1.75,
+        ease: "power1.out",
+
+        scrollTrigger: {
+          trigger: sectionAnimation.current,
+          start: "top center",
         },
       }
     );
@@ -59,6 +100,7 @@ const Padecimientos = () => {
             width: "50%",
           },
         }}
+        ref={sectionAnimation}
       >
         <h1
           sx={{
@@ -73,6 +115,7 @@ const Padecimientos = () => {
               textAlign: "right",
             },
           }}
+          className={"animation-one"}
         >
           Si padeces de:
         </h1>
@@ -130,19 +173,19 @@ const Padecimientos = () => {
             Xa/SCZFXTABkne/Q9yI/Q4NSyyZqYDJZszAwMVu9LW3QNDHXLUHnVkFXkP4mY20ddMvUwbNu7wOT
             oJs00jm1mYCtQRdheizCdAHgI9lwzuQ04qSMVfVetbhdlUziy4Vjm2pk+R+aE88SFs7L5QAAAABJ
             RU5ErkJggg=="
-              transform="matrix(1 0 0 1 -2 0)"
-              mask="url('#arrow')"
+              mask="url(#arrow)"
             ></image>
             <defs>
               <mask id="arrow">
                 <path
+                  ref={motionPath}
                   id="flechaDash"
                   fill="none"
                   stroke="#fff"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-miterlimit="10"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
                   d="M40.6,210.9c-10,4.2-18.9,10.6-26.2,18.5c-1.4-2.2-2.7-4.5-3.9-6.9c1.2,0.5,2.5,1.1,3.7,1.6
                       c3.7,1.6,7-0.3,7.5-4.3c4.5-36.5,9.2-73.1,13.5-109.6c1-8.4,1.7-16.9,1.2-25.4c-0.6-8.9-2.2-17.8-3.6-26.6C30,40,27.1,21.8,24.2,3.6
                       c-1-6.3-10.6-3.6-9.6,2.7c2.8,17.6,5.5,35.2,8.3,52.8c1.5,9.2,3.2,18.5,3.6,27.8c0.4,8.5-0.5,16.9-1.5,25.3
@@ -159,8 +202,10 @@ const Padecimientos = () => {
                 mb: "0px",
               },
               "@media screen and (min-width: 779px)": {
-                mt: "10px",
-                mb: "10px",
+                li: {
+                  mt: "10px",
+                  mb: "10px",
+                },
               },
             }}
           >
@@ -180,19 +225,20 @@ const Padecimientos = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          className={"animation-one"}
         >
           <div
             sx={{
-              width: "80%",
+              width: "60%",
               p: "auto",
               "@media screen and (min-width: 779px)": {
                 width: "50%",
               },
             }}
           >
-            <SecondaryButton height="45px" width="100%">
+            <PrimaryButtonAnimation height="50px" width="100%">
               Agenda tu primera cita
-            </SecondaryButton>
+            </PrimaryButtonAnimation>
           </div>
         </div>
       </div>

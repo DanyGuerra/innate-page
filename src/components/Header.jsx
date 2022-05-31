@@ -31,7 +31,7 @@ const Header = () => {
       stagger: 0.1,
       ease: "expo.in",
       duration: 0.4,
-      delay: 2,
+      delay: 1,
     });
   }, []);
 
