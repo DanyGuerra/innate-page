@@ -16,6 +16,7 @@ const Diagnostico = () => {
   const navSection = useRef(null);
   const selectorNav = gsap.utils.selector(navSection);
   const accordion = useRef(null);
+  const refNavTitle = useRef(null);
 
   const accordionData = [
     {
@@ -73,6 +74,58 @@ const Diagnostico = () => {
   }, []);
 
   const animation = () => {
+    gsap.fromTo(
+      refNavTitle.current,
+      {
+        translateX: -400,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateX: 0,
+        duration: 1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      selectorNav("section"),
+      {
+        translateY: -400,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        stagger: 0.1,
+        duration: 1,
+        delay: 0.1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      navSection.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+
     gsap.fromTo(
       selectorNav("section"),
       {
@@ -140,12 +193,15 @@ const Diagnostico = () => {
     >
       <div
         sx={{
-          width: "40%",
+          width: "90%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           gap: "30px",
+          "@media screen and (min-width: 779px)": {
+            width: "40%",
+          },
         }}
       >
         <div
@@ -156,6 +212,7 @@ const Diagnostico = () => {
               m: 0,
             },
           }}
+          ref={refNavTitle}
         >
           <p>La primera cita consiste de 7 pasos para un</p>
           <p
@@ -172,6 +229,7 @@ const Diagnostico = () => {
           sx={{
             width: "100%",
             minHeight: "600px",
+            overflow: "hidden",
 
             ".active": {
               bg: "primary",
