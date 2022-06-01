@@ -3,8 +3,6 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import headerBack from "../../assets/img/header-back.png";
-import headerButton1 from "../../assets/img/header-button.png";
-import headerButton2 from "../../assets/img/header-button-2.png";
 import videoIcon from "../../assets/icons/conocer-btn.png";
 
 const FirstSection = () => {

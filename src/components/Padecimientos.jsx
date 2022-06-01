@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { PrimaryButtonAnimation } from "./Buttons";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Image from "next/image";
+import sideImage from "../../assets/img/side-img.png";
 
 const Padecimientos = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +13,7 @@ const Padecimientos = () => {
   const motionPath = useRef(null);
   const sectionAnimation = useRef(null);
   const selectorAnimation = gsap.utils.selector(sectionAnimation);
+  const refSideImage = useRef(null);
 
   useEffect(() => {
     animation();
@@ -71,6 +74,17 @@ const Padecimientos = () => {
         },
       }
     );
+
+    gsap.to(refSideImage.current, {
+      translateY: 300,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionAnimation.current,
+        start: "top center",
+        scrub: true,
+      },
+    });
   };
 
   return (
@@ -86,6 +100,23 @@ const Padecimientos = () => {
       }}
       ref={mySection}
     >
+      <span
+        sx={{
+          position: "absolute",
+          top: -100,
+          right: 0,
+          bottom: "20px",
+          width: "40%",
+          zIndex: -1,
+          "@media screen and (min-width: 779px)": {
+            width: "25%",
+            top: -300,
+          },
+        }}
+        ref={refSideImage}
+      >
+        <Image src={sideImage} layout="responsive"></Image>
+      </span>
       <div
         sx={{
           width: "70%",

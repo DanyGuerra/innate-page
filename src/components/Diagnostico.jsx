@@ -83,6 +83,7 @@ const Diagnostico = () => {
         duration: 1,
         ease: "elastic.in",
         repeat: -1,
+        repeatDelay: 1,
         stagger: {
           each: 2,
           onComplete: () => {
