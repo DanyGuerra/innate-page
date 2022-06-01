@@ -76,8 +76,9 @@ const Padecimientos = () => {
     );
 
     gsap.to(refSideImage.current, {
-      translateY: 300,
+      translateY: 250,
       duration: 1,
+      ease: "slow.out",
 
       scrollTrigger: {
         trigger: sectionAnimation.current,
@@ -110,7 +111,7 @@ const Padecimientos = () => {
           zIndex: -1,
           "@media screen and (min-width: 779px)": {
             width: "25%",
-            top: -300,
+            top: -500,
           },
         }}
         ref={refSideImage}
