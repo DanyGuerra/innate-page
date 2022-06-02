@@ -98,7 +98,12 @@ const NewsLetter = () => {
           }}
           ref={envelope}
         >
-          <Image src={newsLetterEnvelope} width="71px" height="31px"></Image>
+          <Image
+            src={newsLetterEnvelope}
+            width="71px"
+            height="31px"
+            alt="Logo sobre de correo"
+          ></Image>
         </span>
 
         <div
@@ -181,7 +186,7 @@ const NewsLetter = () => {
           width: "360px",
         }}
       >
-        <Image src={newsLetterBack}></Image>
+        <Image src={newsLetterBack} alt="NewsLetter fondo"></Image>
       </span>
     </section>
   );

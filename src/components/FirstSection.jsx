@@ -59,7 +59,7 @@ const FirstSection = () => {
           overflow: "hidden",
           gridTemplate: "55% 15% 40%/ 50% 50% ",
           "@media screen and (min-width: 779px)": {
-            gridTemplate: "25% 20% 20% 35%/ 50% 50%",
+            gridTemplate: "25% 20% 40% 15%/ 50% 50%",
             width: "70%",
           },
         }}
@@ -87,6 +87,7 @@ const FirstSection = () => {
             width="150px"
             height="650px"
             layout="responsive"
+            alt="Especialistas quiropracticos en columna vertebral muestran una espalda sana, sin escoliosis ciática ni hernia"
           ></Image>
         </div>
         <div
@@ -263,7 +264,12 @@ const FirstSection = () => {
                 clipPath="url(#rect-mask)"
               ></image>
             </svg>
-            <Image src={videoIcon} width="25px" height="25px"></Image>
+            <Image
+              src={videoIcon}
+              alt="Icono de video"
+              width="25px"
+              height="25px"
+            ></Image>
             <p>Conocer mas</p>
           </div>
           {/* <div>

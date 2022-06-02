@@ -53,8 +53,8 @@ const Footer = () => {
             },
           }}
         >
-          <Image src={logo1} alt="" />
-          <Image src={logo2} alt="" />
+          <Image src={logo1} alt="Logo Innate" />
+          <Image src={logo2} alt="Logo Innate" />
         </div>
         <div
           sx={{
@@ -71,7 +71,12 @@ const Footer = () => {
             },
           }}
         >
-          <Image src={logoFooter} alt="" width="217px" height="120px" />
+          <Image
+            src={logoFooter}
+            alt="Logo Footer"
+            width="217px"
+            height="120px"
+          />
         </div>
         <div
           sx={{
@@ -90,28 +95,28 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image src={iconIg} alt="" />
+            <Image src={iconIg} alt="Icono Instagram" />
           </a>
           <a
             href="https://www.facebook.com/Quiropracticos.Innate/"
             target="_blank"
             rel="noreferrer"
           >
-            <Image src={iconFb} alt="" />
+            <Image src={iconFb} alt="Logo Facebook" />
           </a>
           <a
             href="https://www.tiktok.com/@quiropracticosinnate/"
             target="_blank"
             rel="noreferrer"
           >
-            <Image src={iconTk} alt="" />
+            <Image src={iconTk} alt="Logo TikTok" />
           </a>
           <a
             href="https://www.youtube.com/channel/UCatxwbMglOUe8McB4BkRZrw"
             target="_blank"
             rel="noreferrer"
           >
-            <Image src={iconYt} alt="" />
+            <Image src={iconYt} alt="Logo Youtube" />
           </a>
         </div>
         <p

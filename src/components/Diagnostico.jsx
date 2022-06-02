@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React from "react";
 import headerButton1 from "../../assets/img/newsletter-back.png";
 import Image from "next/image";
+import { ArrowDown, ArrowUp } from "./Icons";
 
 const Diagnostico = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -12,7 +13,6 @@ const Diagnostico = () => {
   const [itemClicked, setItemClicked] = useState(null);
 
   const mySection = useRef(null);
-  const motionPath = useRef(null);
   const navSection = useRef(null);
   const selectorNav = gsap.utils.selector(navSection);
   const accordion = useRef(null);
@@ -70,10 +70,50 @@ const Diagnostico = () => {
   }, [itemClicked]);
 
   useEffect(() => {
-    animation();
+    navAnimation();
+    titleAnimation();
+    shakeEachElementStagger();
   }, []);
 
-  const animation = () => {
+  const navAnimation = () => {
+    gsap.fromTo(
+      selectorNav("section"),
+      {
+        translateY: -400,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        stagger: 0.1,
+        duration: 1,
+        delay: 0.8,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      navSection.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        delay: 0.75,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+  };
+
+  const titleAnimation = () => {
     gsap.fromTo(
       refNavTitle.current,
       {
@@ -91,41 +131,9 @@ const Diagnostico = () => {
         },
       }
     );
-    gsap.fromTo(
-      selectorNav("section"),
-      {
-        translateY: -400,
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-        stagger: 0.1,
-        duration: 1,
-        delay: 0.1,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
-    gsap.fromTo(
-      navSection.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 2,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
+  };
 
+  const shakeEachElementStagger = () => {
     gsap.fromTo(
       selectorNav("section"),
       {
@@ -200,7 +208,7 @@ const Diagnostico = () => {
           alignItems: "center",
           gap: "30px",
           "@media screen and (min-width: 779px)": {
-            width: "40%",
+            width: "50%",
           },
         }}
       >
@@ -234,6 +242,9 @@ const Diagnostico = () => {
             ".active": {
               bg: "primary",
               color: "textInverted",
+              svg: {
+                fill: "white",
+              },
             },
           }}
           ref={navSection}
@@ -250,6 +261,9 @@ const Diagnostico = () => {
                       cursor: "pointer",
                       bg: "primary",
                       color: "textInverted",
+                      svg: {
+                        fill: "white",
+                      },
                     },
                   }}
                   className={itemClicked === index ? "active" : ""}
@@ -267,7 +281,12 @@ const Diagnostico = () => {
                       <sup>{`0${index + 1}`}</sup>
                       {` ${item.title}`}
                     </div>
-                    <span>Icon</span>
+
+                    {itemClicked === index ? (
+                      <ArrowUp></ArrowUp>
+                    ) : (
+                      <ArrowDown />
+                    )}
                   </section>
                 </div>
 
@@ -276,15 +295,29 @@ const Diagnostico = () => {
                     sx={{
                       p: "20px 10px",
                       display: "flex",
+                      flexDirection: "column",
                       justifyContent: "space-around",
                       alignItems: "center",
+                      "@media screen and (min-width: 779px)": {
+                        flexDirection: "row",
+                      },
                     }}
                     ref={accordion}
                   >
-                    <Image src={item.image} height="100%" width="100%"></Image>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      height="100%"
+                      width="100%"
+                    ></Image>
                     <p
                       sx={{
-                        width: "60%",
+                        width: "90%",
+                        textAlign: "center",
+                        "@media screen and (min-width: 779px)": {
+                          width: "60%",
+                          textAlign: "left",
+                        },
                       }}
                     >
                       {item.content}

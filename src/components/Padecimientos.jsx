@@ -116,7 +116,11 @@ const Padecimientos = () => {
         }}
         ref={refSideImage}
       >
-        <Image src={sideImage} layout="responsive"></Image>
+        <Image
+          src={sideImage}
+          layout="responsive"
+          alt="Fonde de un costado"
+        ></Image>
       </span>
       <div
         sx={{
@@ -261,7 +265,7 @@ const Padecimientos = () => {
         >
           <div
             sx={{
-              width: "60%",
+              width: "80%",
               p: "auto",
               "@media screen and (min-width: 779px)": {
                 width: "50%",
