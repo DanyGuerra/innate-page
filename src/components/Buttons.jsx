@@ -45,6 +45,46 @@ export const SecondaryButton = ({ width, height, children }) => {
     </button>
   );
 };
+export const SecondaryButtonInversed = ({ width, height, children }) => {
+  const handleHover = (e) => {
+    const element = e.target;
+    gsap.to(element, {
+      backgroundColor: "#008833",
+      color: "white",
+      ease: "expo.out",
+      duration: 1,
+    });
+  };
+  const handleMouseLeave = (e) => {
+    const element = e.target;
+    gsap.to(element, {
+      backgroundColor: "transparent",
+      color: "#008833",
+      ease: "expo.out",
+      duration: 1,
+    });
+  };
+  return (
+    <button
+      sx={{
+        bg: "transparent",
+        borderRadius: "50px",
+        border: "1px solid transparent",
+        borderColor: "primary",
+        width: `${width}`,
+        height: `${height}`,
+        color: "primary",
+        "&:hover": {
+          cursor: "pointer",
+        },
+      }}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </button>
+  );
+};
 
 export const PrimaryButton = ({ width, height, children }) => {
   return (

@@ -111,7 +111,7 @@ const Padecimientos = () => {
           zIndex: -1,
           "@media screen and (min-width: 779px)": {
             width: "25%",
-            top: -500,
+            top: -300,
           },
         }}
         ref={refSideImage}

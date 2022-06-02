@@ -191,7 +191,6 @@ const Diagnostico = () => {
     <section
       sx={{
         width: "100%",
-        mb: "100px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -294,9 +293,11 @@ const Diagnostico = () => {
                   <div
                     sx={{
                       p: "20px 10px",
+                      pl: "10%",
                       display: "flex",
+                      gap: "10px",
                       flexDirection: "column",
-                      justifyContent: "space-around",
+                      justifyContent: "space-between",
                       alignItems: "center",
                       "@media screen and (min-width: 779px)": {
                         flexDirection: "row",
@@ -315,7 +316,7 @@ const Diagnostico = () => {
                         width: "90%",
                         textAlign: "center",
                         "@media screen and (min-width: 779px)": {
-                          width: "60%",
+                          width: "80%",
                           textAlign: "left",
                         },
                       }}
