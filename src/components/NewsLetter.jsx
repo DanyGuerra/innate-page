@@ -23,7 +23,6 @@ const NewsLetter = () => {
       {
         opacity: 1,
         duration: 1,
-        delay: 0.5,
         scrollTrigger: {
           trigger: mySection.current,
           start: "top center",
@@ -45,14 +44,10 @@ const NewsLetter = () => {
         opacity: 1,
         translateX: 0,
         duration: 0.5,
-        delay: 0.5,
         stagger: 0.5,
         scrollTrigger: {
           trigger: mySection.current,
           start: "top center",
-          // scrub: true,
-          // start: "top top",
-          // end: "100",
         },
       }
     );

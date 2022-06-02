@@ -7,6 +7,7 @@ import { SecondaryButtonInversed } from "./Buttons";
 import sucursal from "../../assets/img/INNATE-sucursal.png";
 import sucursal2 from "../../assets/img/INNATE-sucursal2.png";
 import compromisoInnate from "../../assets/img/INNATE-compromiso.png";
+import sucursalesCircle from "../../assets/img/sucursales_circulo_verde.png";
 
 const Compromiso = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +17,8 @@ const Compromiso = () => {
   const refImage1 = useRef(null);
   const refImage2 = useRef(null);
   const refImgRotate = useRef(null);
+  const imageBackground = useRef(null);
+  const aboutButton = useRef(null);
 
   useEffect(() => {
     paralellAnimation();
@@ -31,7 +34,7 @@ const Compromiso = () => {
       ease: "power1.out",
       scrollTrigger: {
         trigger: mySection.current,
-        start: "top top",
+        start: "top center",
         scrub: true,
       },
     });
@@ -41,7 +44,7 @@ const Compromiso = () => {
       ease: "power1.out",
       scrollTrigger: {
         trigger: mySection.current,
-        start: "top top",
+        start: "top center",
         scrub: true,
       },
     });
@@ -68,21 +71,6 @@ const Compromiso = () => {
   };
 
   const imageRotationAnimation = () => {
-    gsap.fromTo(
-      refImgRotate.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 2,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
     gsap.to(refImgRotate.current, {
       rotation: "360",
       duration: 10,
@@ -92,7 +80,7 @@ const Compromiso = () => {
   };
   const imageAppers = () => {
     gsap.fromTo(
-      refImage2.current,
+      refImgRotate.current,
       {
         opacity: 0,
       },
@@ -108,6 +96,22 @@ const Compromiso = () => {
       }
     );
     gsap.fromTo(
+      refImage2.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.75,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
       refImage1.current,
       {
         opacity: 0,
@@ -115,7 +119,39 @@ const Compromiso = () => {
       {
         opacity: 1,
         duration: 1,
-        delay: 1,
+        delay: 1.25,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      imageBackground.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      aboutButton.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 1.75,
         ease: "power1.out",
         scrollTrigger: {
           trigger: mySection.current,
@@ -214,10 +250,60 @@ const Compromiso = () => {
         >
           <Image src={sucursal}></Image>
         </div>
+        <div
+          sx={{
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            zIndex: 1,
+          }}
+          ref={imageBackground}
+        >
+          <div
+            sx={{
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "245px",
+              height: "210px",
+              p: {
+                zIndex: 1,
+                m: 0,
+                color: "white",
+              },
+            }}
+          >
+            <div
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+            >
+              <Image src={sucursalesCircle}></Image>
+            </div>
+            <p>CDMX</p>
+            <p>Monterrey</p>
+            <p>Guadalajara</p>
+            <p>Metepec</p>
+            <p>Puebla</p>
+            <p>Cuernavaca</p>
+            <p>Querétaro</p>
+          </div>
+        </div>
       </section>
-      <SecondaryButtonInversed width="200px" height="50px">
-        Sobre Innate
-      </SecondaryButtonInversed>
+      <div
+        ref={aboutButton}
+        sx={{
+          zIndex: 10,
+        }}
+      >
+        <SecondaryButtonInversed width="200px" height="50px" ref={aboutButton}>
+          Sobre Innate
+        </SecondaryButtonInversed>
+      </div>
     </section>
   );
 };

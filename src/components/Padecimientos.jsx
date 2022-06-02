@@ -29,7 +29,7 @@ const Padecimientos = () => {
       {
         opacity: 1,
         translateX: 0,
-        duration: 1,
+        duration: 0.5,
         ease: "power1.out",
         scrollTrigger: {
           trigger: sectionAnimation.current,
