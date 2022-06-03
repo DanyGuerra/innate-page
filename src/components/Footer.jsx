@@ -7,8 +7,41 @@ import iconTk from "../../assets/icons/INNATE-tk.png";
 import iconYt from "../../assets/icons/INNATE-yt.png";
 import logoFooter from "../../assets/img/logo_innate_footer.svg";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useRef, useEffect } from "react";
 
 const Footer = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mySection = useRef(null);
+  const selectorFooter = gsap.utils.selector(mySection);
+
+  useEffect(() => {
+    animation();
+  }, []);
+
+  const animation = () => {
+    gsap.fromTo(
+      selectorFooter(".item"),
+      {
+        translateX: -100,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateX: 0,
+        duration: 0.5,
+        stagger: 0.75,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top bottom",
+        },
+      }
+    );
+  };
+
   const handleSchedule = () => {
     console.log("hola");
   };
@@ -37,6 +70,7 @@ const Footer = () => {
             gap: "5%",
           },
         }}
+        ref={mySection}
       >
         <div
           sx={{
@@ -52,6 +86,7 @@ const Footer = () => {
               flexDirection: "row",
             },
           }}
+          className="item"
         >
           <Image src={logo1} alt="Logo Innate" />
           <Image src={logo2} alt="Logo Innate" />
@@ -70,6 +105,7 @@ const Footer = () => {
               order: 0,
             },
           }}
+          className="item"
         >
           <Image
             src={logoFooter}
@@ -89,6 +125,7 @@ const Footer = () => {
               width: "30%",
             },
           }}
+          className="item"
         >
           <a
             href="https://www.instagram.com/quiropracticos.innate/"
@@ -129,6 +166,7 @@ const Footer = () => {
               pt: "20px",
             },
           }}
+          className="item"
         >
           INNATE ® 2022 · Aviso de Privacidad
         </p>

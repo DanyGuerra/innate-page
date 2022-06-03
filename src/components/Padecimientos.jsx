@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import sideImage from "../../assets/img/side-img.png";
+// import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin";
 
 const Padecimientos = () => {
   gsap.registerPlugin(ScrollTrigger);
