@@ -10,15 +10,18 @@ const QuiropracticaPura = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const mySection = useRef(null);
-  const selectorFooter = gsap.utils.selector(mySection);
+  const refTitle = useRef(null);
+  const refSideImg = useRef(null);
+  const refBackground = useRef(null);
+  const refSvgButton = useRef(null);
 
   useEffect(() => {
-    // animation();
+    fadeIn();
   }, []);
 
-  const animation = () => {
+  const fadeIn = () => {
     gsap.fromTo(
-      selectorFooter(".item"),
+      refTitle.current,
       {
         translateX: -100,
         opacity: 0,
@@ -27,11 +30,42 @@ const QuiropracticaPura = () => {
         opacity: 1,
         translateX: 0,
         duration: 0.5,
-        stagger: 0.75,
         ease: "power1.out",
         scrollTrigger: {
           trigger: mySection.current,
-          start: "top bottom",
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      refSideImg.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.5,
+        delay: 1,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      refSvgButton.current,
+      {
+        translateX: 700,
+      },
+      {
+        translateX: 0,
+        duration: 0.5,
+        delay: 1.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
         },
       }
     );
@@ -62,7 +96,7 @@ const QuiropracticaPura = () => {
           gap: "30px",
         }}
       >
-        <div>
+        <div ref={refTitle}>
           <h1
             sx={{
               color: "primary",
@@ -231,6 +265,7 @@ const QuiropracticaPura = () => {
             <defs>
               <mask id="quiropracticaPura">
                 <path
+                  ref={refSvgButton}
                   id="puraPath"
                   fill="none"
                   stroke="#fff"
@@ -251,8 +286,20 @@ const QuiropracticaPura = () => {
           <Image src={background} />
         </span>
       </div>
-      <span sx={{ position: "absolute", zIndex: -10, top: "-100px", right: 0 }}>
-        <Image src={bjPalmerSide} width="360px" />
+      <span
+        sx={{
+          position: "absolute",
+          zIndex: -10,
+          top: "-100px",
+          width: "150px",
+          right: 0,
+          "@media screen and (min-width: 779px)": {
+            width: "360px",
+          },
+        }}
+        ref={refSideImg}
+      >
+        <Image src={bjPalmerSide} layout="responsive" />
       </span>
     </section>
   );
