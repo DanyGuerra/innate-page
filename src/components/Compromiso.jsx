@@ -300,7 +300,7 @@ const Compromiso = () => {
           zIndex: 10,
         }}
       >
-        <SecondaryButtonInversed width="200px" height="50px" ref={aboutButton}>
+        <SecondaryButtonInversed width="200px" height="50px">
           Sobre Innate
         </SecondaryButtonInversed>
       </div>
