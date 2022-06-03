@@ -45,7 +45,12 @@ export const SecondaryButton = ({ width, height, children }) => {
     </button>
   );
 };
-export const SecondaryButtonInversed = ({ width, height, children }) => {
+export const SecondaryButtonInversed = ({
+  width,
+  height,
+  children,
+  handleClick,
+}) => {
   const handleHover = (e) => {
     const element = e.target;
     gsap.to(element, {
@@ -80,6 +85,7 @@ export const SecondaryButtonInversed = ({ width, height, children }) => {
       }}
       onMouseEnter={handleHover}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       {children}
     </button>

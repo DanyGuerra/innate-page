@@ -300,7 +300,11 @@ const Compromiso = () => {
           zIndex: 10,
         }}
       >
-        <SecondaryButtonInversed width="200px" height="50px">
+        <SecondaryButtonInversed
+          width="200px"
+          height="50px"
+          handleClick={() => (window.location = "/sobre-innate")}
+        >
           Sobre Innate
         </SecondaryButtonInversed>
       </div>

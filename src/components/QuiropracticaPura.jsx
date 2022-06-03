@@ -17,7 +17,43 @@ const QuiropracticaPura = () => {
 
   useEffect(() => {
     fadeIn();
+    parallelAnimation();
   }, []);
+
+  const parallelAnimation = () => {
+    gsap.fromTo(
+      refSideImg.current,
+      {
+        translateY: 0,
+      },
+      {
+        translateY: 100,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+          scrub: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      refBackground.current,
+      {
+        translateY: 0,
+      },
+      {
+        translateY: -50,
+        duration: 0.5,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+          scrub: true,
+        },
+      }
+    );
+  };
 
   const fadeIn = () => {
     gsap.fromTo(
@@ -282,7 +318,10 @@ const QuiropracticaPura = () => {
           </svg>
           <span sx={{ color: "white" }}>¿Qué es la quiropráctica?</span>
         </a>
-        <span sx={{ position: "absolute", zIndex: -10, top: 0 }}>
+        <span
+          sx={{ position: "absolute", zIndex: -10, top: 0 }}
+          ref={refBackground}
+        >
           <Image src={background} />
         </span>
       </div>

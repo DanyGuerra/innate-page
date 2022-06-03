@@ -57,11 +57,12 @@ const ModalMenu = ({ handleCloseMenu }) => {
             cursor: "pointer",
             position: "fixed",
             top: "10px",
-            left: "90%",
+            left: "88%",
+            fontSize: 5,
           }}
           onClick={handleCloseMenu}
         >
-          X
+          ✕
         </a>
         <Link href="/sobre-innate">
           <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
