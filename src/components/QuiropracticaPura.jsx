@@ -115,7 +115,7 @@ const QuiropracticaPura = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        mb: "200px",
+        mb: "100px",
         position: "relative",
       }}
       ref={mySection}

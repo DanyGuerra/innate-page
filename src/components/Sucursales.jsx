@@ -3,10 +3,21 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React from "react";
-import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
 import Image from "next/image";
 import { ArrowDown, ArrowUp } from "./Icons";
 import { PrimaryButton, SecondaryButtonInversed } from "./Buttons";
+// Images
+import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
+import sucursalRoma from "../../assets/img/INNATE-sucursal-ROMA.png";
+import sucursalSantaFe from "../../assets/img/INNATE-sucursal-SANTAFE.png";
+import sucursalPolanco from "../../assets/img/INNATE-sucursal-POLANCO.png";
+import sucursalPedregal from "../../assets/img/INNATE-sucursal-PEDREGAL.png";
+import sucursalMetepec from "../../assets/img/INNATE-sucursal-METEPEC.png";
+import sucursalCuernavaca from "../../assets/img/INNATE-sucursal-CUERNAVACA.png";
+import sucursalMty from "../../assets/img/INNATE-sucursal-MTY.png";
+import sucursalGdl from "../../assets/img/INNATE-sucursal-GDL.png";
+import sucursalPuebla from "../../assets/img/INNATE-sucursal-PUEBLA.png";
+import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
 
 const Sucursales = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -46,7 +57,138 @@ const Sucursales = () => {
         "Sábados 08:00 a 13:00",
       ],
 
-      image: sucursalDelValle,
+      image: sucursalRoma,
+    },
+    {
+      sucursal: "Santa Fe",
+      state: "CDMX",
+      phone: ["55 5292 7901"],
+      adress:
+        "Av. Bernardo Quintana 80 Local 2A, Edificio Las Ventanas, Col. La Loma de Santa Fe. Alcaldía Álvaro Obregón CDMX, C.P. 01210",
+      horarios: [
+        "Lunes a Jueves 09:00 a 16:00",
+        "Viernes 09:00 a 14:00",
+        "Sábados 09:00 a 13:00",
+      ],
+
+      image: sucursalSantaFe,
+    },
+    {
+      sucursal: "Polanco",
+      state: "CDMX",
+      phone: ["55 1560 6322"],
+      adress:
+        "Av. Campos Eliseos 176 Local A  Col. Polanco V Sección Alcaldía Miguel Hidalgo, CDMX C.P. 11560",
+      horarios: [
+        "Lunes, Miercoles 08:00 a 17:00",
+        "Martes - Jueves 09:00 a 16:00",
+        "Viernes 08:00 a 13:00",
+        "Sábados 09:00 a 13:00",
+      ],
+
+      image: sucursalPolanco,
+    },
+    {
+      sucursal: "Pedregal",
+      state: "CDMX",
+      phone: ["55 2289 5547"],
+      adress:
+        "Cerrada de Gruta 19, Local 1 Col. Jardínes del Pedregal Alcaldía Álvaro Obregón CDMX, C.P. 01900",
+      horarios: [
+        "Lunes - Miércoles 09:00 a 16:00",
+        "Martes - Jueves 09:00 a 18:00",
+        "Viernes 08:00 a 14:00",
+        "Sábados 09:00 a 13:00",
+      ],
+
+      image: sucursalPedregal,
+    },
+    {
+      sucursal: "Metepec",
+      state: "EDOMEX",
+      phone: ["722 925 0907"],
+      adress:
+        "Plaza Rubi. Calle Leona Vicario 501, Coaxustenco Metepec Estado de México C.P. 52140",
+      horarios: [
+        "Lunes, Miércoles: 09:00 a 17:00",
+        "Martes - Jueves: 09:00 a 16:00",
+        "Viernes 09:00 a 14:00",
+        "Sábado 08:00 a 13:00",
+      ],
+
+      image: sucursalMetepec,
+    },
+    {
+      sucursal: "Cuernavaca",
+      state: "MOR",
+      phone: ["777 202 6764"],
+      adress:
+        "Plaza Norte. Calzada de los Reyes 316 , Col. Jardín Tetela,  Cuernavaca, Morelos C.P. 62136",
+      horarios: [
+        "Lunes, Miércoles: 10:00 a 17:00",
+        "Martes - Jueves: 10:00 a 18:00",
+        "Viernes 10:00 a 14:00",
+        "Sábado 08:00 a 13:00",
+      ],
+
+      image: sucursalCuernavaca,
+    },
+    {
+      sucursal: "San Pedro Garza",
+      state: "N.L",
+      phone: ["81 1231 2783"],
+      adress:
+        "Av. José Vasconcelos 404 Local 213 Casco Urbano San Pedro Garza García, Monterrey, Nuevo León  C.P. 66230",
+      horarios: [
+        "Lunes a Jueves: 09:00 a 18:00",
+        "Viernes: 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalMty,
+    },
+    {
+      sucursal: "Puerta de Hierro",
+      state: "JAL",
+      phone: ["33 3803 2025"],
+      adress:
+        "Plaza Unicenter. Real de Acueducto 125 Local 8, Puerta de Hierro, Zapopan Jalisco  C.P. 45116",
+      horarios: [
+        "Lunes - Miércoles: 09:00 a 16:00",
+        "Martes - Jueves: 09:00 a 18:00",
+        "Viernes 09:00 a 14:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalGdl,
+    },
+    {
+      sucursal: "Puebla",
+      state: "PUE",
+      phone: ["222 197 3371"],
+      adress:
+        "Angelópolis Plaza Adagio. Paseo Ópera 11 Adagio Townplaza Distrito Sonata Lomas de Angelópolis 2, C.P. 72830 LOCAL 102",
+      horarios: [
+        "Lunes a Jueves: 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalPuebla,
+    },
+    {
+      sucursal: "Querétaro",
+      state: "QRO",
+      phone: ["442 224 6968"],
+      adress:
+        "Av. del Campanario #109, Col. Hacienda el Campanario Querétaro. CP 76146",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalQro,
     },
   ];
 
@@ -197,7 +339,6 @@ const Sucursales = () => {
         <nav
           sx={{
             width: "100%",
-            minHeight: "600px",
             overflow: "hidden",
 
             ".active": {
