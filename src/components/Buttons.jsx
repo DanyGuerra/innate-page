@@ -30,6 +30,8 @@ export const SecondaryButton = ({ width, height, children }) => {
         borderRadius: "50px",
         border: "1px solid transparent",
         borderColor: "primary",
+        fontFamily: "body",
+        fontSize: 2,
         width: `${width}`,
         height: `${height}`,
         bg: "white",
@@ -72,6 +74,8 @@ export const SecondaryButtonInversed = ({
   return (
     <button
       sx={{
+        fontFamily: "body",
+        fontSize: 2,
         bg: "transparent",
         borderRadius: "50px",
         border: "1px solid transparent",

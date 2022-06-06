@@ -4,6 +4,7 @@ import Padecimientos from "./Padecimientos";
 import Diagnostico from "./Diagnostico";
 import Compromiso from "./Compromiso";
 import QuiropracticaPura from "./QuiropracticaPura";
+import Sucursales from "./Sucursales";
 
 const MainPage = () => {
   return (
@@ -14,6 +15,7 @@ const MainPage = () => {
       <Diagnostico />
       <Compromiso />
       <QuiropracticaPura />
+      <Sucursales />
     </>
   );
 };
