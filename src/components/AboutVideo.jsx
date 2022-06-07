@@ -19,6 +19,7 @@ const AboutVideo = () => {
         flexDirection: "column",
         alignItems: "center",
         pt: "50px",
+        mb: "20vh",
       }}
     >
       <h1
