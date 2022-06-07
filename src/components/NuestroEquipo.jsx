@@ -10,6 +10,7 @@ const NuestroEquipo = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         mb: "100px",
       }}
     >
