@@ -12,6 +12,10 @@ import imgCamille from "../../assets/img/INNATE-equipo-CAMILLE_DEMBOSKI.png";
 import cedCamille from "../../assets/img/INNATE-equipo-circulo-CAMILLE.png";
 import imgGerardo from "../../assets/img/INNATE-equipo-GERARDO_MONTIEL_TEJEDA.png";
 import cedGerardo from "../../assets/img/INNATE-equipo-circulo-GERARDO.png";
+import imgJuanjo from "../../assets/img/INNATE-equipo-JUAN_JOSE_SALDANA_MENA.png";
+import cedJuanjo from "../../assets/img/INNATE-equipo-circulo-JUAN.png";
+import imgEsteban from "../../assets/img/INNATE-equipo-ESTEBAN_HERNANDEZ_MAZA.png";
+import cedEsteban from "../../assets/img/INNATE-equipo-circulo-ESTEBAN.png";
 
 const Carousel = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -47,6 +51,22 @@ const Carousel = () => {
       ],
       image: imgGerardo,
       ced: cedGerardo,
+      style: "left",
+    },
+    {
+      name: "Juan José Saldaña Mena",
+      university: "Universidad UNEVE",
+      courses: ["Carrera en Educación física", "Maestria en docencia"],
+      image: imgJuanjo,
+      ced: cedJuanjo,
+      style: "right",
+    },
+    {
+      name: "Esteban Hernández Maza",
+      university: "Universidad UNEVT",
+      courses: ["Cértificado Thompson Technique"],
+      image: imgEsteban,
+      ced: cedEsteban,
       style: "left",
     },
   ];
@@ -216,6 +236,8 @@ const Carousel = () => {
           display: "flex",
           gap: "5px",
           justifyContent: "center",
+          width: "100%",
+          flexWrap: "wrap",
         }}
       >
         {slides.map((slide, index) => {
