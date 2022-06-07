@@ -2,6 +2,7 @@
 import Header from "../../src/components/Header";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
+import AboutInnate from "../../src/components/AboutInnate";
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
         <title>INNATE-Sobre Innate</title>
       </Head>
       <Header></Header>
-      <h1>ABOUT</h1>
+      <AboutInnate />
       <Footer></Footer>
     </div>
   );

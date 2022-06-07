@@ -450,11 +450,11 @@ const Sucursales = () => {
                       <span>
                         {item.phone.map((tel, index) =>
                           index == 0 ? (
-                            <a key={tel} href={`tel:${tel}`}>
+                            <a key={tel} href={`tel:${tel.replace(/ /g, "")}`}>
                               Tel:{tel}
                             </a>
                           ) : (
-                            <a key={tel} href={`tel:${tel}`}>
+                            <a key={tel} href={`tel:${tel.replace(/ /g, "")}`}>
                               {" "}
                               y {tel}
                             </a>
@@ -472,9 +472,12 @@ const Sucursales = () => {
                         <PrimaryButton width="165px" height="50px">
                           Agendar
                         </PrimaryButton>
-                        <SecondaryButtonInversed width="165px" height="50px">
-                          Llamar
-                        </SecondaryButtonInversed>
+
+                        <a href={`tel:${item.phone[0].replace(/ /g, "")}`}>
+                          <SecondaryButtonInversed width="165px" height="50px">
+                            Llamar
+                          </SecondaryButtonInversed>
+                        </a>
                       </section>
                     </div>
                     <div

@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 
-export const SecondaryButton = ({ width, height, children }) => {
+export const SecondaryButton = ({ width, height, children, handleClick }) => {
   const handleHover = (e) => {
     const element = e.target;
     gsap.to(element, {
@@ -42,6 +42,7 @@ export const SecondaryButton = ({ width, height, children }) => {
       }}
       onMouseEnter={handleHover}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       {children}
     </button>
@@ -96,7 +97,7 @@ export const SecondaryButtonInversed = ({
   );
 };
 
-export const PrimaryButton = ({ width, height, children }) => {
+export const PrimaryButton = ({ width, height, children, handleClick }) => {
   return (
     <button
       sx={{
@@ -113,12 +114,18 @@ export const PrimaryButton = ({ width, height, children }) => {
           cursor: "pointer",
         },
       }}
+      onClick={handleClick}
     >
       {children}
     </button>
   );
 };
-export const PrimaryButtonAnimation = ({ width, height, children }) => {
+export const PrimaryButtonAnimation = ({
+  width,
+  height,
+  children,
+  handleClick,
+}) => {
   const refButton = useRef(null);
 
   useEffect(() => {
@@ -185,6 +192,7 @@ export const PrimaryButtonAnimation = ({ width, height, children }) => {
       ref={refButton}
       onMouseEnter={handleHover}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       {children}
     </button>
