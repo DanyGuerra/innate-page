@@ -400,9 +400,9 @@ const Sucursales = () => {
                       display: "grid",
                       rowGap: "10px",
                       columnGap: "10px",
-                      gridTemplate: "260px 225px 150px / repeat(1, 1fr)",
+                      gridTemplate: "auto auto auto / repeat(1, 1fr)",
                       "@media screen and (min-width: 779px)": {
-                        gridTemplate: "260px 150px / 40% 60%",
+                        gridTemplate: "auto auto / 40% 60%",
                       },
                     }}
                     ref={accordion}
@@ -465,16 +465,21 @@ const Sucursales = () => {
                         sx={{
                           mt: "30px",
                           display: "flex",
-                          gap: "20px",
+                          gap: "5%",
                           justifyContent: "center",
                         }}
                       >
-                        <PrimaryButton width="165px" height="50px">
-                          Agendar
-                        </PrimaryButton>
+                        <span sx={{ width: "40%" }}>
+                          <PrimaryButton width="100%" height="50px">
+                            Agendar
+                          </PrimaryButton>
+                        </span>
 
-                        <a href={`tel:${item.phone[0].replace(/ /g, "")}`}>
-                          <SecondaryButtonInversed width="165px" height="50px">
+                        <a
+                          href={`tel:${item.phone[0].replace(/ /g, "")}`}
+                          sx={{ width: "40%" }}
+                        >
+                          <SecondaryButtonInversed width="100%" height="50px">
                             Llamar
                           </SecondaryButtonInversed>
                         </a>
