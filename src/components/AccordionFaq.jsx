@@ -113,8 +113,8 @@ const AccordionFaq = () => {
       {
         opacity: 1,
         translateY: 0,
-        stagger: 0.2,
-        duration: 1,
+        stagger: 0.1,
+        duration: 0.25,
         delay: 0.5,
         ease: "expo.out",
         scrollTrigger: {
@@ -260,10 +260,14 @@ const AccordionFaq = () => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     p: "0px 50px",
-                    height: "50px",
+                    height: "45px",
                   }}
                 >
-                  <div>
+                  <div
+                    sx={{
+                      fontSize: 3,
+                    }}
+                  >
                     <sup>{index < 9 ? `0${index + 1}` : `${index + 1}`}</sup>
                     {` ${item.title}`}
                   </div>
