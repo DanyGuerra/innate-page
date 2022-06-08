@@ -29,16 +29,96 @@ import cedAle from "../../assets/img/INNATE-equipo-circulo-ALEJANDRO.png";
 import imgAram from "../../assets/img/INNATE-equipo-ARAM_OMAR_GOMEZ_MENDOZA.png";
 import cedAram from "../../assets/img/INNATE-equipo-circulo-ARAM.png";
 
-const Carousel = () => {
+const Carousel = ({ mySection }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [current, setCurrent] = useState(0);
 
-  const mySection = useRef(null);
-  const navSection = useRef(null);
-  const selectorNav = gsap.utils.selector(navSection);
-  const accordion = useRef(null);
-  const refNavTitle = useRef(null);
+  const refCard = useRef(null);
+  const refImage = useRef(null);
+  const refCed = useRef(null);
+  const refTextCard = useRef(null);
+
+  useEffect(() => {
+    cardAnimation();
+  }, []);
+
+  useEffect(() => {
+    slideAnimation();
+    cedAnimation();
+  }, [current]);
+
+  const cardAnimation = () => {
+    gsap.fromTo(
+      refCard.current,
+      {
+        translateY: -50,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 1,
+        delay: 0.75,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+  };
+  const slideAnimation = () => {
+    gsap.fromTo(
+      refImage.current,
+      {
+        translateX: -50,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateX: 0,
+        duration: 2,
+        ease: "expo.out",
+      }
+    );
+    gsap.fromTo(
+      refTextCard.current,
+      {
+        translateY: -50,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 2,
+        ease: "expo.out",
+      }
+    );
+  };
+
+  const cedAnimation = () => {
+    gsap.fromTo(
+      refCed.current,
+      {
+        translateY: -50,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 2,
+        ease: "expo.out",
+      }
+    );
+
+    gsap.to(refCed.current, {
+      rotation: "360",
+      duration: 10,
+      repeat: -1,
+      ease: "linear",
+    });
+  };
 
   const slides = [
     {
@@ -160,7 +240,9 @@ const Carousel = () => {
         alignItems: "center",
         width: "90%",
         maxWidth: "360px",
+        gap: "10px",
       }}
+      ref={refCard}
     >
       <div sx={{ position: "relative", width: "100%", height: "600px" }}>
         {slides.map((slide, index) => {
@@ -198,22 +280,30 @@ const Carousel = () => {
                       className={`${
                         slide.style === "left" ? "person-left" : "person-right"
                       }`}
+                      ref={refImage}
                     >
                       <Image
                         src={slide.image}
                         width="178px"
                         height="178px"
+                        alt={`${slide.name}`}
                       ></Image>
                     </span>
                     <span
                       className={`${
                         slide.style === "left" ? "ced-left" : "ced-right"
                       }`}
+                      ref={refCed}
                     >
-                      <Image src={slide.ced} width="150" height="150"></Image>
+                      <Image
+                        src={slide.ced}
+                        width="150"
+                        height="150"
+                        alt={`Cédula de ${slide.name}`}
+                      ></Image>
                     </span>
                   </div>
-                  <div sx={{ textAlign: "center" }}>
+                  <div sx={{ textAlign: "center" }} ref={refTextCard}>
                     <h1
                       sx={{
                         color: "primary",
