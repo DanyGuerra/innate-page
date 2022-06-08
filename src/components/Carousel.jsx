@@ -16,6 +16,18 @@ import imgJuanjo from "../../assets/img/INNATE-equipo-JUAN_JOSE_SALDANA_MENA.png
 import cedJuanjo from "../../assets/img/INNATE-equipo-circulo-JUAN.png";
 import imgEsteban from "../../assets/img/INNATE-equipo-ESTEBAN_HERNANDEZ_MAZA.png";
 import cedEsteban from "../../assets/img/INNATE-equipo-circulo-ESTEBAN.png";
+import imgAlexis from "../../assets/img/INNATE-equipo-ALEXIS_SALVADOR_URIBE.png";
+import cedAlexis from "../../assets/img/INNATE-equipo-circulo-ALEXIS.png";
+import imgLuisDaniel from "../../assets/img/INNATE-equipo-LUIS_DANIEL_CARRILLO_CONCEPCION.png";
+import cedLuisDaniel from "../../assets/img/INNATE-equipo-circulo-LUIS.png";
+import imgMariel from "../../assets/img/INNATE-equipo-MARIEL_MOCTEZUMA_LORETO.png";
+import cedMariel from "../../assets/img/INNATE-equipo-circulo-MARIEL.png";
+import imgMagda from "../../assets/img/INNATE-equipo-MAGDALENA_ITZEL_MARTINEZ_HERNANDEZ.png";
+import cedMagda from "../../assets/img/INNATE-equipo-circulo-MAGDALENA.png";
+import imgAle from "../../assets/img/INNATE-equipo-ALEJANDRO_CORONA_SAUCEDO.png";
+import cedAle from "../../assets/img/INNATE-equipo-circulo-ALEJANDRO.png";
+import imgAram from "../../assets/img/INNATE-equipo-ARAM_OMAR_GOMEZ_MENDOZA.png";
+import cedAram from "../../assets/img/INNATE-equipo-circulo-ARAM.png";
 
 const Carousel = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -67,6 +79,59 @@ const Carousel = () => {
       courses: ["Cértificado Thompson Technique"],
       image: imgEsteban,
       ced: cedEsteban,
+      style: "left",
+    },
+    {
+      name: "Alexis Salvador Uribe",
+      university: "Universidad UNEVT",
+      courses: ["Cértificado Thompson Technique"],
+      image: imgAlexis,
+      ced: cedAlexis,
+      style: "right",
+    },
+    {
+      name: "Luis Daniel Carrillo Concepción",
+      university: "Universidad UNEVT",
+      courses: [],
+      image: imgLuisDaniel,
+      ced: cedLuisDaniel,
+      style: "left",
+    },
+    {
+      name: "Mariel Moctezuma Loreto",
+      university: "Universidad Veracruzana",
+      courses: ["Cértificado Thompson Technique"],
+      image: imgMariel,
+      ced: cedMariel,
+      style: "right",
+    },
+    {
+      name: "Magdalena Itzel Martínez Hernández",
+      university: "Universidad UNEVE",
+      courses: ["Cértificado Thompson Technique"],
+      image: imgMagda,
+      ced: cedMagda,
+      style: "left",
+    },
+    {
+      name: "Alejandro Corona Saucedo",
+      university: "Universidad UNEVE",
+      courses: ["Cértificado Thompson Technique"],
+      image: imgAle,
+      ced: cedAle,
+      style: "right",
+    },
+    {
+      name: "Aram Omar Gómez Mendoza",
+      university: "Universidad UNEVE",
+      courses: [
+        "Posgrado en filosofía Quiropráctica expedido por Sherman College of Chiropractic",
+        "Certificación en Thompson Technique",
+        "Certificación en Thompson Technique Minardy Systems",
+        "Certificación Knee Chest Solid Headpiece por The Art of the Specific",
+      ],
+      image: imgAram,
+      ced: cedAram,
       style: "left",
     },
   ];
@@ -175,7 +240,7 @@ const Carousel = () => {
                         mb: 0,
                       }}
                     >
-                      Cursos
+                      {slide.courses.length > 0 ? "Cursos" : null}
                     </p>
                     <ul sx={{ textAlign: "left" }}>
                       {slide.courses.map((item, index) => (
