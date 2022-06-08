@@ -67,6 +67,7 @@ const NewsLetter = () => {
         mb: "100px",
       }}
       ref={mySection}
+      id="newsletter"
     >
       <div
         sx={{
