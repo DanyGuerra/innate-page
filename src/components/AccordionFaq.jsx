@@ -259,8 +259,11 @@ const AccordionFaq = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    p: "0px 50px",
-                    height: "45px",
+                    p: "10px 10px",
+                    minHeight: "45px",
+                    "@media screen and (min-width: 779px)": {
+                      p: "10px 50px",
+                    },
                   }}
                 >
                   <div
