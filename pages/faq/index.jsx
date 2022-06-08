@@ -2,6 +2,7 @@
 import Header from "../../src/components/Header";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
+import Sucursales from "../../src/components/Sucursales";
 
 export default function Faq() {
   return (
@@ -10,7 +11,7 @@ export default function Faq() {
         <title>INNATE-Preguntas Frecuentes</title>
       </Head>
       <Header></Header>
-      <h1>FAQ</h1>
+      <Sucursales></Sucursales>
       <Footer></Footer>
     </div>
   );

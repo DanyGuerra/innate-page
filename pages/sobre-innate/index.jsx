@@ -2,7 +2,13 @@
 import Header from "../../src/components/Header";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
-import AboutInnate from "../../src/components/AboutInnate";
+import AboutVideo from "../../src/components/AboutVideo";
+import Padecimientos from "../../src/components/Padecimientos";
+import Diagnostico from "../../src/components/Diagnostico";
+import QuiropracticaPura from "../../src/components/QuiropracticaPura";
+import Sucursales from "../../src/components/Sucursales";
+import NuestroEquipo from "../../src/components/NuestroEquipo";
+import SectionValores from "../../src/components/SectionValores";
 
 export default function About() {
   return (
@@ -11,7 +17,13 @@ export default function About() {
         <title>INNATE-Sobre Innate</title>
       </Head>
       <Header></Header>
-      <AboutInnate />
+      <AboutVideo></AboutVideo>
+      <NuestroEquipo></NuestroEquipo>
+      <SectionValores></SectionValores>
+      <Padecimientos></Padecimientos>
+      <Diagnostico></Diagnostico>
+      <QuiropracticaPura></QuiropracticaPura>
+      <Sucursales></Sucursales>
       <Footer></Footer>
     </div>
   );

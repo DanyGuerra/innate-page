@@ -299,6 +299,7 @@ const Sucursales = () => {
         alignItems: "center",
       }}
       ref={mySection}
+      id="sucursales"
     >
       <div
         sx={{
