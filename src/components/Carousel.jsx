@@ -7,7 +7,6 @@ import Image from "next/image";
 import { LeftArrow, RightArrow } from "./Icons";
 
 // Images
-import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
 import imgCamille from "../../assets/img/INNATE-equipo-CAMILLE_DEMBOSKI.png";
 import cedCamille from "../../assets/img/INNATE-equipo-circulo-CAMILLE.png";
 import imgGerardo from "../../assets/img/INNATE-equipo-GERARDO_MONTIEL_TEJEDA.png";

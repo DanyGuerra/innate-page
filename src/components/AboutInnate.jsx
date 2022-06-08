@@ -4,12 +4,14 @@ import Diagnostico from "./Diagnostico";
 import QuiropracticaPura from "./QuiropracticaPura";
 import Sucursales from "./Sucursales";
 import NuestroEquipo from "./NuestroEquipo";
+import SectionValores from "./SectionValores";
 
 const AboutInnate = () => {
   return (
     <>
       <AboutVideo></AboutVideo>
       <NuestroEquipo></NuestroEquipo>
+      <SectionValores></SectionValores>
       <Padecimientos></Padecimientos>
       <Diagnostico></Diagnostico>
       <QuiropracticaPura></QuiropracticaPura>
