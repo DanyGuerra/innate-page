@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import YouTube from "react-youtube";
 
-const AboutVideo = () => {
+const VideoSection = ({ title, idVideo }) => {
   const opts = {
     height: "100%",
     width: "100%",
@@ -34,7 +34,7 @@ const AboutVideo = () => {
           },
         }}
       >
-        Sobre INNATE
+        {title}
       </h1>
       <div
         sx={{
@@ -48,10 +48,10 @@ const AboutVideo = () => {
           ".video": { height: "100%", width: "100%" },
         }}
       >
-        <YouTube videoId="Y9KrE1dNzNE" opts={opts} className="video" />
+        <YouTube videoId={idVideo} opts={opts} className="video" />
       </div>
     </section>
   );
 };
 
-export default AboutVideo;
+export default VideoSection;

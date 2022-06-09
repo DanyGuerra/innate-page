@@ -297,6 +297,7 @@ const Sucursales = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        pt: "50px",
       }}
       ref={mySection}
       id="sucursales"

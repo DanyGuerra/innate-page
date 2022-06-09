@@ -2,7 +2,7 @@
 import Header from "../../src/components/Header";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
-import AboutVideo from "../../src/components/AboutVideo";
+import VideoSection from "../../src/components/VideoSection";
 import Padecimientos from "../../src/components/Padecimientos";
 import Diagnostico from "../../src/components/Diagnostico";
 import QuiropracticaPura from "../../src/components/QuiropracticaPura";
@@ -17,7 +17,7 @@ export default function About() {
         <title>INNATE-Sobre Innate</title>
       </Head>
       <Header></Header>
-      <AboutVideo></AboutVideo>
+      <VideoSection title="Sobre Innate" idVideo="Y9KrE1dNzNE"></VideoSection>
       <NuestroEquipo></NuestroEquipo>
       <SectionValores></SectionValores>
       <Padecimientos></Padecimientos>

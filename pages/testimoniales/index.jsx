@@ -2,6 +2,9 @@
 import Header from "../../src/components/Header";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
+import VideoSection from "../../src/components/VideoSection";
+import Padecimientos from "../../src/components/Padecimientos";
+import Sucursales from "../../src/components/Sucursales";
 
 export default function About() {
   return (
@@ -10,7 +13,9 @@ export default function About() {
         <title>INNATE-Testimoniales</title>
       </Head>
       <Header></Header>
-      <h1>TESTIMONALES</h1>
+      <VideoSection title="Testimoniales" idVideo="n8RqZZ_xicg"></VideoSection>
+      <Padecimientos></Padecimientos>
+      <Sucursales></Sucursales>
       <Footer></Footer>
     </div>
   );

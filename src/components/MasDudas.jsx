@@ -46,7 +46,7 @@ const MasDudas = () => {
         flexDirection: "column",
         alignItems: "center",
         pt: "50px",
-        mb: "100px",
+        mb: "50px",
       }}
       ref={mySection}
     >
