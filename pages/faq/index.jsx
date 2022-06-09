@@ -4,6 +4,7 @@ import Head from "next/head";
 import Footer from "../../src/components/Footer";
 import Sucursales from "../../src/components/Sucursales";
 import AccordionFaq from "../../src/components/AccordionFaq";
+import MasDudas from "../../src/components/MasDudas";
 
 export default function Faq() {
   return (
@@ -13,6 +14,7 @@ export default function Faq() {
       </Head>
       <Header></Header>
       <AccordionFaq></AccordionFaq>
+      <MasDudas></MasDudas>
       <Sucursales></Sucursales>
       <Footer></Footer>
     </div>
