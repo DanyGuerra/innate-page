@@ -40,7 +40,7 @@ const CanalYoutube = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        pt: "50px",
+        pt: "100px",
         mb: "100px",
         color: "primary",
       }}

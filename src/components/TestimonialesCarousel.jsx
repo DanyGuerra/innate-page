@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React from "react";
 import Image from "next/image";
 import { LeftArrow, RightArrow } from "./Icons";
+import imgBack from "../../assets/img/INNATE-testimoniales-back.png";
 
 const TestimonialesCarousel = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -110,6 +111,7 @@ const TestimonialesCarousel = () => {
         width: "100%",
         bg: "primary",
         p: "50px 0px",
+        position: "relative",
       }}
       ref={mySection}
     >
@@ -123,9 +125,15 @@ const TestimonialesCarousel = () => {
           maxWidth: "560px",
           gap: "10px",
           color: "white",
+          zIndex: 1,
         }}
       >
-        <div sx={{ position: "relative", width: "100%" }}>
+        <div
+          sx={{
+            position: "relative",
+            width: "100%",
+          }}
+        >
           {slides.map((slide, index) => {
             return (
               <React.Fragment key={index}>
@@ -134,8 +142,12 @@ const TestimonialesCarousel = () => {
                     <div
                       sx={{
                         textAlign: "center",
-                        minHeight: "320px",
+                        minHeight: "290px",
                         p: "10px 35px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
                         "@media screen and (min-width: 779px)": {
                           minHeight: "300px",
                           p: "10px 70px",
@@ -144,7 +156,7 @@ const TestimonialesCarousel = () => {
                     >
                       <h1
                         sx={{
-                          fontSize: 4,
+                          fontSize: 3,
                           fontFamily: "heading",
                           p: "0 40px",
                           mt: 0,
@@ -157,7 +169,7 @@ const TestimonialesCarousel = () => {
                       </h1>
                       <p
                         sx={{
-                          fontSize: 3,
+                          fontSize: 2,
                           mt: "5px",
                           "@media screen and (min-width: 779px)": {
                             fontSize: 4,
@@ -250,7 +262,7 @@ const TestimonialesCarousel = () => {
         href="https://www.doctoralia.com.mx/clinicas/innate#specialists-in-facility"
         target="_blank"
       >
-        <div sx={{ position: "relative" }}>
+        <div sx={{ position: "relative", zIndex: 1 }}>
           <svg viewBox="0 0 490 160" width="250px">
             <path
               fill="#fff"
@@ -524,11 +536,7 @@ const TestimonialesCarousel = () => {
               c-0.2,0.2,0,0.4,0.4,0.3C2.8,75.7,3,75.6,3.2,75.4L3.2,75.4z M197.5,152c0-0.2-0.2-0.3-0.3-0.4c-0.4-0.2-0.8-0.1-1.1,0.2
               c0,0.2,0.1,0.4,0.3,0.4C196.8,152.3,197.2,152.3,197.5,152L197.5,152z"
             ></path>
-            <path
-              fill="#fff"
-              id="testimonialPathBrush"
-              d="M501,91c0,0-381-43-515-7"
-            ></path>
+            <path fill="#fff" d="M501,91c0,0-381-43-515-7"></path>
           </svg>
           <span
             sx={{
@@ -542,6 +550,20 @@ const TestimonialesCarousel = () => {
           </span>
         </div>
       </a>
+      <span
+        sx={{
+          opacity: 0.3,
+          position: "absolute",
+          top: "100px",
+          left: "-100px",
+          "@media screen and (min-width: 779px)": {
+            top: "0",
+            left: "33%",
+          },
+        }}
+      >
+        <Image src={imgBack} width="320px" />
+      </span>
     </section>
   );
 };
