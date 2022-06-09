@@ -1,8 +1,38 @@
 /** @jsxImportSource theme-ui */
 
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { SecondaryButtonInverIcon } from "./Buttons";
 
 const CanalYoutube = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  const mySection = useRef(null);
+
+  useEffect(() => {
+    fadeIn();
+  }, []);
+
+  const fadeIn = () => {
+    gsap.fromTo(
+      mySection.current,
+      {
+        translateY: -100,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 2,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+  };
+
   return (
     <section
       sx={{
@@ -14,6 +44,7 @@ const CanalYoutube = () => {
         mb: "100px",
         color: "primary",
       }}
+      ref={mySection}
     >
       <p sx={{ m: 0 }}>Visita nuestro canal</p>
       <h2

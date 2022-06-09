@@ -1,6 +1,4 @@
 /** @jsxImportSource theme-ui */
-
-import headerButton1 from "../../assets/img/newsletter-back.png";
 import { useEffect, useRef, useState } from "react";
 import React from "react";
 import gsap from "gsap";
