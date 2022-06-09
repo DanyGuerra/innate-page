@@ -6,6 +6,7 @@ import VideoSection from "../../src/components/VideoSection";
 import Padecimientos from "../../src/components/Padecimientos";
 import Sucursales from "../../src/components/Sucursales";
 import CanalYoutube from "../../src/components/CanalYoutube";
+import TestimonialesCarousel from "../../src/components/TestimonialesCarousel";
 
 export default function About() {
   return (
@@ -15,6 +16,7 @@ export default function About() {
       </Head>
       <Header></Header>
       <VideoSection title="Testimoniales" idVideo="n8RqZZ_xicg"></VideoSection>
+      <TestimonialesCarousel></TestimonialesCarousel>
       <CanalYoutube></CanalYoutube>
       <Padecimientos></Padecimientos>
       <Sucursales></Sucursales>
