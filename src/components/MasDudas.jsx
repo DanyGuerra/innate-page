@@ -1,11 +1,43 @@
 /** @jsxImportSource theme-ui */
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import logoFace from "../../assets/img/INNATE-FAQ-FB.png";
 import logoInsta from "../../assets/img/INNATE-FAQ-IG.png";
 import logoWhats from "../../assets/img/INNATE-FAQ-WA.png";
 
 const MasDudas = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  const mySection = useRef(null);
+  const selectorItems = gsap.utils.selector(mySection);
+
+  useEffect(() => {
+    fadeIn();
+  }, []);
+
+  const fadeIn = () => {
+    gsap.fromTo(
+      selectorItems(".item"),
+      {
+        opacity: 0,
+        translateY: -50,
+      },
+      {
+        translateY: 0,
+        opacity: 1,
+        duration: 0.25,
+        stagger: 0.5,
+        ease: "power.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+  };
+
   return (
     <section
       sx={{
@@ -16,6 +48,7 @@ const MasDudas = () => {
         pt: "50px",
         mb: "100px",
       }}
+      ref={mySection}
     >
       <h1
         sx={{
@@ -26,11 +59,15 @@ const MasDudas = () => {
           color: "primary",
           fontWeight: 700,
         }}
+        className="item"
       >
         Si tienes más dudas
       </h1>
-      <p sx={{ m: 0 }}>ponte en contacto con nosotros</p>
+      <p className="item" sx={{ m: 0 }}>
+        ponte en contacto con nosotros
+      </p>
       <div
+        className="item"
         sx={{
           mt: "20px",
           width: "50%",
