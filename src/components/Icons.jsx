@@ -35,3 +35,12 @@ export const RightArrow = () => {
     </svg>
   );
 };
+
+export const IconYoutube = () => {
+  return (
+    <svg width="26" height="21" viewBox="0 0 26 21">
+      <rect x="0.5" y="0.5" width="25" height="20" rx="5" ry="5"></rect>
+      <path d="M108,2191v8l9-4Z" transform="translate(-99.5 -2184.5)"></path>
+    </svg>
+  );
+};
