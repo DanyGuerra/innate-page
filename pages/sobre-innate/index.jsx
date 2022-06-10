@@ -6,7 +6,7 @@ import VideoSection from "../../src/components/VideoSection";
 import Padecimientos from "../../src/components/Padecimientos";
 import Diagnostico from "../../src/components/Diagnostico";
 import QuiropracticaPura from "../../src/components/QuiropracticaPura";
-import Sucursales from "../../src/components/Sucursales";
+import AccordionSucursales from "../../src/components/AccordionSucursales";
 import NuestroEquipo from "../../src/components/NuestroEquipo";
 import SectionValores from "../../src/components/SectionValores";
 
@@ -23,7 +23,7 @@ export default function About() {
       <Padecimientos></Padecimientos>
       <Diagnostico></Diagnostico>
       <QuiropracticaPura></QuiropracticaPura>
-      <Sucursales></Sucursales>
+      <AccordionSucursales></AccordionSucursales>
       <Footer></Footer>
     </div>
   );

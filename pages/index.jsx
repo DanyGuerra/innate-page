@@ -8,7 +8,7 @@ import Padecimientos from "../src/components/Padecimientos";
 import Diagnostico from "../src/components/Diagnostico";
 import Compromiso from "../src/components/Compromiso";
 import QuiropracticaPura from "../src/components/QuiropracticaPura";
-import Sucursales from "../src/components/Sucursales";
+import AccordionSucursales from "../src/components/AccordionSucursales";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
       <Diagnostico />
       <Compromiso />
       <QuiropracticaPura />
-      <Sucursales />
+      <AccordionSucursales />
       <Footer />
     </>
   );

@@ -4,7 +4,7 @@ import Head from "next/head";
 import Footer from "../../src/components/Footer";
 import VideoSection from "../../src/components/VideoSection";
 import Padecimientos from "../../src/components/Padecimientos";
-import Sucursales from "../../src/components/Sucursales";
+import AccordionSucursales from "../../src/components/AccordionSucursales";
 import CanalYoutube from "../../src/components/CanalYoutube";
 import TestimonialesCarousel from "../../src/components/TestimonialesCarousel";
 
@@ -19,7 +19,7 @@ export default function About() {
       <TestimonialesCarousel></TestimonialesCarousel>
       <CanalYoutube></CanalYoutube>
       <Padecimientos></Padecimientos>
-      <Sucursales></Sucursales>
+      <AccordionSucursales></AccordionSucursales>
       <Footer></Footer>
     </div>
   );

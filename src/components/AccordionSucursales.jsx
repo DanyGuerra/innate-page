@@ -19,7 +19,7 @@ import sucursalGdl from "../../assets/img/INNATE-sucursal-GDL.png";
 import sucursalPuebla from "../../assets/img/INNATE-sucursal-PUEBLA.png";
 import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
 
-const Sucursales = () => {
+const AccordionSucursales = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [itemClicked, setItemClicked] = useState(null);
@@ -515,4 +515,4 @@ const Sucursales = () => {
   );
 };
 
-export default Sucursales;
+export default AccordionSucursales;
