@@ -11,33 +11,18 @@ const TestimonialesCarousel = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [current, setCurrent] = useState(0);
-
+  const refCarousel = useRef(null);
+  const refBottonMask = useRef(null);
   const mySection = useRef(null);
 
   useEffect(() => {
     // slideAnimation();
   }, [current]);
 
-  const cardAnimation = () => {
-    gsap.fromTo(
-      mySection.current,
-      {
-        translateY: -50,
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-        duration: 1,
-        delay: 0.75,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
-  };
+  useEffect(() => {
+    fadeIn();
+  }, []);
+
   const slideAnimation = () => {
     gsap.fromTo(
       refImage.current,
@@ -63,6 +48,42 @@ const TestimonialesCarousel = () => {
         translateY: 0,
         duration: 2,
         ease: "expo.out",
+      }
+    );
+  };
+
+  const fadeIn = () => {
+    gsap.fromTo(
+      refCarousel.current,
+      {
+        translateY: -100,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        translateY: 0,
+        duration: 2,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
+      }
+    );
+    gsap.fromTo(
+      refBottonMask.current,
+      {
+        translateX: -500,
+      },
+      {
+        translateX: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: mySection.current,
+          start: "top center",
+        },
       }
     );
   };
@@ -127,6 +148,7 @@ const TestimonialesCarousel = () => {
           color: "white",
           zIndex: 1,
         }}
+        ref={refCarousel}
       >
         <div
           sx={{
@@ -265,6 +287,7 @@ const TestimonialesCarousel = () => {
         <div sx={{ position: "relative", zIndex: 1 }}>
           <svg viewBox="0 0 490 160" width="250px">
             <path
+              clipPath="url(#rect-mask)"
               fill="#fff"
               d="M186.3,154.6C186.3,154.6,186.3,154.6,186.3,154.6L186.3,154.6L186.3,154.6z M480.3,110
               c-1.3,0.7-4.6,1.1-5.6,0c-1.7-1.9-5.1-1-7.1-2.2c-0.8-0.4-1.5,0.1-0.9,0.8c0.5,0.6-0.2,0.8-0.7,1c-0.6,0.3-1.7,0.3-1.9-0.1
@@ -536,7 +559,9 @@ const TestimonialesCarousel = () => {
               c-0.2,0.2,0,0.4,0.4,0.3C2.8,75.7,3,75.6,3.2,75.4L3.2,75.4z M197.5,152c0-0.2-0.2-0.3-0.3-0.4c-0.4-0.2-0.8-0.1-1.1,0.2
               c0,0.2,0.1,0.4,0.3,0.4C196.8,152.3,197.2,152.3,197.5,152L197.5,152z"
             ></path>
-            <path fill="#fff" d="M501,91c0,0-381-43-515-7"></path>
+            <clipPath id="rect-mask">
+              <rect width="100%" height="100%" ref={refBottonMask} />
+            </clipPath>
           </svg>
           <span
             sx={{
