@@ -100,7 +100,11 @@ const SectionValores = () => {
         }}
         ref={imageBack}
       >
-        <Image src={background} layout="responsive"></Image>
+        <Image
+          src={background}
+          layout="responsive"
+          alt="Background Innate"
+        ></Image>
       </span>
     </section>
   );

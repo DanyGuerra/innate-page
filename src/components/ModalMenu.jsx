@@ -90,7 +90,7 @@ const ModalMenu = ({ handleCloseMenu }) => {
             Testimoniales
           </a>
         </Link>
-        <Link href="/testimoniales#contacto">
+        <Link href="/testimoniales#sucursales">
           <a sx={{ cursor: "pointer" }} onClick={handleCloseMenu}>
             Contacto
           </a>

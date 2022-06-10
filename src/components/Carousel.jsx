@@ -32,6 +32,8 @@ const Carousel = ({ mySection }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const SLIDE_DURATION = 7;
 
   const refCard = useRef(null);
   const refImage = useRef(null);
@@ -40,7 +42,21 @@ const Carousel = ({ mySection }) => {
 
   useEffect(() => {
     cardAnimation();
+    const interval = setInterval(() => {
+      setDuration((prev) => prev + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
+  useEffect(() => {
+    if (duration === SLIDE_DURATION) {
+      nextSlide();
+      setDuration(0);
+    }
+  }, [duration]);
 
   useEffect(() => {
     slideAnimation();
@@ -216,17 +232,19 @@ const Carousel = ({ mySection }) => {
   ];
 
   const prevSlide = () => {
+    setDuration(0);
     if (current === 0) {
       setCurrent(slides.length - 1);
     } else {
-      setCurrent(current - 1);
+      setCurrent((prev) => prev - 1);
     }
   };
   const nextSlide = () => {
-    if (current === slides.length - 1) {
+    setDuration(0);
+    if (current == slides.length - 1) {
       setCurrent(0);
     } else {
-      setCurrent(current + 1);
+      setCurrent((prev) => prev + 1);
     }
   };
 
@@ -410,7 +428,10 @@ const Carousel = ({ mySection }) => {
                   bg: "primary",
                 },
               }}
-              onClick={() => setCurrent(index)}
+              onClick={() => {
+                setDuration(0);
+                setCurrent(index);
+              }}
             ></div>
           );
         })}

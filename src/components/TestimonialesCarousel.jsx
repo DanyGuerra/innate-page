@@ -283,6 +283,7 @@ const TestimonialesCarousel = () => {
       <a
         href="https://www.doctoralia.com.mx/clinicas/innate#specialists-in-facility"
         target="_blank"
+        rel="noreferrer"
       >
         <div sx={{ position: "relative", zIndex: 1 }}>
           <svg viewBox="0 0 490 160" width="250px">
@@ -587,7 +588,7 @@ const TestimonialesCarousel = () => {
           },
         }}
       >
-        <Image src={imgBack} width="320px" />
+        <Image src={imgBack} width="320px" alt="Background Innate" />
       </span>
     </section>
   );

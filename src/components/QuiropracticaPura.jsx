@@ -322,7 +322,7 @@ const QuiropracticaPura = () => {
           sx={{ position: "absolute", zIndex: -10, top: 0 }}
           ref={refBackground}
         >
-          <Image src={background} />
+          <Image src={background} alt="Background sección quiropráctica pura" />
         </span>
       </div>
       <span
@@ -338,7 +338,7 @@ const QuiropracticaPura = () => {
         }}
         ref={refSideImg}
       >
-        <Image src={bjPalmerSide} layout="responsive" />
+        <Image src={bjPalmerSide} layout="responsive" alt="BJ Palmer side" />
       </span>
     </section>
   );

@@ -70,6 +70,7 @@ const CanalYoutube = () => {
         <a
           href="https://www.youtube.com/channel/UCatxwbMglOUe8McB4BkRZrw"
           target="_blank"
+          rel="noreferrer"
           sx={{ width: "100%" }}
         >
           <SecondaryButtonInverIcon width="100%" height="53px">

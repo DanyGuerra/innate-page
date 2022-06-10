@@ -423,6 +423,7 @@ const Sucursales = () => {
                         src={item.image}
                         width="260px"
                         height="260px"
+                        alt={`Mapa sucursal Innate ${item.sucursal}`}
                       ></Image>
                     </div>
                     <div

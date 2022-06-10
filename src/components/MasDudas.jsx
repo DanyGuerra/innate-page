@@ -79,17 +79,33 @@ const MasDudas = () => {
           },
         }}
       >
-        <a href="http://bit.ly/2megysO" target="_blank">
-          <Image src={logoFace} width="36px" height="36px"></Image>
+        <a href="http://bit.ly/2megysO" target="_blank" rel="noreferrer">
+          <Image
+            src={logoFace}
+            width="36px"
+            height="36px"
+            alt="Facebook Innate"
+          ></Image>
         </a>
-        <a href="http://bit.ly/2kk6qOE" target="_blank">
-          <Image src={logoInsta} width="36px" height="36px"></Image>
+        <a href="http://bit.ly/2kk6qOE" target="_blank" rel="noreferrer">
+          <Image
+            src={logoInsta}
+            width="36px"
+            height="36px"
+            alt="Instagram Innate"
+          ></Image>
         </a>
         <a
           href="https://wa.me/5215568770693?text=Quiero%20%20agendar%20una%20cita%20"
           target="_blank"
+          rel="noreferrer"
         >
-          <Image src={logoWhats} width="36px" height="36px"></Image>
+          <Image
+            src={logoWhats}
+            width="36px"
+            height="36px"
+            alt="Contacto Whatsapp Innate"
+          ></Image>
         </a>
       </div>
     </section>

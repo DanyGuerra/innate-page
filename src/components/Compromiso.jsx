@@ -225,7 +225,10 @@ const Compromiso = () => {
           }}
           ref={refImgRotate}
         >
-          <Image src={compromisoInnate}></Image>
+          <Image
+            src={compromisoInnate}
+            alt="Cédula profesional encargado sanitario"
+          ></Image>
         </div>
         <div
           sx={{
@@ -236,7 +239,7 @@ const Compromiso = () => {
           }}
           ref={refImage1}
         >
-          <Image src={sucursal2}></Image>
+          <Image src={sucursal2} alt="Sucursal Innate"></Image>
         </div>
         <div
           sx={{
@@ -248,7 +251,7 @@ const Compromiso = () => {
           }}
           ref={refImage2}
         >
-          <Image src={sucursal}></Image>
+          <Image src={sucursal} alt="Sucursal de Innate"></Image>
         </div>
         <div
           sx={{
@@ -282,7 +285,10 @@ const Compromiso = () => {
                 left: 0,
               }}
             >
-              <Image src={sucursalesCircle}></Image>
+              <Image
+                src={sucursalesCircle}
+                alt="Sucursales de Innate background"
+              ></Image>
             </div>
             <p>CDMX</p>
             <p>Monterrey</p>

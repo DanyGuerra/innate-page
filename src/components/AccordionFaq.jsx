@@ -13,7 +13,6 @@ const AccordionFaq = () => {
 
   const mySection = useRef(null);
   const navSection = useRef(null);
-  const selectorNav = gsap.utils.selector(navSection);
   const accordion = useRef(null);
   const refNavTitle = useRef(null);
 
@@ -97,67 +96,67 @@ const AccordionFaq = () => {
   }, [itemClicked]);
 
   useEffect(() => {
+    const selectorNav = gsap.utils.selector(navSection);
+    const navAnimation = () => {
+      gsap.fromTo(
+        selectorNav("section"),
+        {
+          translateY: -200,
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          translateY: 0,
+          stagger: 0.1,
+          duration: 0.25,
+          delay: 0.5,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: mySection.current,
+            start: "top center",
+          },
+        }
+      );
+      gsap.fromTo(
+        navSection.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 2,
+          delay: 0.75,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: mySection.current,
+            start: "top center",
+          },
+        }
+      );
+    };
+
+    const titleAnimation = () => {
+      gsap.fromTo(
+        refNavTitle.current,
+        {
+          translateX: -400,
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          translateX: 0,
+          duration: 1,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: mySection.current,
+            start: "top center",
+          },
+        }
+      );
+    };
     navAnimation();
     titleAnimation();
   }, []);
-
-  const navAnimation = () => {
-    gsap.fromTo(
-      selectorNav("section"),
-      {
-        translateY: -200,
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-        stagger: 0.1,
-        duration: 0.25,
-        delay: 0.5,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
-    gsap.fromTo(
-      navSection.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 2,
-        delay: 0.75,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
-  };
-
-  const titleAnimation = () => {
-    gsap.fromTo(
-      refNavTitle.current,
-      {
-        translateX: -400,
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        translateX: 0,
-        duration: 1,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: mySection.current,
-          start: "top center",
-        },
-      }
-    );
-  };
 
   const animationAccordion = (el) => {
     gsap.fromTo(
