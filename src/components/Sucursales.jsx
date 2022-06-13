@@ -184,7 +184,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalPuebla,
     },
     {
-      title: "QUERETARO",
+      title: "QUERÉTARO",
       sucursal: "Querétaro",
       param: "queretaro",
       sucursal: "Querétaro",
@@ -235,7 +235,7 @@ const Sucursales = ({ sucursal }) => {
           display: "flex",
           flexWrap: "wrap",
           gap: "5%",
-          rowGap: "30px",
+          rowGap: "10px",
         }}
       >
         {sucursales.map((suc, index) => {

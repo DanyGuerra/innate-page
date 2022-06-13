@@ -113,7 +113,7 @@ const CardSucursal = ({ suc }) => {
           </h3>
 
           {suc.phone.map((tel, index) => (
-            <span>
+            <span key={index}>
               <a key={tel} href={`tel:${tel.replace(/ /g, "")}`}>
                 {tel}
               </a>
