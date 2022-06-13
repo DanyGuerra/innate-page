@@ -6,14 +6,14 @@ import Padecimientos from "../../src/components/Padecimientos";
 import Diagnostico from "../../src/components/Diagnostico";
 import Sucursales from "../../src/components/Sucursales";
 
-export default function SucursalDelValle() {
+export default function SucursalRoma() {
   return (
     <div>
       <Head>
-        <title>INNATE - Del Valle</title>
+        <title>INNATE - CDMX - Roma</title>
       </Head>
       <Header></Header>
-      <Sucursales sucursal={"delvalle"}></Sucursales>
+      <Sucursales sucursal={"roma"}></Sucursales>
       <NewsLetter></NewsLetter>
       <Padecimientos></Padecimientos>
       <Diagnostico></Diagnostico>
