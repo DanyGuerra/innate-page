@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>INNATE-Centro Quiroprácticos</title>
+        <title>INNATE - Centro Quiroprácticos</title>
       </Head>
       <Header />
       <FirstSection />

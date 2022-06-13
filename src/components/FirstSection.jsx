@@ -37,6 +37,12 @@ const FirstSection = () => {
     });
   };
 
+  const handleAgendar = () => {
+    window.location = "/";
+  };
+  const handleConoceMas = () => {
+    window.location = "/";
+  };
   return (
     <section
       sx={{
@@ -156,7 +162,6 @@ const FirstSection = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              cursor: "pointer",
               gap: "5px",
             },
             p: {
@@ -176,11 +181,12 @@ const FirstSection = () => {
           <div
             sx={{
               position: "relative",
-              zIndex: -1,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              cursor: "pointer",
             }}
+            onClick={handleAgendar}
           >
             <svg
               className="svg"
@@ -219,14 +225,16 @@ const FirstSection = () => {
             </svg>
             <p>Agendar Consulta</p>
           </div>
+
           <div
             sx={{
               position: "relative",
-              zIndex: -1,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              cursor: "pointer",
             }}
+            onClick={handleConoceMas}
           >
             <svg
               className="svg"
@@ -272,30 +280,6 @@ const FirstSection = () => {
             ></Image>
             <p>Conocer mas</p>
           </div>
-          {/* <div>
-            <span
-              sx={{
-                position: "absolute",
-                zIndex: -1,
-              }}
-            >
-              <Image src={headerButton2}></Image>
-              <span
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  top: 0,
-                  left: 0,
-                  bg: "background",
-                  zIndex: 1,
-                }}
-                ref={buttonTwoHeader}
-              ></span>
-            </span>
-            <Image src={videoIcon} width="25px" height="25px"></Image>
-            <p>Conocer mas</p>
-          </div> */}
         </div>
       </div>
     </section>
