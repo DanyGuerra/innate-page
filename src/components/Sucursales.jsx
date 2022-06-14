@@ -20,6 +20,24 @@ import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
 //Team Images
 import imgCamille from "../../assets/img/INNATE-equipo-CAMILLE_DEMBOSKI.png";
 import cedCamille from "../../assets/img/INNATE-equipo-circulo-CAMILLE.png";
+import imgGerardo from "../../assets/img/INNATE-equipo-GERARDO_MONTIEL_TEJEDA.png";
+import cedGerardo from "../../assets/img/INNATE-equipo-circulo-GERARDO.png";
+import imgJuanjo from "../../assets/img/INNATE-equipo-JUAN_JOSE_SALDANA_MENA.png";
+import cedJuanjo from "../../assets/img/INNATE-equipo-circulo-JUAN.png";
+import imgEsteban from "../../assets/img/INNATE-equipo-ESTEBAN_HERNANDEZ_MAZA.png";
+import cedEsteban from "../../assets/img/INNATE-equipo-circulo-ESTEBAN.png";
+import imgAlexis from "../../assets/img/INNATE-equipo-ALEXIS_SALVADOR_URIBE.png";
+import cedAlexis from "../../assets/img/INNATE-equipo-circulo-ALEXIS.png";
+import imgLuisDaniel from "../../assets/img/INNATE-equipo-LUIS_DANIEL_CARRILLO_CONCEPCION.png";
+import cedLuisDaniel from "../../assets/img/INNATE-equipo-circulo-LUIS.png";
+import imgMariel from "../../assets/img/INNATE-equipo-MARIEL_MOCTEZUMA_LORETO.png";
+import cedMariel from "../../assets/img/INNATE-equipo-circulo-MARIEL.png";
+import imgMagda from "../../assets/img/INNATE-equipo-MAGDALENA_ITZEL_MARTINEZ_HERNANDEZ.png";
+import cedMagda from "../../assets/img/INNATE-equipo-circulo-MAGDALENA.png";
+import imgAle from "../../assets/img/INNATE-equipo-ALEJANDRO_CORONA_SAUCEDO.png";
+import cedAle from "../../assets/img/INNATE-equipo-circulo-ALEJANDRO.png";
+import imgAram from "../../assets/img/INNATE-equipo-ARAM_OMAR_GOMEZ_MENDOZA.png";
+import cedAram from "../../assets/img/INNATE-equipo-circulo-ARAM.png";
 
 const Sucursales = ({ sucursal }) => {
   const sucursales = [
@@ -38,10 +56,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalDelValle,
-      equipo: [
-        { profileImg: imgCamille, cedImg: cedCamille, style: "left" },
-        { profileImg: imgCamille, cedImg: cedCamille, style: "rigth" },
-      ],
+      equipo: [{ profileImg: imgGerardo, cedImg: cedGerardo, style: "right" }],
     },
     {
       title: "ROMA",
@@ -58,6 +73,10 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalRoma,
+      equipo: [
+        { profileImg: imgJuanjo, cedImg: cedJuanjo, style: "left" },
+        { profileImg: imgAlexis, cedImg: cedAlexis, style: "right" },
+      ],
     },
     {
       title: "SANTA FE",
@@ -74,6 +93,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalSantaFe,
+      equipo: [{ profileImg: imgCamille, cedImg: cedCamille, style: "left" }],
     },
     {
       title: "POLANCO",
@@ -91,6 +111,10 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalPolanco,
+      equipo: [
+        { profileImg: imgEsteban, cedImg: cedEsteban, style: "left" },
+        { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
+      ],
     },
     {
       title: "PEDREGAL",
@@ -125,6 +149,9 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalMetepec,
+      equipo: [
+        { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
+      ],
     },
     {
       title: "MORELOS",
@@ -175,6 +202,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalGdl,
+      equipo: [{ profileImg: imgMariel, cedImg: cedMariel, style: "left" }],
     },
     {
       title: "PUEBLA",
@@ -191,6 +219,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalPuebla,
+      equipo: [{ profileImg: imgMagda, cedImg: cedMagda, style: "left" }],
     },
     {
       title: "QUERÉTARO",

@@ -92,6 +92,7 @@ const CardEquipo = ({ equipo }) => {
         {equipo.map((person, index) => {
           return (
             <div
+              key={index}
               sx={{
                 width: "100%",
                 height: "250px",
