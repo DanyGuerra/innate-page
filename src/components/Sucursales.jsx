@@ -5,8 +5,8 @@ import CardSucursal from "./CardSucursal";
 import CardEquipo from "./CardEquipo";
 
 // Images
-import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
-import sucursalRoma from "../../assets/img/INNATE-sucursal-ROMA.png";
+import sucursalDelValle from "../../assets/img/INNATE-sucursal-DELVALLE.png";
+import sucursalRoma from "../../assets/img/INNATE-Napoles.png";
 import sucursalSantaFe from "../../assets/img/INNATE-sucursal-SANTAFE.png";
 import sucursalPolanco from "../../assets/img/INNATE-sucursal-POLANCO.png";
 import sucursalPedregal from "../../assets/img/INNATE-sucursal-PEDREGAL.png";
@@ -57,6 +57,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalDelValle,
       equipo: [{ profileImg: imgGerardo, cedImg: cedGerardo, style: "right" }],
+      urlMap: "https://goo.gl/maps/WegENy3XMywtAWZv8",
     },
     {
       title: "ROMA",
@@ -77,6 +78,7 @@ const Sucursales = ({ sucursal }) => {
         { profileImg: imgJuanjo, cedImg: cedJuanjo, style: "left" },
         { profileImg: imgAlexis, cedImg: cedAlexis, style: "right" },
       ],
+      urlMap: "https://goo.gl/maps/NW119mWz1hw2QJaZ7",
     },
     {
       title: "SANTA FE",
@@ -94,6 +96,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalSantaFe,
       equipo: [{ profileImg: imgCamille, cedImg: cedCamille, style: "left" }],
+      urlMap: "https://goo.gl/maps/f5KysCQ2qauFwyfu6",
     },
     {
       title: "POLANCO",
@@ -115,6 +118,7 @@ const Sucursales = ({ sucursal }) => {
         { profileImg: imgEsteban, cedImg: cedEsteban, style: "left" },
         { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
       ],
+      urlMap: "https://goo.gl/maps/4cRt8uuHBiZzxRRp7",
     },
     {
       title: "PEDREGAL",
@@ -132,6 +136,8 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalPedregal,
+      urlMap:
+        "https://www.google.com/maps/place/Cda.+Gruta+19,+Jardines+del+Pedregal,+%C3%81lvaro+Obreg%C3%B3n,+01900+Ciudad+de+M%C3%A9xico,+CDMX/@19.3258652,-99.2024346,17z/data=!3m1!4b1!4m5!3m4!1s0x85cdfffa99da65d9:0xffd089891f868baf!8m2!3d19.3258652!4d-99.2002459",
     },
     {
       title: "METEPEC",
@@ -152,6 +158,7 @@ const Sucursales = ({ sucursal }) => {
       equipo: [
         { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
       ],
+      urlMap: "https://goo.gl/maps/rqSnxT5XBpL9d3Pu8",
     },
     {
       title: "MORELOS",
@@ -169,6 +176,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalCuernavaca,
+      urlMap: "https://goo.gl/maps/6GJSTnUEF8Qs8jPT6",
     },
     {
       title: "MONTERREY",
@@ -185,6 +193,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalMty,
+      urlMap: "https://goo.gl/maps/dj4AjqPsWUT6xwhWA",
     },
     {
       title: "GUADALAJARA",
@@ -203,6 +212,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalGdl,
       equipo: [{ profileImg: imgMariel, cedImg: cedMariel, style: "left" }],
+      urlMap: "https://goo.gl/maps/k8iMdNhSTHUTasL47",
     },
     {
       title: "PUEBLA",
@@ -220,6 +230,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalPuebla,
       equipo: [{ profileImg: imgMagda, cedImg: cedMagda, style: "left" }],
+      urlMap: "https://goo.gl/maps/L4iFZEszF1QaoYzR7",
     },
     {
       title: "QUERÉTARO",
@@ -237,6 +248,7 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalQro,
+      urlMap: "https://goo.gl/maps/jVG3R2LmEvbkqVZL8",
     },
   ];
 

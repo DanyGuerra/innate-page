@@ -62,12 +62,14 @@ const CardSucursal = ({ suc }) => {
           alignItems: "center",
         }}
       >
-        <Image
-          src={suc.image}
-          width="260px"
-          height="260px"
-          alt={`Mapa sucursal Innate ${suc.sucursal}`}
-        ></Image>
+        <a href={suc.urlMap} target="_blank" rel="noreferrer">
+          <Image
+            src={suc.image}
+            width="260px"
+            height="260px"
+            alt={`Mapa sucursal Innate ${suc.sucursal}`}
+          ></Image>
+        </a>
       </div>
       <div
         sx={{

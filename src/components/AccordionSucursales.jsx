@@ -6,9 +6,10 @@ import React from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUp } from "./Icons";
 import { PrimaryButton, SecondaryButtonInversed } from "./Buttons";
+
 // Images
-import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
-import sucursalRoma from "../../assets/img/INNATE-sucursal-ROMA.png";
+import sucursalDelValle from "../../assets/img/INNATE-sucursal-DELVALLE.png";
+import sucursalRoma from "../../assets/img/INNATE-Napoles.png";
 import sucursalSantaFe from "../../assets/img/INNATE-sucursal-SANTAFE.png";
 import sucursalPolanco from "../../assets/img/INNATE-sucursal-POLANCO.png";
 import sucursalPedregal from "../../assets/img/INNATE-sucursal-PEDREGAL.png";
@@ -33,6 +34,7 @@ const AccordionSucursales = () => {
   const accordionData = [
     {
       sucursal: "Del Valle",
+      param: "delvalle",
       state: "CDMX",
       phone: ["55 6798 2506", "55 6798 2507"],
       adress:
@@ -47,6 +49,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Roma",
+      param: "roma",
       state: "CDMX",
       phone: ["55 5919 1322"],
       adress:
@@ -61,6 +64,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Santa Fe",
+      param: "santafe",
       state: "CDMX",
       phone: ["55 5292 7901"],
       adress:
@@ -75,6 +79,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Polanco",
+      param: "polanco",
       state: "CDMX",
       phone: ["55 1560 6322"],
       adress:
@@ -90,6 +95,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Pedregal",
+      param: "pedregal",
       state: "CDMX",
       phone: ["55 2289 5547"],
       adress:
@@ -105,6 +111,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Metepec",
+      param: "metepec",
       state: "EDOMEX",
       phone: ["722 925 0907"],
       adress:
@@ -120,6 +127,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Cuernavaca",
+      param: "cuernavaca",
       state: "MOR",
       phone: ["777 202 6764"],
       adress:
@@ -135,6 +143,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "San Pedro Garza",
+      param: "monterrey",
       state: "N.L",
       phone: ["81 1231 2783"],
       adress:
@@ -149,6 +158,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Puerta de Hierro",
+      param: "guadalajara",
       state: "JAL",
       phone: ["33 3803 2025"],
       adress:
@@ -164,6 +174,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Puebla",
+      param: "puebla",
       state: "PUE",
       phone: ["222 197 3371"],
       adress:
@@ -178,6 +189,7 @@ const AccordionSucursales = () => {
     },
     {
       sucursal: "Querétaro",
+      param: "queretaro",
       state: "QRO",
       phone: ["442 224 6968"],
       adress:
@@ -409,7 +421,8 @@ const AccordionSucursales = () => {
                     }}
                     ref={accordion}
                   >
-                    <div
+                    <a
+                      href={`/sucursales/${item.param}`}
                       sx={{
                         textAlign: "center",
                         gridColumn: "1 / 2",
@@ -425,7 +438,7 @@ const AccordionSucursales = () => {
                         height="260px"
                         alt={`Mapa sucursal Innate ${item.sucursal}`}
                       ></Image>
-                    </div>
+                    </a>
                     <div
                       sx={{
                         textAlign: "center",
@@ -438,18 +451,19 @@ const AccordionSucursales = () => {
                         },
                       }}
                     >
-                      <h1
-                        sx={{
-                          fontSize: 5,
-                          fontFamily: "heading",
-                          color: "primary",
-                          m: 0,
-                        }}
-                      >
-                        {item.sucursal}
-                      </h1>
-                      <p>{item.adress}</p>
-
+                      <a href={`/sucursales/${item.param}`}>
+                        <h1
+                          sx={{
+                            fontSize: 5,
+                            fontFamily: "heading",
+                            color: "primary",
+                            m: 0,
+                          }}
+                        >
+                          {item.sucursal}
+                        </h1>
+                        <p>{item.adress}</p>
+                      </a>
                       <span>
                         {item.phone.map((tel, index) =>
                           index == 0 ? (

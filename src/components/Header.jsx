@@ -116,7 +116,7 @@ const Header = () => {
         <Link href="/testimoniales">
           <a sx={{ cursor: "pointer" }}>Testimoniales</a>
         </Link>
-        <Link href="/#sucursales">
+        <Link href="/#footer">
           <a sx={{ cursor: "pointer" }}>Contacto</a>
         </Link>
       </nav>

@@ -15,20 +15,6 @@ const CardEquipoItem = ({ person }) => {
   }, []);
 
   const cedAnimation = () => {
-    gsap.fromTo(
-      refCed.current,
-      {
-        translateY: -50,
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        translateY: 0,
-        duration: 2,
-        ease: "expo.out",
-      }
-    );
-
     gsap.to(refCed.current, {
       rotation: "360",
       duration: 10,

@@ -54,6 +54,7 @@ const Footer = () => {
         alignItems: "center",
         mt: "50px",
       }}
+      id="footer"
     >
       <section
         sx={{
@@ -107,12 +108,14 @@ const Footer = () => {
           }}
           className="item"
         >
-          <Image
-            src={logoFooter}
-            alt="Logo Footer"
-            width="217px"
-            height="120px"
-          />
+          <a href="/">
+            <Image
+              src={logoFooter}
+              alt="Logo Footer"
+              width="217px"
+              height="120px"
+            />
+          </a>
         </div>
         <div
           sx={{
