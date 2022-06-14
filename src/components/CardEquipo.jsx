@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { SecondaryButtonInverIcon } from "./Buttons";
 import Image from "next/image";
 import sucursalesCircle from "../../assets/img/sucursales_circulo_verde.png";
+import CardEquipoItem from "./CardEquipoItem";
 
 const CardEquipo = ({ equipo }) => {
   gsap.registerPlugin(ScrollTrigger);
@@ -119,24 +120,7 @@ const CardEquipo = ({ equipo }) => {
                 },
               }}
             >
-              <span
-                className={`${
-                  person.style === "left" ? "person-left" : "person-right"
-                }`}
-              >
-                <Image
-                  src={person.profileImg}
-                  width="178px"
-                  height="178px"
-                ></Image>
-              </span>
-              <span
-                className={`${
-                  person.style === "left" ? "ced-left" : "ced-right"
-                }`}
-              >
-                <Image src={person.cedImg} width="150" height="150"></Image>
-              </span>
+              <CardEquipoItem person={person}></CardEquipoItem>
             </div>
           );
         })}
