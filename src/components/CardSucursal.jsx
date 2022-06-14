@@ -230,7 +230,7 @@ const CardSucursal = ({ suc }) => {
             },
           }}
         >
-          <a href="tel:33 1285 7445">
+          <a href={`tel:${suc.phone[0].replace(/ /g, "")}`}>
             <div
               sx={{
                 position: "relative",

@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import CardSucursal from "./CardSucursal";
+import CardEquipo from "./CardEquipo";
 
 // Images
 import sucursalDelValle from "../../assets/img/INNATE-Napoles.png";
@@ -15,6 +16,10 @@ import sucursalMty from "../../assets/img/INNATE-sucursal-MTY.png";
 import sucursalGdl from "../../assets/img/INNATE-sucursal-GDL.png";
 import sucursalPuebla from "../../assets/img/INNATE-sucursal-PUEBLA.png";
 import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
+
+//Team Images
+import imgCamille from "../../assets/img/INNATE-equipo-CAMILLE_DEMBOSKI.png";
+import cedCamille from "../../assets/img/INNATE-equipo-circulo-CAMILLE.png";
 
 const Sucursales = ({ sucursal }) => {
   const sucursales = [
@@ -33,6 +38,10 @@ const Sucursales = ({ sucursal }) => {
       ],
 
       image: sucursalDelValle,
+      equipo: [
+        { profileImg: imgCamille, cedImg: cedCamille, style: "left" },
+        { profileImg: imgCamille, cedImg: cedCamille, style: "rigth" },
+      ],
     },
     {
       title: "ROMA",
@@ -209,7 +218,7 @@ const Sucursales = ({ sucursal }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        p: "50px 0px",
+        pt: "50px",
         mb: "100px",
       }}
     >
@@ -333,6 +342,12 @@ const Sucursales = ({ sucursal }) => {
       {sucursales.map((suc, index) =>
         sucursal === suc.param ? (
           <CardSucursal key={suc.param} suc={suc} />
+        ) : null
+      )}
+
+      {sucursales.map((suc, index) =>
+        sucursal === suc.param && suc.equipo ? (
+          <CardEquipo key={index} equipo={suc.equipo} />
         ) : null
       )}
     </section>

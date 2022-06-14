@@ -10,7 +10,7 @@ export default function SucursalSanteFe() {
   return (
     <div>
       <Head>
-        <title>INNATE - CDMX - Santa Fé</title>
+        <title>INNATE - CDMX - Santa Fe</title>
       </Head>
       <Header></Header>
       <Sucursales sucursal={"santafe"}></Sucursales>
