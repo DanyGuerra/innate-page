@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { PrimaryButton, SecondaryButtonInversed } from "./Buttons";
 import Image from "next/image";
 import Sucursales from "./Sucursales";
 
