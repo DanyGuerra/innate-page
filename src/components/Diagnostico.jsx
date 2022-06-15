@@ -317,7 +317,7 @@ const Diagnostico = () => {
                   >
                     <Image
                       src={item.image}
-                      alt={item.title}
+                      alt={`Icono de ${item.title}`}
                       height="100%"
                       width="100%"
                     ></Image>
