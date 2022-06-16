@@ -10,7 +10,9 @@ import ModalMenu from "./ModalMenu";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleSchedule = () => {};
+  const handleSchedule = () => {
+    window.location = `${process.env.CITAS_URL}`;
+  };
 
   const handleCloseMenu = () => {
     setShowMenu(false);

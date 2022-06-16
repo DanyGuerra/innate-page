@@ -5,7 +5,7 @@ import Image from "next/image";
 import headerBack from "../../assets/img/header-back.png";
 import sucursalesCircle from "../../assets/img/sucursales_circulo_verde.png";
 
-const FirstSectionAgendar = ({ actualPrice }) => {
+const FirstSectionAgendar = ({ actualPrice, actualSucursal }) => {
   const imageBack = useRef(null);
   const titleHeader = useRef(null);
   const buttonOneHeader = useRef(null);
@@ -28,20 +28,10 @@ const FirstSectionAgendar = ({ actualPrice }) => {
     });
   };
 
-  const revealAnimation = (el, time, delay) => {
-    gsap.to(el, {
-      width: 0,
-      duration: time,
-      delay: delay,
-      ease: "expo.out",
-    });
-  };
-
   const handleAgendar = () => {
-    window.location = "/";
-  };
-  const handleConoceMas = () => {
-    window.location = "/";
+    window.location = `${process.env.CITAS_URL}?source=adworks${
+      actualSucursal ? `&sucursal=${actualSucursal}` : ""
+    }`;
   };
 
   return (
@@ -230,7 +220,7 @@ const FirstSectionAgendar = ({ actualPrice }) => {
               alignItems: "center",
               cursor: "pointer",
             }}
-            onClick={handleConoceMas}
+            onClick={handleAgendar}
           >
             <svg
               className="svg"

@@ -10,7 +10,7 @@ import Compromiso from "../src/components/Compromiso";
 import QuiropracticaPura from "../src/components/QuiropracticaPura";
 import AccordionSucursales from "../src/components/AccordionSucursales";
 
-export default function Home() {
+function Home({ citasUrl }) {
   return (
     <>
       <Head>
@@ -28,3 +28,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

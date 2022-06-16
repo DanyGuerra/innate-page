@@ -19,6 +19,7 @@ const SALTILLO_PRICE = {
 
 function AgendaCita({ query }) {
   const [actualPrice, setActualPrice] = useState({});
+  const [sucursal, setSucursal] = useState("");
 
   useEffect(() => {
     setPrice();
@@ -28,11 +29,11 @@ function AgendaCita({ query }) {
     switch (query.sucursal) {
       case "SALTILLO":
         setActualPrice(SALTILLO_PRICE);
-        console.log("case saltillo");
+        setSucursal("SALTILLO");
         break;
       default:
         setActualPrice(DEFAULT_PRICE);
-        console.log("Default case");
+        setSucursal("");
         break;
     }
   };
@@ -43,7 +44,10 @@ function AgendaCita({ query }) {
         <title>INNATE - Agenda tu cita</title>
       </Head>
       <HeaderSimple />
-      <FirstSectionAgendar actualPrice={actualPrice} />
+      <FirstSectionAgendar
+        actualPrice={actualPrice}
+        actualSucursal={sucursal}
+      />
       <Diagnostico />
       <Padecimientos />
       <AccordionSucursales />
