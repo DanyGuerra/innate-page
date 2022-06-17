@@ -84,8 +84,9 @@ export const SecondaryButtonInversed = ({
         width: `${width}`,
         height: `${height}`,
         color: "primary",
+        cursor: "pointer",
         "&:hover": {
-          cursor: "pointer",
+          bg: "red",
         },
       }}
       onMouseEnter={handleHover}

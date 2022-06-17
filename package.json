@@ -13,6 +13,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@theme-ui/presets": "^0.14.5",
+    "googleapis": "^103.0.0",
     "gsap": "^3.10.4",
     "html-react-parser": "^1.4.14",
     "next": "12.1.6",

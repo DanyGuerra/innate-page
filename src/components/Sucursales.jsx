@@ -386,11 +386,11 @@ const Sucursales = ({ sucursal }) => {
         ) : null
       )}
 
-      {/* {sucursales.map((suc, index) =>
+      {sucursales.map((suc, index) =>
         sucursal === suc.param && suc.equipo ? (
           <CardEquipo key={index} equipo={suc.equipo} />
         ) : null
-      )} */}
+      )}
     </section>
   );
 };

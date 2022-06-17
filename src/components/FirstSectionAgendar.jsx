@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import headerBack from "../../assets/img/header-back.png";
 import sucursalesCircle from "../../assets/img/sucursales_circulo_verde.png";
+import Link from "next/link";
 
 const FirstSectionAgendar = ({ actualPrice, actualSucursal }) => {
   const imageBack = useRef(null);

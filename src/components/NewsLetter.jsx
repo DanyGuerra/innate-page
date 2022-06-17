@@ -1,11 +1,23 @@
 /** @jsxImportSource theme-ui */
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import newsLetterBack from "../../assets/img/newsletter-back.png";
 import newsLetterEnvelope from "../../assets/img/newsletter-envelope.png";
 import { SecondaryButton } from "./Buttons";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { IconCheck, IconExclamation } from "./Icons";
+
+const inputsInitial = [
+  {
+    name: "email",
+    type: "email",
+    placeholder: "Ingresa tu email...",
+    validation: null,
+    value: "",
+    errorMessage: "",
+  },
+];
 
 const NewsLetter = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +25,12 @@ const NewsLetter = () => {
   const envelope = useRef(null);
   const sectionAnimation = useRef(null);
   const selectorAnimation = gsap.utils.selector(sectionAnimation);
+
+  const [inputs, setInputs] = useState([]);
+
+  useEffect(() => {
+    setInputs(inputsInitial);
+  }, []);
 
   useEffect(() => {
     gsap.fromTo(
@@ -51,6 +69,173 @@ const NewsLetter = () => {
         },
       }
     );
+  };
+
+  function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    );
+  }
+
+  function isNumberValid(number) {
+    const regex = /^[0-9]*$/;
+    return regex.test(number);
+  }
+
+  const inputChange = (e) => {
+    const nameInput = e.target.name;
+    const resultado = inputs.map((input) => {
+      if (input.name === nameInput) {
+        input.value = e.target.value;
+        input = oneValidation(input);
+      }
+      return input;
+    });
+
+    setInputs(resultado);
+  };
+
+  const checkValidation = () => {
+    return inputs.map((input) => {
+      return input.validation;
+    });
+  };
+
+  const allValidation = () => {
+    const resultado = inputs.map((input) => {
+      input = oneValidation(input);
+      return input;
+    });
+
+    setInputs(resultado);
+  };
+
+  const oneValidation = (input) => {
+    const value = input.value;
+    if (!value) {
+      input.validation = false;
+      input.errorMessage = "Campo obligatorio";
+    } else if (value.length < input.minLength) {
+      input.validation = false;
+      input.errorMessage = `Debe contenter almenos ${input.minLength} caracteres`;
+    } else if (input.size && value.length !== input.size) {
+      input.validation = false;
+      input.errorMessage = `Debe ingresar ${input.size} caracteres`;
+    } else {
+      switch (input.type) {
+        case "text":
+          input.validation = true;
+          input.errorMessage = "";
+          break;
+        case "email":
+          if (!isEmail(value)) {
+            input.validation = false;
+            input.errorMessage = "Debe ingresar un correo válido";
+          } else {
+            input.validation = true;
+            input.errorMessage = "";
+          }
+          break;
+        case "tel":
+          if (!isNumberValid(value)) {
+            input.validation = false;
+            input.errorMessage = "Debe ingresar valores numéricos";
+          } else {
+            input.validation = true;
+            input.errorMessage = "";
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    return input;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    allValidation();
+    const validation = checkValidation();
+    if (validation.every((el) => el === true)) {
+      console.log("Validacion correcta");
+      try {
+        const sendData = await fetch("/api/newsletter/", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({ a: 1, b: 2 }),
+        });
+        console.log(sendData);
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      console.log("Validacion incorrecta");
+    }
+  };
+
+  const saveMailSpreed = async (email) => {
+    function isEmail(email) {
+      return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      );
+    }
+
+    let fecha = new Date();
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZoneName: "short",
+    };
+
+    let fecharegistro =
+      fecha.toLocaleDateString("es-MX", options) +
+      " " +
+      fecha.toLocaleTimeString("es-MX");
+
+    if (!correo) {
+      return;
+    }
+
+    if (!isEmail(correo)) {
+      return res.send("Correo NO válido");
+    }
+
+    const auth = new google.auth.GoogleAuth({
+      keyFile: "keys.json", //the key file
+      //url to spreadsheets API
+      scopes: "https://www.googleapis.com/auth/spreadsheets",
+    });
+
+    //Auth client Object
+    const authClientObject = await auth.getClient();
+
+    //Google sheets instance
+    const googleSheetsInstance = google.sheets({
+      version: "v4",
+      auth: authClientObject,
+    });
+
+    // spreadsheet id
+    const spreadsheetId = "1sWKRl0ojc0tn8r02fmGjVHjaZEWbBHnFu2stl-Bey94";
+
+    try {
+      await googleSheetsInstance.spreadsheets.values.append({
+        auth, //auth object
+        spreadsheetId, //spreadsheet id
+        range: "A:C", //sheet name and range of cells
+        valueInputOption: "USER_ENTERED", // The information will be passed according to what the usere passes in as date, number or text
+        resource: {
+          values: [[nombre, correo, titulo, fecharegistro]],
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -136,23 +321,72 @@ const NewsLetter = () => {
               width: "90%",
             }}
           >
-            <input
-              type="email"
-              sx={{
-                width: "100%",
-                height: "47px",
-                bg: "transparent",
-                border: "1px solid white",
-                outlineColor: "transparent",
-                pl: "10px",
-                color: "white",
-                "&::placeholder": {
-                  color: "white",
-                },
-              }}
-              placeholder="Escribe tu e-mail..."
-            />
-            <SecondaryButton height="45px" width="230px">
+            {inputs.map((input, index) => (
+              <div
+                key={index}
+                sx={{
+                  width: "100%",
+                  position: "relative",
+                }}
+              >
+                <small
+                  sx={{
+                    position: "absolute",
+                    bottom: "-18px",
+                    left: 0,
+                  }}
+                >
+                  {input.errorMessage}
+                </small>
+                <input
+                  sx={{
+                    width: "100%",
+                    height: "47px",
+                    bg: "transparent",
+                    border: "1px solid white",
+                    outlineColor: "transparent",
+                    pl: "10px",
+                    color: "white",
+                    "&::placeholder": {
+                      color: "white",
+                    },
+                  }}
+                  name={input.name}
+                  type={input.type}
+                  onChange={inputChange}
+                  onBlur={inputChange}
+                  placeholder={input.placeholder}
+                  size={input.size}
+                  maxLength={input.maxLength}
+                />
+                <div
+                  sx={{
+                    position: "absolute",
+                    top: "12px",
+                    right: "5px",
+                    svg: {
+                      fill: "white",
+                    },
+                  }}
+                >
+                  {(() => {
+                    if (input.validation === false) {
+                      return (
+                        <IconExclamation color="#ff0000"></IconExclamation>
+                      );
+                    } else if (input.validation === true) {
+                      return <IconCheck color="#7CFC00"></IconCheck>;
+                    }
+                  })()}
+                </div>
+              </div>
+            ))}
+
+            <SecondaryButton
+              height="45px"
+              width="230px"
+              handleClick={handleSubmit}
+            >
               Quiero mi descuento
             </SecondaryButton>
           </form>
