@@ -2,11 +2,7 @@ import { google } from "googleapis";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    //  const nombre = req.body.nombre;
-    //  const correo = req.body.telefono;
-    //  const titulo = req.body.titulo;
-    const nombre = "DANIEL";
-    const correo = "correo@example.com";
+    const correo = req.body.correo;
 
     function isEmail(email) {
       return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -28,12 +24,14 @@ export default async function handler(req, res) {
       " " +
       fecha.toLocaleTimeString("es-MX");
 
-    if (!nombre || !correo) {
+    if (!correo) {
       return res.sendStatus(400);
     }
 
     if (!isEmail(correo)) {
-      return res.send("Correo NO válido");
+      return res.status(400).json({
+        message: "Correo no válido",
+      });
     }
 
     const auth = new google.auth.GoogleAuth({
@@ -63,7 +61,7 @@ export default async function handler(req, res) {
         range: "A:C", //sheet name and range of cells
         valueInputOption: "USER_ENTERED", // The information will be passed according to what the usere passes in as date, number or text
         resource: {
-          values: [[nombre, correo, fecharegistro]],
+          values: [[correo, fecharegistro]],
         },
       });
 
