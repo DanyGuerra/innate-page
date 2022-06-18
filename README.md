@@ -1,3 +1,3 @@
 # INNATE page
 
-Pagina de Innate
+Página de Innate
