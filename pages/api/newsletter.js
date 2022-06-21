@@ -2,7 +2,7 @@ import { google } from "googleapis";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const correo = req.body.correo;
+    const correo = req.body.correo.trim();
 
     function isEmail(email) {
       return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -25,7 +25,9 @@ export default async function handler(req, res) {
       fecha.toLocaleTimeString("es-MX");
 
     if (!correo) {
-      return res.sendStatus(400);
+      return res.sendStatus(400)({
+        message: "Bad request",
+      });
     }
 
     if (!isEmail(correo)) {
@@ -72,9 +74,5 @@ export default async function handler(req, res) {
       res.status(500);
       console.error(error);
     }
-  } else if (req.method === "GET") {
-    res.json({
-      messages: "hi",
-    });
   }
 }
