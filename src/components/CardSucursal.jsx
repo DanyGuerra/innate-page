@@ -164,7 +164,8 @@ const CardSucursal = ({ suc }) => {
           },
         }}
       >
-        <div
+        <a
+          href={`${process.env.CITAS_URL}/?source=${suc.agendarLabel}`}
           sx={{
             width: "80%",
             position: "relative",
@@ -222,7 +223,7 @@ const CardSucursal = ({ suc }) => {
             </defs>
           </svg>
           <span>Agendar</span>
-        </div>
+        </a>
         <div
           sx={{
             width: "80%",

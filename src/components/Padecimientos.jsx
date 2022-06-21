@@ -89,6 +89,10 @@ const Padecimientos = () => {
     });
   };
 
+  const handleCita = () => {
+    window.location = `${process.env.CITAS_URL}/?source=AgendarTuPrimeraCita`;
+  };
+
   return (
     <section
       sx={{
@@ -273,7 +277,11 @@ const Padecimientos = () => {
               },
             }}
           >
-            <PrimaryButtonAnimation height="50px" width="100%">
+            <PrimaryButtonAnimation
+              height="50px"
+              width="100%"
+              handleClick={handleCita}
+            >
               Agenda tu primera cita
             </PrimaryButtonAnimation>
           </div>

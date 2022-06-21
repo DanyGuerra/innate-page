@@ -58,6 +58,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalDelValle,
       equipo: [{ profileImg: imgGerardo, cedImg: cedGerardo, style: "right" }],
       urlMap: "https://goo.gl/maps/WegENy3XMywtAWZv8",
+      agendarLabel: "BTN_sucursal_DelValle",
     },
     {
       title: "ROMA",
@@ -79,6 +80,7 @@ const Sucursales = ({ sucursal }) => {
         { profileImg: imgAlexis, cedImg: cedAlexis, style: "right" },
       ],
       urlMap: "https://goo.gl/maps/NW119mWz1hw2QJaZ7",
+      agendarLabel: "BTN_sucursal_Roma",
     },
     {
       title: "SANTA FE",
@@ -97,6 +99,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalSantaFe,
       equipo: [{ profileImg: imgCamille, cedImg: cedCamille, style: "left" }],
       urlMap: "https://goo.gl/maps/f5KysCQ2qauFwyfu6",
+      agendarLabel: "BTN_sucursal_SantaFe",
     },
     {
       title: "POLANCO",
@@ -119,6 +122,7 @@ const Sucursales = ({ sucursal }) => {
         { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
       ],
       urlMap: "https://goo.gl/maps/4cRt8uuHBiZzxRRp7",
+      agendarLabel: "BTN_sucursal_Polanco",
     },
     {
       title: "PEDREGAL",
@@ -138,6 +142,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalPedregal,
       urlMap:
         "https://www.google.com/maps/place/Cda.+Gruta+19,+Jardines+del+Pedregal,+%C3%81lvaro+Obreg%C3%B3n,+01900+Ciudad+de+M%C3%A9xico,+CDMX/@19.3258652,-99.2024346,17z/data=!3m1!4b1!4m5!3m4!1s0x85cdfffa99da65d9:0xffd089891f868baf!8m2!3d19.3258652!4d-99.2002459",
+      agendarLabel: "BTN_sucursal_Pegregal",
     },
     {
       title: "METEPEC",
@@ -159,6 +164,7 @@ const Sucursales = ({ sucursal }) => {
         { profileImg: imgLuisDaniel, cedImg: cedLuisDaniel, style: "right" },
       ],
       urlMap: "https://goo.gl/maps/rqSnxT5XBpL9d3Pu8",
+      agendarLabel: "BTN_sucursal_Metepec",
     },
     {
       title: "MORELOS",
@@ -177,6 +183,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalCuernavaca,
       urlMap: "https://goo.gl/maps/6GJSTnUEF8Qs8jPT6",
+      agendarLabel: "BTN_sucursal_Cuernavaca",
     },
     {
       title: "MONTERREY",
@@ -194,6 +201,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalMty,
       urlMap: "https://goo.gl/maps/dj4AjqPsWUT6xwhWA",
+      agendarLabel: "BTN_sucursal_MTY",
     },
     {
       title: "GUADALAJARA",
@@ -213,6 +221,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalGdl,
       equipo: [{ profileImg: imgMariel, cedImg: cedMariel, style: "left" }],
       urlMap: "https://goo.gl/maps/k8iMdNhSTHUTasL47",
+      agendarLabel: "BTN_sucursal_GDL",
     },
     {
       title: "PUEBLA",
@@ -231,6 +240,7 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalPuebla,
       equipo: [{ profileImg: imgMagda, cedImg: cedMagda, style: "left" }],
       urlMap: "https://goo.gl/maps/L4iFZEszF1QaoYzR7",
+      agendarLabel: "BTN_sucursal_Puebla",
     },
     {
       title: "QUERÉTARO",
@@ -249,6 +259,7 @@ const Sucursales = ({ sucursal }) => {
 
       image: sucursalQro,
       urlMap: "https://goo.gl/maps/jVG3R2LmEvbkqVZL8",
+      agendarLabel: "BTN_sucursal_Queretaro",
     },
   ];
 

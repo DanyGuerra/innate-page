@@ -38,7 +38,7 @@ const FirstSection = () => {
   };
 
   const handleAgendar = () => {
-    window.location = `${process.env.CITAS_URL}`;
+    window.location = `${process.env.CITAS_URL}/?source=AgendarConsultaFirstSection`;
   };
   const handleConoceMas = () => {
     window.location = "/";

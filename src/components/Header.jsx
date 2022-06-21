@@ -11,7 +11,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleSchedule = () => {
-    window.location = `${process.env.CITAS_URL}`;
+    window.location = `${process.env.CITAS_URL}/?source=AgendarHeader`;
   };
 
   const handleCloseMenu = () => {

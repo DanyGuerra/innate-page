@@ -46,6 +46,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalDelValle,
+      agendarLabel: "BTN_footer_DelValle",
     },
     {
       sucursal: "Roma",
@@ -61,6 +62,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalRoma,
+      agendarLabel: "BTN_footer_Juarez",
     },
     {
       sucursal: "Santa Fe",
@@ -76,6 +78,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalSantaFe,
+      agendarLabel: "BTN_footer_SantaFe",
     },
     {
       sucursal: "Polanco",
@@ -92,6 +95,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalPolanco,
+      agendarLabel: "BTN_footer_Polanco",
     },
     {
       sucursal: "Pedregal",
@@ -108,6 +112,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalPedregal,
+      agendarLabel: "BTN_footer_Pedregal",
     },
     {
       sucursal: "Metepec",
@@ -124,6 +129,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalMetepec,
+      agendarLabel: "BTN_footer_Metepec",
     },
     {
       sucursal: "Cuernavaca",
@@ -140,6 +146,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalCuernavaca,
+      agendarLabel: "BTN_footer_Cuernavaca",
     },
     {
       sucursal: "San Pedro Garza",
@@ -155,6 +162,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalMty,
+      agendarLabel: "BTN_footer_MTY",
     },
     {
       sucursal: "Puerta de Hierro",
@@ -171,6 +179,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalGdl,
+      agendarLabel: "BTN_footer_GDL",
     },
     {
       sucursal: "Puebla",
@@ -186,6 +195,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalPuebla,
+      agendarLabel: "BTN_footer_Puebla",
     },
     {
       sucursal: "Querétaro",
@@ -201,6 +211,7 @@ const AccordionSucursales = () => {
       ],
 
       image: sucursalQro,
+      agendarLabel: "BTN_footer_Queretaro",
     },
   ];
 
@@ -299,6 +310,10 @@ const AccordionSucursales = () => {
     }
 
     setItemClicked(index);
+  };
+
+  const handleCita = (param) => {
+    window.location = `${process.env.CITAS_URL}/?source=${param}`;
   };
 
   return (
@@ -487,7 +502,11 @@ const AccordionSucursales = () => {
                         }}
                       >
                         <span sx={{ width: "40%" }}>
-                          <PrimaryButton width="100%" height="50px">
+                          <PrimaryButton
+                            width="100%"
+                            height="50px"
+                            handleClick={() => handleCita(item.agendarLabel)}
+                          >
                             Agendar
                           </PrimaryButton>
                         </span>
