@@ -9,8 +9,28 @@ import Diagnostico from "../src/components/Diagnostico";
 import Compromiso from "../src/components/Compromiso";
 import QuiropracticaPura from "../src/components/QuiropracticaPura";
 import AccordionSucursales from "../src/components/AccordionSucursales";
+import { useEffect, useState } from "react";
+import ModalAviso from "../src/components/ModalAviso";
 
 function Home() {
+  const [firstTime, setFirsTime] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = (e) => {
+      if (firstTime) {
+        setShowModal(true);
+        setFirsTime(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [firstTime, showModal]);
+
   return (
     <>
       <Head>
@@ -18,6 +38,10 @@ function Home() {
       </Head>
       <Header />
       <FirstSection />
+      <ModalAviso
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+      ></ModalAviso>
       <NewsLetter />
       <Padecimientos />
       <Diagnostico />

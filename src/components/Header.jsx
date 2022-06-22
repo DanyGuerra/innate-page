@@ -50,7 +50,7 @@ const Header = () => {
         pl: "10px",
         position: "fixed",
         bg: "background",
-        zIndex: 100,
+        zIndex: 10,
         gap: "5%",
 
         "@media screen and (min-width: 1080px)": {
