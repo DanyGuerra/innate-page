@@ -7,6 +7,7 @@ import { SecondaryButton } from "./Buttons";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { IconCheck, IconExclamation } from "./Icons";
+import ModalMessage from "./ModalMessage";
 
 const inputsInitial = [
   {
@@ -27,6 +28,8 @@ const NewsLetter = () => {
   const selectorAnimation = gsap.utils.selector(sectionAnimation);
 
   const [inputs, setInputs] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setInputs(inputsInitial);
@@ -157,9 +160,9 @@ const NewsLetter = () => {
     allValidation();
     const validation = checkValidation();
     if (validation.every((el) => el === true)) {
-      console.log("Validacion correcta");
       const objCorreo = inputs.find((element) => element.name == "email");
       const correo = objCorreo.value;
+      e.target.disabled = true;
       try {
         const sendData = await fetch("/api/newsletter/", {
           headers: {
@@ -172,10 +175,18 @@ const NewsLetter = () => {
           }),
         });
 
-        console.log(sendData);
         if (sendData.ok) {
-          console.log("todo bien");
+          setMessage("Se ha registrado tu correo de manera éxitosa");
+          setShowMessage(true);
+          setTimeout(() => {
+            e.target.disabled = false;
+          }, 1000);
         } else {
+          setMessage("Algo salió mal intentalo mas tarde");
+          setShowMessage(true);
+          setTimeout(() => {
+            e.target.disabled = false;
+          }, 1000);
         }
       } catch (err) {
         console.error(err);
@@ -186,186 +197,193 @@ const NewsLetter = () => {
   };
 
   return (
-    <section
-      sx={{
-        width: "100%",
-        height: "600px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        bg: "primary",
-        position: "relative",
-        mb: "100px",
-      }}
-      ref={mySection}
-      id="newsletter"
-    >
-      <div
+    <>
+      <ModalMessage
+        show={showMessage}
+        handleClose={() => setShowMessage(false)}
+        message={message}
+      ></ModalMessage>
+      <section
         sx={{
           width: "100%",
-          bg: "none",
-          zIndex: 1,
+          height: "600px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          textAlign: "center",
-          color: "white",
-          overflow: "hidden",
-          "@media screen and (min-width: 779px)": {
-            width: "30%",
-          },
+          bg: "primary",
+          position: "relative",
+          mb: "100px",
         }}
+        ref={mySection}
+        id="newsletter"
       >
-        <span
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          ref={envelope}
-        >
-          <Image
-            src={newsLetterEnvelope}
-            width="71px"
-            height="31px"
-            alt="Logo sobre de correo"
-          ></Image>
-        </span>
-
         <div
-          ref={sectionAnimation}
           sx={{
+            width: "100%",
+            bg: "none",
+            zIndex: 1,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
-            width: "100%",
+            color: "white",
+            overflow: "hidden",
+            "@media screen and (min-width: 779px)": {
+              width: "30%",
+            },
           }}
         >
-          <h1
-            className="animation-one"
+          <span
             sx={{
-              textAlign: "center",
-              fontFamily: "heading",
-              fontSize: 5,
-              fontWeight: "body",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
+            ref={envelope}
           >
-            Recibe un descuento en tu primera visita*
-          </h1>
-          <form
-            className="animation-one"
+            <Image
+              src={newsLetterEnvelope}
+              width="71px"
+              height="31px"
+              alt="Logo sobre de correo"
+            ></Image>
+          </span>
+
+          <div
+            ref={sectionAnimation}
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               textAlign: "center",
-              gap: "20px",
-              width: "90%",
+              width: "100%",
             }}
           >
-            {inputs.map((input, index) => (
-              <div
-                key={index}
-                sx={{
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <small
-                  sx={{
-                    position: "absolute",
-                    bottom: "-18px",
-                    left: 0,
-                  }}
-                >
-                  {input.errorMessage}
-                </small>
-                <input
-                  sx={{
-                    width: "100%",
-                    height: "47px",
-                    bg: "transparent",
-                    border: "1px solid white",
-                    outlineColor: "transparent",
-                    pl: "10px",
-                    color: "white",
-                    "&::placeholder": {
-                      color: "white",
-                    },
-                  }}
-                  name={input.name}
-                  type={input.type}
-                  onChange={inputChange}
-                  onBlur={inputChange}
-                  placeholder={input.placeholder}
-                  size={input.size}
-                  maxLength={input.maxLength}
-                />
-                <div
-                  sx={{
-                    position: "absolute",
-                    top: "12px",
-                    right: "5px",
-                    svg: {
-                      fill: "white",
-                    },
-                  }}
-                >
-                  {(() => {
-                    if (input.validation === false) {
-                      return (
-                        <IconExclamation color="#ff0000"></IconExclamation>
-                      );
-                    } else if (input.validation === true) {
-                      return <IconCheck color="#7CFC00"></IconCheck>;
-                    }
-                  })()}
-                </div>
-              </div>
-            ))}
-
-            <SecondaryButton
-              height="45px"
-              width="230px"
-              handleClick={handleSubmit}
-            >
-              Quiero mi descuento
-            </SecondaryButton>
-          </form>
-          <div className="animation-one">
-            <p>
-              Esporádicamente te enviaremos promociones exclusivas y tips para
-              mejorar tu salud.
-            </p>
-            <p
+            <h1
+              className="animation-one"
               sx={{
-                fontSize: 0,
+                textAlign: "center",
+                fontFamily: "heading",
+                fontSize: 5,
+                fontWeight: "body",
               }}
             >
-              Respetamos tu privacidad y NUNCA TE ENVIAREMOS SPAM. <br />
-              *No aplica con otras promociones.
-            </p>
+              Recibe un descuento en tu primera visita*
+            </h1>
+            <form
+              className="animation-one"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                gap: "20px",
+                width: "90%",
+              }}
+            >
+              {inputs.map((input, index) => (
+                <div
+                  key={index}
+                  sx={{
+                    width: "100%",
+                    position: "relative",
+                  }}
+                >
+                  <small
+                    sx={{
+                      position: "absolute",
+                      bottom: "-18px",
+                      left: 0,
+                    }}
+                  >
+                    {input.errorMessage}
+                  </small>
+                  <input
+                    sx={{
+                      width: "100%",
+                      height: "47px",
+                      bg: "transparent",
+                      border: "1px solid white",
+                      outlineColor: "transparent",
+                      pl: "10px",
+                      color: "white",
+                      "&::placeholder": {
+                        color: "white",
+                      },
+                    }}
+                    name={input.name}
+                    type={input.type}
+                    onChange={inputChange}
+                    onBlur={inputChange}
+                    placeholder={input.placeholder}
+                    size={input.size}
+                    maxLength={input.maxLength}
+                  />
+                  <div
+                    sx={{
+                      position: "absolute",
+                      top: "12px",
+                      right: "5px",
+                      svg: {
+                        fill: "white",
+                      },
+                    }}
+                  >
+                    {(() => {
+                      if (input.validation === false) {
+                        return (
+                          <IconExclamation color="#ff0000"></IconExclamation>
+                        );
+                      } else if (input.validation === true) {
+                        return <IconCheck color="#7CFC00"></IconCheck>;
+                      }
+                    })()}
+                  </div>
+                </div>
+              ))}
+
+              <SecondaryButton
+                height="45px"
+                width="230px"
+                handleClick={handleSubmit}
+              >
+                Quiero mi descuento
+              </SecondaryButton>
+            </form>
+            <div className="animation-one">
+              <p>
+                Esporádicamente te enviaremos promociones exclusivas y tips para
+                mejorar tu salud.
+              </p>
+              <p
+                sx={{
+                  fontSize: 0,
+                }}
+              >
+                Respetamos tu privacidad y NUNCA TE ENVIAREMOS SPAM. <br />
+                *No aplica con otras promociones.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <span
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: "calc(50% -30px)",
-          height: "100%",
-          width: "360px",
-        }}
-      >
-        <Image src={newsLetterBack} alt="NewsLetter fondo"></Image>
-      </span>
-    </section>
+        <span
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: "calc(50% -30px)",
+            height: "100%",
+            width: "360px",
+          }}
+        >
+          <Image src={newsLetterBack} alt="NewsLetter fondo"></Image>
+        </span>
+      </section>
+    </>
   );
 };
 

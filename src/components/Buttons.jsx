@@ -36,8 +36,9 @@ export const SecondaryButton = ({ width, height, children, handleClick }) => {
         height: `${height}`,
         bg: "white",
         color: "primary",
-        "&:hover": {
-          cursor: "pointer",
+        cursor: "pointer",
+        "&:disabled": {
+          cursor: "progress",
         },
       }}
       onMouseEnter={handleHover}

@@ -1,6 +1,22 @@
 /** @jsxImportSource theme-ui */
+import gsap from "gsap";
+import { useRef, useEffect } from "react";
 
 const ModalAviso = ({ handleClose, show }) => {
+  const refModal = useRef(null);
+
+  useEffect(() => {
+    animation();
+  }, [show]);
+
+  const animation = () => {
+    gsap.to(refModal.current, {
+      opacity: 1,
+      duration: 1,
+      ease: "expo.out",
+    });
+  };
+
   return show ? (
     <section
       sx={{
@@ -8,14 +24,16 @@ const ModalAviso = ({ handleClose, show }) => {
         top: 0,
         left: 0,
         width: "100%",
-        height: "110vh",
+        height: "100vh",
         bg: "#00000080",
         zIndex: 11,
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
         overflowY: "scroll",
+        opacity: 0,
       }}
+      ref={refModal}
     >
       <div
         sx={{
