@@ -11,6 +11,7 @@ import QuiropracticaPura from "../src/components/QuiropracticaPura";
 import AccordionSucursales from "../src/components/AccordionSucursales";
 import { useEffect, useState } from "react";
 import ModalAviso from "../src/components/ModalAviso";
+import ButtonFixed from "../src/components/ButtonFixed";
 
 function Home() {
   const [firstTime, setFirsTime] = useState(true);
@@ -37,6 +38,7 @@ function Home() {
         <title>INNATE - Centro Quiroprácticos</title>
       </Head>
       <Header />
+      <ButtonFixed />
       <FirstSection />
       <ModalAviso
         show={showModal}

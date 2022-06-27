@@ -26,7 +26,6 @@ export default async function handler(req, res) {
 
     try {
       const mail = await sendMail(data);
-      console.log(mail);
       res.status(200).json({ message: "ok" });
     } catch (error) {
       res.status(400).json({ message: "bad request" });

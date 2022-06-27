@@ -19,6 +19,8 @@ import sucursalMty from "../../assets/img/INNATE-sucursal-MTY.png";
 import sucursalGdl from "../../assets/img/INNATE-sucursal-GDL.png";
 import sucursalPuebla from "../../assets/img/INNATE-sucursal-PUEBLA.png";
 import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
+import sucursalInterlomas from "../../assets/img/INN-Sucursal-Mapa-Interlomas.png";
+import sucursalSaltillo from "../../assets/img/INN-Sucursal-Mapa-Saltillo.png";
 
 const AccordionSucursales = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -212,6 +214,38 @@ const AccordionSucursales = () => {
 
       image: sucursalQro,
       agendarLabel: "BTN_footer_Queretaro",
+    },
+    {
+      sucursal: "Interlomas",
+      param: "interlomas",
+      state: "CDMX",
+      phone: [],
+      adress:
+        "Pje. Interlomas 39, Edifico Terraz Interlomas, Huixquilucan CP. 52787 Int. Local PA 05",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalInterlomas,
+      agendarLabel: "BTN_footer_Interlomas",
+    },
+    {
+      sucursal: "Saltillo",
+      param: "saltillo",
+      state: "COAH",
+      phone: [],
+      adress:
+        "Boulevard parque centro No. 1425, local C-1. C.P. 25279, Colonia Los Parques, Saltillo Coahuila.  ",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalSaltillo,
+      agendarLabel: "BTN_footer_Saltillo",
     },
   ];
 
@@ -480,18 +514,26 @@ const AccordionSucursales = () => {
                         <p>{item.adress}</p>
                       </a>
                       <span>
-                        {item.phone.map((tel, index) =>
-                          index == 0 ? (
-                            <a key={tel} href={`tel:${tel.replace(/ /g, "")}`}>
-                              Tel:{tel}
-                            </a>
-                          ) : (
-                            <a key={tel} href={`tel:${tel.replace(/ /g, "")}`}>
-                              {" "}
-                              y {tel}
-                            </a>
-                          )
-                        )}
+                        {item.phone.length > 0
+                          ? item.phone.map((tel, index) =>
+                              index == 0 ? (
+                                <a
+                                  key={tel}
+                                  href={`tel:${tel.replace(/ /g, "")}`}
+                                >
+                                  Tel:{tel}
+                                </a>
+                              ) : (
+                                <a
+                                  key={tel}
+                                  href={`tel:${tel.replace(/ /g, "")}`}
+                                >
+                                  {" "}
+                                  y {tel}
+                                </a>
+                              )
+                            )
+                          : null}
                       </span>
                       <section
                         sx={{
@@ -512,7 +554,11 @@ const AccordionSucursales = () => {
                         </span>
 
                         <a
-                          href={`tel:${item.phone[0].replace(/ /g, "")}`}
+                          href={`tel:${
+                            item.phone.length > 0
+                              ? item.phone[0].replace(/ /g, "")
+                              : ""
+                          }`}
                           sx={{ width: "40%" }}
                         >
                           <SecondaryButtonInversed width="100%" height="50px">

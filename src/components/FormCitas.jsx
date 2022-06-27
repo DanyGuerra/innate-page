@@ -43,7 +43,6 @@ const FormCitas = () => {
             sucursal: sucursalSelected,
           }),
         });
-        console.log(sendData);
 
         if (sendData.ok) {
           const mailSend = await fetch("api/sendmail/", {
@@ -59,7 +58,6 @@ const FormCitas = () => {
               sucursal: sucursalSelected,
             }),
           });
-          console.log(mailSend);
 
           setMessage(
             "Se ha registrado tu correo de manera éxitosa. Se ha enviado la información a el correo registrado"
@@ -81,7 +79,6 @@ const FormCitas = () => {
     } else {
       setMessage("LLena todos los campos");
       setShowMessage(true);
-      console.log("No valido ");
     }
   };
 
