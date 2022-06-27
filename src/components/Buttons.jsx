@@ -161,8 +161,9 @@ export const PrimaryButton = ({ width, height, children, handleClick }) => {
         height: `${height}`,
         bg: "primary",
         color: "white",
-        "&:hover": {
-          cursor: "pointer",
+        cursor: "pointer",
+        "&:disabled": {
+          cursor: "progress",
         },
       }}
       onClick={handleClick}

@@ -4,11 +4,14 @@ import { ArrowDown, ArrowUp } from "./Icons";
 import { useEffect } from "react";
 import { PrimaryButton } from "./Buttons";
 import { IconExclamation, IconCheck } from "./Icons";
+import ModalMessage from "./ModalMessage";
 
 const FormCitas = () => {
   const [sucursalSelected, setSucursalSelected] = useState("Sucursal");
   const [showOptions, setShowOptions] = useState(false);
   const [inputs, setInputs] = useState([]);
+  const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     setInputs(inputsInitial);
@@ -23,8 +26,61 @@ const FormCitas = () => {
       sucursalSelected &&
       sucursalSelected != "Sucursal"
     ) {
-      console.log("validation");
+      e.target.disabled = true;
+      try {
+        const [name, email, phone] = getInputsValues();
+
+        const sendData = await fetch("/api/citas/", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            name: name.name,
+            email: email.email,
+            phone: phone.phone,
+            sucursal: sucursalSelected,
+          }),
+        });
+        console.log(sendData);
+
+        if (sendData.ok) {
+          const mailSend = await fetch("api/sendmail/", {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify({
+              name: name.name,
+              email: email.email,
+              phone: phone.phone,
+              sucursal: sucursalSelected,
+            }),
+          });
+          console.log(mailSend);
+
+          setMessage(
+            "Se ha registrado tu correo de manera éxitosa. Se ha enviado la información a el correo registrado"
+          );
+          setShowMessage(true);
+          setTimeout(() => {
+            e.target.disabled = false;
+          }, 1000);
+        } else {
+          setMessage("Algo salió mal intentalo mas tarde");
+          setShowMessage(true);
+          setTimeout(() => {
+            e.target.disabled = false;
+          }, 1000);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     } else {
+      setMessage("LLena todos los campos");
+      setShowMessage(true);
       console.log("No valido ");
     }
   };
@@ -176,6 +232,11 @@ const FormCitas = () => {
 
   return (
     <>
+      <ModalMessage
+        show={showMessage}
+        message={message}
+        handleClose={() => setShowMessage(false)}
+      />
       <section
         sx={{
           width: "100%",
@@ -190,7 +251,7 @@ const FormCitas = () => {
       >
         <h1
           sx={{
-            fontSize: 6,
+            fontSize: [5, 6],
             color: "primary",
             fontFamily: "heading",
             fontWeight: "heading",
@@ -399,7 +460,7 @@ const FormCitas = () => {
           </div>
           <div
             sx={{
-              width: "100%",
+              width: ["90%", "100%"],
               maxWidth: "300px",
             }}
           >
