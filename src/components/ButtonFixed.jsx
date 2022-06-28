@@ -49,13 +49,12 @@ const ButtonFixed = () => {
           <a
             href="https://wa.me/5215511496490?text=Quiero%20%20agendar%20una%20cita%20"
             target="_blank"
-            id="BTN_Whatsapp"
           >
             <svg
-              id="whatsappClick"
               viewBox="0 0 448 512"
               width="35px"
               height="35px"
+              id="whatsappClick"
             >
               <path
                 fill="#fff"

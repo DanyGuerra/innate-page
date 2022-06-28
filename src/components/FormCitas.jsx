@@ -123,6 +123,8 @@ const FormCitas = () => {
     "Guadalajara",
     "Puebla",
     "Querétaro",
+    "Interlomas",
+    "Saltillo",
   ];
 
   const getInputsValues = () => {

@@ -117,6 +117,22 @@ const AccordionSucursales = () => {
       agendarLabel: "BTN_footer_Pedregal",
     },
     {
+      sucursal: "Interlomas",
+      param: "interlomas",
+      state: "CDMX",
+      phone: [],
+      adress:
+        "Pje. Interlomas 39, Edifico Terraz Interlomas, Huixquilucan CP. 52787 Int. Local PA 05",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalInterlomas,
+      agendarLabel: "BTN_footer_Interlomas",
+    },
+    {
       sucursal: "Metepec",
       param: "metepec",
       state: "EDOMEX",
@@ -215,22 +231,7 @@ const AccordionSucursales = () => {
       image: sucursalQro,
       agendarLabel: "BTN_footer_Queretaro",
     },
-    {
-      sucursal: "Interlomas",
-      param: "interlomas",
-      state: "CDMX",
-      phone: [],
-      adress:
-        "Pje. Interlomas 39, Edifico Terraz Interlomas, Huixquilucan CP. 52787 Int. Local PA 05",
-      horarios: [
-        "Lunes a Jueves 09:00 a 18:00",
-        "Viernes 09:00 a 16:00",
-        "Sábado 09:00 a 13:00",
-      ],
 
-      image: sucursalInterlomas,
-      agendarLabel: "BTN_footer_Interlomas",
-    },
     {
       sucursal: "Saltillo",
       param: "saltillo",

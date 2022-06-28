@@ -47,7 +47,7 @@ const sendMail = (data) => {
 
     let mailOptions = {
       from: '"INNATE CITAS" <from@example.com>',
-      to: data.email,
+      to: process.env.SEND_CITAS_TO_THIS_MAIL,
       subject: "Cita agendada",
       text: "Confirmacion de cita",
       html: `<b>Hola!! </b><br> Tu cita ha sido agendada con éxito.<br />Tu cita quedo agendada con la siguiente información: <br><br>

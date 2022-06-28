@@ -119,7 +119,9 @@ const Header = () => {
           <a sx={{ cursor: "pointer" }}>Testimoniales</a>
         </Link>
         <Link href="/#footer">
-          <a sx={{ cursor: "pointer" }}>Contacto</a>
+          <a sx={{ cursor: "pointer" }} id="contactobtn1">
+            Contacto
+          </a>
         </Link>
       </nav>
 
