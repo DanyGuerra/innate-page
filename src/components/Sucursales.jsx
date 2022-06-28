@@ -16,6 +16,8 @@ import sucursalMty from "../../assets/img/INNATE-sucursal-MTY.png";
 import sucursalGdl from "../../assets/img/INNATE-sucursal-GDL.png";
 import sucursalPuebla from "../../assets/img/INNATE-sucursal-PUEBLA.png";
 import sucursalQro from "../../assets/img/INNATE-Queretaro.png";
+import sucursalInterlomas from "../../assets/img/INN-Sucursal-Mapa-Interlomas.png";
+import sucursalSaltillo from "../../assets/img/INN-Sucursal-Mapa-Saltillo.png";
 
 //Team Images
 import imgCamille from "../../assets/img/INNATE-equipo-CAMILLE_DEMBOSKI.png";
@@ -124,6 +126,7 @@ const Sucursales = ({ sucursal }) => {
       urlMap: "https://goo.gl/maps/4cRt8uuHBiZzxRRp7",
       agendarLabel: "BTN_sucursal_Polanco",
     },
+
     {
       title: "PEDREGAL",
       sucursal: "Pedregal",
@@ -165,6 +168,24 @@ const Sucursales = ({ sucursal }) => {
       ],
       urlMap: "https://goo.gl/maps/rqSnxT5XBpL9d3Pu8",
       agendarLabel: "BTN_sucursal_Metepec",
+    },
+    {
+      title: "INTERLOMAS",
+      sucursal: "Interlomas",
+      param: "interlomas",
+      state: "CDMX",
+      phone: ["55 6521 5306"],
+      adress:
+        "Pje. Interlomas 39, edifico Terraz Interlomas, Huixquilucan CP. 52787 Int. Local PA 05",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 14:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalInterlomas,
+      urlMap: "https://goo.gl/maps/nPXbmvyxbcCFnqLR6",
+      agendarLabel: "BTN_sucursal_Interlomas",
     },
     {
       title: "MORELOS",
@@ -246,7 +267,6 @@ const Sucursales = ({ sucursal }) => {
       title: "QUERÉTARO",
       sucursal: "Querétaro",
       param: "queretaro",
-      sucursal: "Querétaro",
       state: "QRO",
       phone: ["442 224 6968"],
       adress:
@@ -260,6 +280,24 @@ const Sucursales = ({ sucursal }) => {
       image: sucursalQro,
       urlMap: "https://goo.gl/maps/jVG3R2LmEvbkqVZL8",
       agendarLabel: "BTN_sucursal_Queretaro",
+    },
+    {
+      title: "SALTILLO",
+      sucursal: "Saltillo",
+      param: "saltillo",
+      state: "COAH",
+      phone: ["844 665 52 62"],
+      adress:
+        "Boulevard parque centro No. 1425, local C-1. C.P. 25279, Colonia Los Parques, Saltillo Coahuila.",
+      horarios: [
+        "Lunes a Jueves 09:00 a 18:00",
+        "Viernes 09:00 a 16:00",
+        "Sábado 09:00 a 13:00",
+      ],
+
+      image: sucursalSaltillo,
+      urlMap: "https://goo.gl/maps/jVG3R2LmEvbkqVZL8",
+      agendarLabel: "BTN_sucursal_Saltillo",
     },
   ];
 

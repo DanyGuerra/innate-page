@@ -120,12 +120,12 @@ const AccordionSucursales = () => {
       sucursal: "Interlomas",
       param: "interlomas",
       state: "CDMX",
-      phone: [],
+      phone: ["55 6521 5306"],
       adress:
         "Pje. Interlomas 39, Edifico Terraz Interlomas, Huixquilucan CP. 52787 Int. Local PA 05",
       horarios: [
         "Lunes a Jueves 09:00 a 18:00",
-        "Viernes 09:00 a 16:00",
+        "Viernes 09:00 a 14:00",
         "Sábado 09:00 a 13:00",
       ],
 
@@ -236,7 +236,7 @@ const AccordionSucursales = () => {
       sucursal: "Saltillo",
       param: "saltillo",
       state: "COAH",
-      phone: [],
+      phone: ["844 665 52 62"],
       adress:
         "Boulevard parque centro No. 1425, local C-1. C.P. 25279, Colonia Los Parques, Saltillo Coahuila.  ",
       horarios: [
