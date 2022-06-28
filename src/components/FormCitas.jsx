@@ -15,6 +15,7 @@ const FormCitas = () => {
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [eventSubmitGoogle, setEventSubmitGoogle] = useState("");
+  const [avisoChecked, setAvisoChecked] = useState(false);
 
   const { query } = router;
 
@@ -29,7 +30,8 @@ const FormCitas = () => {
     if (
       validation.every((el) => el === true) &&
       sucursalSelected &&
-      sucursalSelected != "Sucursal"
+      sucursalSelected != "Sucursal" &&
+      avisoChecked
     ) {
       e.target.disabled = true;
       try {
@@ -70,7 +72,7 @@ const FormCitas = () => {
           });
 
           setMessage(
-            "Se ha registrado tu correo de manera éxitosa. En breve se comunicará un representante de Innate para continuar con el proceso de tu cita."
+            "Se ha registrado tu correo de manera éxitosa. En breve se comunicará un representante de Innate con usted para continuar con el proceso de tu cita."
           );
           setShowMessage(true);
           setTimeout(() => {
@@ -87,7 +89,7 @@ const FormCitas = () => {
         console.error(err);
       }
     } else {
-      setMessage("LLena todos los campos");
+      setMessage("LLena todos los campos y/o acepta el aviso de privacidad");
       setShowMessage(true);
     }
   };
@@ -238,6 +240,10 @@ const FormCitas = () => {
     setSucursalSelected(e.target.getAttribute("value"));
     setEventSubmitGoogle(e.target.getAttribute("data-event"));
     setShowOptions(false);
+  };
+
+  const handleCheckbox = (e) => {
+    setAvisoChecked(!avisoChecked);
   };
 
   return (
@@ -468,6 +474,31 @@ const FormCitas = () => {
                 })}
               </div>
             </div>
+          </div>
+          <div
+            sx={{
+              width: "90%",
+              maxWidth: "360px",
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={avisoChecked}
+              onChange={handleCheckbox}
+            />
+            <p>
+              Acepto{" "}
+              <a
+                href="/Innate-Aviso_de_privacidad.pdf"
+                target="_blank"
+                sx={{ color: "primary" }}
+              >
+                Aviso de Privacidad
+              </a>
+            </p>
           </div>
           <div
             sx={{
