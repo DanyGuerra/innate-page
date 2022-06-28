@@ -6,6 +6,7 @@ export default async function handler(req, res) {
     const email = req.body.email;
     const phone = req.body.phone;
     const sucursal = req.body.sucursal;
+    const source = req.body.source;
 
     function isEmail(email) {
       return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -73,7 +74,7 @@ export default async function handler(req, res) {
               null,
               null,
               null,
-              null,
+              source,
               fechaRegistro,
             ],
           ],

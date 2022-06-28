@@ -6,12 +6,29 @@ export default async function handler(req, res) {
     const email = req.body.email;
     const phone = req.body.phone;
     const sucursal = req.body.sucursal;
+    const source = req.body.source;
+
+    let fecha = new Date();
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZoneName: "short",
+    };
+
+    let fechaRegistro =
+      fecha.toLocaleDateString("es-MX", options) +
+      " " +
+      fecha.toLocaleTimeString("es-MX");
 
     const data = {
       name,
       email,
       phone,
       sucursal,
+      source,
+      fechaRegistro,
     };
 
     if (!email) {
@@ -28,7 +45,8 @@ export default async function handler(req, res) {
       const mail = await sendMail(data);
       res.status(200).json({ message: "ok" });
     } catch (error) {
-      res.status(400).json({ message: "bad request" });
+      console.error(error);
+      res.status(400).json({ message: "Bad request" });
     }
   }
 }
@@ -50,10 +68,13 @@ const sendMail = (data) => {
       to: process.env.SEND_CITAS_TO_THIS_MAIL,
       subject: "Cita agendada",
       text: "Confirmacion de cita",
-      html: `<b>Hola!! </b><br> Tu cita ha sido agendada con éxito.<br />Tu cita quedo agendada con la siguiente información: <br><br>
+      html: `Informacion de la cita: <br><br>
       <b>Nombre: </b> ${data.name}<br>
+      <b>Correo: </b> ${data.email}<br>
       <b>Teléfono: </b> ${data.phone}<br>
       <b>Sucursal: </b> ${data.sucursal}<br>
+      <b>Source: </b> ${data.source}<br>
+      <b>Fecha de registro: </b> ${data.fechaRegistro}<br>
       `,
     };
 

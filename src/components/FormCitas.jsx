@@ -48,6 +48,7 @@ const FormCitas = () => {
             email: email.email,
             phone: phone.phone,
             sucursal: sucursalSelected,
+            source: query.source,
           }),
         });
 
@@ -63,6 +64,7 @@ const FormCitas = () => {
               email: email.email,
               phone: phone.phone,
               sucursal: sucursalSelected,
+              source: query.source,
             }),
           });
 
@@ -302,20 +304,6 @@ const FormCitas = () => {
               mt: "20px",
             }}
           >
-            <div
-              sx={{
-                width: "50px",
-                height: "50px",
-                borderRadius: "50%",
-                background: "primary",
-                color: "white",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              1
-            </div>
             <div>Llena los siguientes datos</div>
           </div>
           <form
