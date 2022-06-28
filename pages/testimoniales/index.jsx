@@ -7,6 +7,7 @@ import Padecimientos from "../../src/components/Padecimientos";
 import AccordionSucursales from "../../src/components/AccordionSucursales";
 import CanalYoutube from "../../src/components/CanalYoutube";
 import TestimonialesCarousel from "../../src/components/TestimonialesCarousel";
+import ButtonFixed from "../../src/components/ButtonFixed";
 
 export default function About() {
   return (
@@ -15,6 +16,7 @@ export default function About() {
         <title>INNATE-Testimoniales</title>
       </Head>
       <Header></Header>
+      <ButtonFixed />
       <VideoSection title="Testimoniales" idVideo="n8RqZZ_xicg"></VideoSection>
       <TestimonialesCarousel></TestimonialesCarousel>
       <CanalYoutube></CanalYoutube>

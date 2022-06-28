@@ -5,6 +5,7 @@ import NewsLetter from "../../src/components/NewsLetter";
 import Padecimientos from "../../src/components/Padecimientos";
 import Diagnostico from "../../src/components/Diagnostico";
 import Sucursales from "../../src/components/Sucursales";
+import ButtonFixed from "../../src/components/ButtonFixed";
 
 export default function SucursalPedregal() {
   return (
@@ -13,6 +14,7 @@ export default function SucursalPedregal() {
         <title>INNATE - CDMX - Pedregal</title>
       </Head>
       <Header></Header>
+      <ButtonFixed />
       <Sucursales sucursal={"pedregal"}></Sucursales>
       <NewsLetter></NewsLetter>
       <Padecimientos></Padecimientos>

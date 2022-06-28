@@ -6,6 +6,7 @@ import Padecimientos from "../../src/components/Padecimientos";
 import FirstSectionAgendar from "../../src/components/FirstSectionAgendar";
 import AccordionSucursales from "../../src/components/AccordionSucursales";
 import { useEffect, useState } from "react";
+import ButtonFixed from "../../src/components/ButtonFixed";
 
 const DEFAULT_PRICE = {
   prev: 3799,
@@ -44,6 +45,7 @@ function AgendaCita({ query }) {
         <title>INNATE - Agenda tu cita</title>
       </Head>
       <HeaderSimple />
+      <ButtonFixed />
       <FirstSectionAgendar
         actualPrice={actualPrice}
         actualSucursal={sucursal}

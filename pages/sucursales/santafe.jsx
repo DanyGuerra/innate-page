@@ -5,7 +5,7 @@ import NewsLetter from "../../src/components/NewsLetter";
 import Padecimientos from "../../src/components/Padecimientos";
 import Diagnostico from "../../src/components/Diagnostico";
 import Sucursales from "../../src/components/Sucursales";
-
+import ButtonFixed from "../../src/components/ButtonFixed";
 export default function SucursalSanteFe() {
   return (
     <div>
@@ -13,6 +13,7 @@ export default function SucursalSanteFe() {
         <title>INNATE - CDMX - Santa Fe</title>
       </Head>
       <Header></Header>
+      <ButtonFixed />
       <Sucursales sucursal={"santafe"}></Sucursales>
       <NewsLetter></NewsLetter>
       <Padecimientos></Padecimientos>

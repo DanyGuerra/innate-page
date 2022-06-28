@@ -9,6 +9,7 @@ import QuiropracticaPura from "../../src/components/QuiropracticaPura";
 import AccordionSucursales from "../../src/components/AccordionSucursales";
 import NuestroEquipo from "../../src/components/NuestroEquipo";
 import SectionValores from "../../src/components/SectionValores";
+import ButtonFixed from "../../src/components/ButtonFixed";
 
 export default function About() {
   return (
@@ -17,6 +18,7 @@ export default function About() {
         <title>INNATE-Sobre Innate</title>
       </Head>
       <Header></Header>
+      <ButtonFixed />
       <VideoSection title="Sobre Innate" idVideo="Y9KrE1dNzNE"></VideoSection>
       <NuestroEquipo></NuestroEquipo>
       <SectionValores></SectionValores>
