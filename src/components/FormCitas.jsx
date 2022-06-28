@@ -5,13 +5,18 @@ import { useEffect } from "react";
 import { PrimaryButton } from "./Buttons";
 import { IconExclamation, IconCheck } from "./Icons";
 import ModalMessage from "./ModalMessage";
+import { useRouter } from "next/router";
 
 const FormCitas = () => {
+  const router = useRouter();
   const [sucursalSelected, setSucursalSelected] = useState("Sucursal");
   const [showOptions, setShowOptions] = useState(false);
   const [inputs, setInputs] = useState([]);
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [eventSubmitGoogle, setEventSubmitGoogle] = useState("");
+
+  const { query } = router;
 
   useEffect(() => {
     setInputs(inputsInitial);
@@ -59,8 +64,13 @@ const FormCitas = () => {
             }),
           });
 
+          window.dataLayer.push({
+            event: eventSubmitGoogle,
+            btn_activador: { value: query.source },
+          });
+
           setMessage(
-            "Se ha registrado tu correo de manera éxitosa. Se ha enviado la información a el correo registrado"
+            "Se ha registrado tu correo de manera éxitosa. En breve se comunicará un representante de Innate para continuar con el proceso de tu cita."
           );
           setShowMessage(true);
           setTimeout(() => {
@@ -112,19 +122,19 @@ const FormCitas = () => {
   ];
 
   const sucursales = [
-    "Santa Fe",
-    "Roma",
-    "Del Valle",
-    "Polanco",
-    "Pedregal",
-    "Metepec",
-    "Cuernavaca",
-    "Monterrey",
-    "Guadalajara",
-    "Puebla",
-    "Querétaro",
-    "Interlomas",
-    "Saltillo",
+    { name: "Santa Fe", eventGoogle: "Submit_SantaFe" },
+    { name: "Roma", eventGoogle: "Submit_Roma" },
+    { name: "Del Valle", eventGoogle: "Submit_DelValle" },
+    { name: "Polanco", eventGoogle: "Submit_Polanco" },
+    { name: "Pedregal", eventGoogle: "Submit_Pedregal" },
+    { name: "Interlomas", eventGoogle: "Submit_Interlomas" },
+    { name: "Metepec", eventGoogle: "Submit_Metepec" },
+    { name: "Cuernavaca", eventGoogle: "Submit_Cuernavaca" },
+    { name: "Monterrey", eventGoogle: "Submit_MTY" },
+    { name: "Guadalajara", eventGoogle: "Submit_GDL" },
+    { name: "Puebla", eventGoogle: "Submit_Puebla" },
+    { name: "Querétaro", eventGoogle: "Submit_Queretaro" },
+    { name: "Saltillo", eventGoogle: "Submit_Saltillo" },
   ];
 
   const getInputsValues = () => {
@@ -226,6 +236,7 @@ const FormCitas = () => {
 
   const handleSelect = (e) => {
     setSucursalSelected(e.target.getAttribute("value"));
+    setEventSubmitGoogle(e.target.getAttribute("data-event"));
     setShowOptions(false);
   };
 
@@ -446,11 +457,12 @@ const FormCitas = () => {
                           bg: "#eeeeee",
                         },
                       }}
-                      key={item}
-                      value={item}
+                      key={index}
+                      value={item.name}
+                      data-event={item.eventGoogle}
                       onClick={handleSelect}
                     >
-                      {item}
+                      {item.name}
                     </div>
                   );
                 })}

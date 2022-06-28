@@ -39,6 +39,9 @@ function MyApp({ Component, pageProps }) {
             gtag('config', '${gtag.GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_AW}', {
+              page_path: window.location.pathname,
+            });
           `,
         }}
       />
@@ -53,6 +56,23 @@ function MyApp({ Component, pageProps }) {
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer', '${GTM_ID}');
+          `,
+        }}
+      />
+
+      <Script
+        id="gtag-convertion"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function gtag_report_conversion(url) {
+            var callback = function () {
+            if (typeof(url) != 'undefined') {
+            window.location = url;}};
+            gtag('event', 'conversion', {
+            send_to: '${process.env.NEXT_PUBLIC_GOOGLE_AW}/Bd7WCIWouqwBEODy7c8D',
+            event_callback: callback});
+            return false;}
           `,
         }}
       />
