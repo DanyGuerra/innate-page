@@ -1,11 +1,13 @@
 /** @jsxImportSource theme-ui */
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import headerBack from "../../assets/img/header-back.png";
 import videoIcon from "../../assets/icons/conocer-btn.png";
+import ModalVideo from "./ModalVideo";
 
 const FirstSection = () => {
+  const [showModalVideo, setShowModalVideo] = useState(false);
   const imageBack = useRef(null);
   const titleHeader = useRef(null);
   const buttonOneHeader = useRef(null);
@@ -41,167 +43,172 @@ const FirstSection = () => {
     window.location = `${process.env.CITAS_URL}/?source=AgendarConsultaFirstSection`;
   };
   const handleConoceMas = () => {
-    window.location = "/";
+    setShowModalVideo(true);
   };
   return (
-    <section
-      sx={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        pt: "50px",
-        pb: "100px",
-      }}
-    >
-      <div
+    <>
+      <ModalVideo
+        show={showModalVideo}
+        handleClose={() => setShowModalVideo(false)}
+      ></ModalVideo>
+      <section
         sx={{
-          position: "relative",
-          width: "90%",
-          height: "calc(100vh - 50px)",
-          display: "grid",
-          overflow: "hidden",
-          gridTemplate: "55% 15% 40%/ 50% 50% ",
-          "@media screen and (min-width: 779px)": {
-            gridTemplate: "25% 20% 40% 15%/ 50% 50%",
-            width: "70%",
-          },
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          pt: "50px",
+          pb: "100px",
         }}
       >
         <div
           sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "112px",
-            opacity: 1,
-            zIndex: -1,
-            objectFit: "cover",
+            position: "relative",
+            width: "90%",
+            height: "calc(100vh - 50px)",
+            display: "grid",
             overflow: "hidden",
+            gridTemplate: "55% 15% 40%/ 50% 50% ",
             "@media screen and (min-width: 779px)": {
-              left: "calc(50% - 75px)",
-              width: "150px",
-              opacity: 0.3,
-            },
-          }}
-          ref={imageBack}
-        >
-          <Image
-            src={headerBack}
-            width="150px"
-            height="650px"
-            layout="responsive"
-            alt="Especialistas quiropracticos en columna vertebral muestran una espalda sana, sin escoliosis ciática ni hernia"
-          ></Image>
-        </div>
-        <div
-          sx={{
-            gridColumn: "2/3",
-            gridRow: "1/2",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-
-            "@media screen and (min-width: 779px)": {
-              alignItems: "center",
-              gridColumn: "1/3",
-              gridRow: "2/3",
-            },
-          }}
-          ref={titleHeader}
-        >
-          <h1
-            sx={{
-              fontSize: 5,
-              fontFamily: "heading",
-              textAlign: "left",
-              color: "primary",
-              fontWeight: 400,
-              m: 0,
-              "@media screen and (min-width: 779px)": {
-                textAlign: "center",
-                fontSize: 7,
-              },
-            }}
-          >
-            Mejora tu calidad de vida
-          </h1>
-          <p
-            sx={{
-              fontSize: 2,
-              textAlign: "left",
-              color: "primary",
-              fontWeight: 400,
-              m: 0,
-              "@media screen and (min-width: 779px)": {
-                textAlign: "center",
-                fontSize: 5,
-              },
-            }}
-          >
-            CON UNA COLUMNA VERTEBRAL SANA.
-          </p>
-        </div>
-
-        <div
-          sx={{
-            gridColumn: "1/3",
-            gridRow: "2/3",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "60px",
-            div: {
-              width: "80%",
-              color: "white",
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "5px",
-            },
-            p: {
-              m: 0,
-            },
-
-            "@media screen and (min-width: 779px)": {
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              gridRow: "3/4",
-              div: {
-                width: "35%",
-              },
+              gridTemplate: "25% 20% 40% 15%/ 50% 50%",
+              width: "70%",
             },
           }}
         >
           <div
             sx={{
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "112px",
+              opacity: 1,
+              zIndex: -1,
+              objectFit: "cover",
+              overflow: "hidden",
+              "@media screen and (min-width: 779px)": {
+                left: "calc(50% - 75px)",
+                width: "150px",
+                opacity: 0.3,
+              },
             }}
-            onClick={handleAgendar}
+            ref={imageBack}
           >
-            <svg
-              className="svg"
-              viewBox="0 0 300 60"
+            <Image
+              src={headerBack}
+              width="150px"
+              height="650px"
+              layout="responsive"
+              alt="Especialistas quiropracticos en columna vertebral muestran una espalda sana, sin escoliosis ciática ni hernia"
+            ></Image>
+          </div>
+          <div
+            sx={{
+              gridColumn: "2/3",
+              gridRow: "1/2",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "flex-start",
+
+              "@media screen and (min-width: 779px)": {
+                alignItems: "center",
+                gridColumn: "1/3",
+                gridRow: "2/3",
+              },
+            }}
+            ref={titleHeader}
+          >
+            <h1
               sx={{
-                position: "absolute",
-                right: 0,
-                zIndex: -1,
+                fontSize: 5,
+                fontFamily: "heading",
+                textAlign: "left",
+                color: "primary",
+                fontWeight: 400,
+                m: 0,
+                "@media screen and (min-width: 779px)": {
+                  textAlign: "center",
+                  fontSize: 7,
+                },
               }}
             >
-              <clipPath id="rect-mask">
-                <rect width="100%" height="100%" ref={buttonOneHeader} />
-              </clipPath>
-              <image
-                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+              Mejora tu calidad de vida
+            </h1>
+            <p
+              sx={{
+                fontSize: 2,
+                textAlign: "left",
+                color: "primary",
+                fontWeight: 400,
+                m: 0,
+                "@media screen and (min-width: 779px)": {
+                  textAlign: "center",
+                  fontSize: 5,
+                },
+              }}
+            >
+              CON UNA COLUMNA VERTEBRAL SANA.
+            </p>
+          </div>
+
+          <div
+            sx={{
+              gridColumn: "1/3",
+              gridRow: "2/3",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "60px",
+              div: {
+                width: "80%",
+                color: "white",
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "5px",
+              },
+              p: {
+                m: 0,
+              },
+
+              "@media screen and (min-width: 779px)": {
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                gridRow: "3/4",
+                div: {
+                  width: "35%",
+                },
+              },
+            }}
+          >
+            <div
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+              }}
+              onClick={handleAgendar}
+            >
+              <svg
+                className="svg"
+                viewBox="0 0 300 60"
+                sx={{
+                  position: "absolute",
+                  right: 0,
+                  zIndex: -1,
+                }}
+              >
+                <clipPath id="rect-mask">
+                  <rect width="100%" height="100%" ref={buttonOneHeader} />
+                </clipPath>
+                <image
+                  href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
               bWFnZVJlYWR5ccllPAAAADNQTFRFQKZmv+HMf8OZEI9An9KycLyNYLWAIJdN7/jyj8ulr9q/z+nZ
               MJ5Z3/DlUK1zAIgz////W6McvQAAABF0Uk5T/////////////////////wAlrZliAAAC9ElEQVR4
               2uyc23ajMAxFZfmCbTDw/19bzCVAShoIiNXpnPPSpqEK2QhZNrKohYTk/fIVnbCksthVTUM2pu1D
@@ -218,38 +225,38 @@ const FirstSection = () => {
               ZqPSox+b+Q8HUHLmuT3d9aA3ZDZHz7HzFnPuG+Zo9fehn9k/uu+Dttr73QJ63XKQF/3LVu8E4xWr
               9Jzk5IvRRSXXL249uuT85pW69jeAPqM0XKKUb4GQu2qtFHhXjCrq3LouvL9ZtF30tqubqnsZ36xk
               6jwoFZvn/iXAAF8h4nBEqXTbAAAAAElFTkSuQmCC"
-                width="100%"
-                height="60px"
-                clipPath="url(#rect-mask)"
-              ></image>
-            </svg>
-            <p>Agendar Consulta</p>
-          </div>
+                  width="100%"
+                  height="60px"
+                  clipPath="url(#rect-mask)"
+                ></image>
+              </svg>
+              <p>Agendar Consulta</p>
+            </div>
 
-          <div
-            sx={{
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-            }}
-            onClick={handleConoceMas}
-          >
-            <svg
-              className="svg"
-              viewBox="0 0 300 60"
+            <div
               sx={{
-                position: "absolute",
-                right: 0,
-                zIndex: -1,
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
               }}
+              onClick={handleConoceMas}
             >
-              <clipPath id="rect-mask">
-                <rect width="100%" height="100%" ref={buttonTwoHeader} />
-              </clipPath>
-              <image
-                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+              <svg
+                className="svg"
+                viewBox="0 0 300 60"
+                sx={{
+                  position: "absolute",
+                  right: 0,
+                  zIndex: -1,
+                }}
+              >
+                <clipPath id="rect-mask">
+                  <rect width="100%" height="100%" ref={buttonTwoHeader} />
+                </clipPath>
+                <image
+                  href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAA8CAMAAAB8U9CyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
                   bWFnZVJlYWR5ccllPAAAADNQTFRFf39/QEBAv7+/EBAQYGBgn5+fj4+PUFBQ7+/vMDAwICAg39/f
                   z8/Pr6+vcHBwAAAA////Omtc8AAAABF0Uk5T/////////////////////wAlrZliAAADNUlEQVR4
                   2uycyZajMAxFZXkEG5P//9q2gXQI8yBzqrv0FrUgp5L4RsiSkAWvpxSMEkkRGhyuoHs9J9+AFQoA
@@ -267,22 +274,23 @@ const FirstSection = () => {
                   RlpbmB0I3+n493kS1aD/xdSlSAQ1duPu+olQtej6MOr3StVnNt+50SXdsLPlUWJnjih348/sPwi+
                   GhEMyyOLCEbS4eZsPqIBg1jMuddiNgDvIN1hkJ6h4fhTJzmGT2XbqMspkZjOLTTpmvqA726vvN2D
                   6puwkl9tsmWFR8dxHtEfAQYA8Wnh8vDmUzUAAAAASUVORK5CYII="
-                width="100%"
-                height="60px"
-                clipPath="url(#rect-mask)"
-              ></image>
-            </svg>
-            <Image
-              src={videoIcon}
-              alt="Icono de video"
-              width="25px"
-              height="25px"
-            ></Image>
-            <p>Conocer mas</p>
+                  width="100%"
+                  height="60px"
+                  clipPath="url(#rect-mask)"
+                ></image>
+              </svg>
+              <Image
+                src={videoIcon}
+                alt="Icono de video"
+                width="25px"
+                height="25px"
+              ></Image>
+              <p>Conocer mas</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
