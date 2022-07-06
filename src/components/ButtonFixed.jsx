@@ -49,6 +49,7 @@ const ButtonFixed = () => {
           <a
             href="https://wa.me/5215511496490?text=Quiero%20%20agendar%20una%20cita%20"
             target="_blank"
+            rel="noreferrer"
           >
             <svg
               viewBox="0 0 448 512"
