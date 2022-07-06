@@ -10,6 +10,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 
 const Footer = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -108,14 +109,16 @@ const Footer = () => {
           }}
           className="item"
         >
-          <a href="/">
-            <Image
-              src={logoFooter}
-              alt="Logo Footer"
-              width="217px"
-              height="120px"
-            />
-          </a>
+          <Link href="/">
+            <a>
+              <Image
+                src={logoFooter}
+                alt="Logo Footer"
+                width="217px"
+                height="120px"
+              />
+            </a>
+          </Link>
         </div>
         <div
           sx={{
