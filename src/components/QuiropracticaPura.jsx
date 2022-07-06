@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 
 const QuiropracticaPura = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -150,25 +151,26 @@ const QuiropracticaPura = () => {
           </p>
         </div>
 
-        <a
-          href="faq"
-          sx={{
-            width: "350px",
-            height: "118px",
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <svg
-            viewBox="0 0 490 160"
-            sx={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}
-            width="350px"
+        <Link href="faq">
+          <a
+            sx={{
+              width: "350px",
+              height: "118px",
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
           >
-            <image
-              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAesAAACiCAYAAABh0+WxAAAACXBIWXMAAAsSAAALEgHS3X78AAAb
+            <svg
+              viewBox="0 0 490 160"
+              sx={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}
+              width="350px"
+            >
+              <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAesAAACiCAYAAABh0+WxAAAACXBIWXMAAAsSAAALEgHS3X78AAAb
                       6UlEQVR42u2dT5LiSLKHf4zVvngnSM0JiraX+1SfoJgTNH2ColYsm9q9XE3WCZo8wZAnaLHHbOAE
                       I04w5Al4C0UkkZEhJIEEEnyfGZb/SBBSKH7uHh7uvd1uJ2gHvcf7gaS+9+vVbrLccnYAAG5YHxDr
                       2gU3dn7M+z6SdHfiW20kpa6oS9p63293k+WKqwIAgFif6jmG6Esa1PCWWyNcdeAfkyu+A0mfW36t
@@ -295,29 +297,30 @@ const QuiropracticaPura = () => {
                       sVDaOAXEGqBOUR8qW3Mu8sjd/uGrEhNgpNtO0MrbMlkUwWiCD2U88QYBsQbopmiPPc/C7vdf1eX9
                       BML4ecQ6vh742vHYyyay2QpXK+dz54pazjq+/V+8LgDEGuCmjIgn5Rfi8BukrEKV23qP97bneOqL
                       qrL1z4QzDYBYA8Dpoh3jsQJcJ/8P5GjKdPsK5ngAAAAASUVORK5CYII="
-              mask="url('#quiropracticaPura')"
-            ></image>
+                mask="url('#quiropracticaPura')"
+              ></image>
 
-            <defs>
-              <mask id="quiropracticaPura">
-                <path
-                  ref={refSvgButton}
-                  id="puraPath"
-                  fill="none"
-                  stroke="#fff"
-                  strokeWidth="150"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeMiterlimit="10"
-                  d="M491,95.1c-65.6-4.2-131-10.7-196.2-19.5c-32.2-4.4-64.3-10.8-96.8-13c-32-2.2-64,0.7-95.7,4.3
+              <defs>
+                <mask id="quiropracticaPura">
+                  <path
+                    ref={refSvgButton}
+                    id="puraPath"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="150"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="10"
+                    d="M491,95.1c-65.6-4.2-131-10.7-196.2-19.5c-32.2-4.4-64.3-10.8-96.8-13c-32-2.2-64,0.7-95.7,4.3
                     C66.6,71,31,76-5,76.3c-6.4,0.1-6.4,10.1,0,10C59.1,85.8,122.3,69.9,186.5,72c32.8,1.1,65.3,7.7,97.8,12.2
                     c32.2,4.5,64.6,8.4,96.9,11.8c36.5,3.8,73.1,6.8,109.7,9.2C497.4,105.5,497.4,95.5,491,95.1z"
-                ></path>
-              </mask>
-            </defs>
-          </svg>
-          <span sx={{ color: "white" }}>¿Qué es la quiropráctica?</span>
-        </a>
+                  ></path>
+                </mask>
+              </defs>
+            </svg>
+            <span sx={{ color: "white" }}>¿Qué es la quiropráctica?</span>
+          </a>
+        </Link>
         <span
           sx={{ position: "absolute", zIndex: -10, top: 0 }}
           ref={refBackground}
