@@ -6,6 +6,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUp } from "./Icons";
 import { PrimaryButton, SecondaryButtonInversed } from "./Buttons";
+import Link from "next/link";
 
 // Images
 import sucursalDelValle from "../../assets/img/INNATE-sucursal-DELVALLE.png";
@@ -471,49 +472,54 @@ const AccordionSucursales = () => {
                     }}
                     ref={accordion}
                   >
-                    <a
-                      href={`/sucursales/${item.param}`}
-                      sx={{
-                        textAlign: "center",
-                        gridColumn: "1 / 2",
-                        gridRow: "1 / 2 ",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Image
-                        src={item.image}
-                        width="260px"
-                        height="260px"
-                        alt={`Mapa sucursal Innate ${item.sucursal}`}
-                      ></Image>
-                    </a>
+                    <Link href={`/sucursales/${item.param}`}>
+                      <a
+                        sx={{
+                          textAlign: "center",
+                          gridColumn: "1 / 2",
+                          gridRow: "1 / 2 ",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <Image
+                          src={item.image}
+                          width="260px"
+                          height="260px"
+                          alt={`Mapa sucursal Innate ${item.sucursal}`}
+                        ></Image>
+                      </a>
+                    </Link>
                     <div
                       sx={{
                         textAlign: "center",
                         gridColumn: "1 / 2",
                         gridRow: "2 / 3 ",
                         padding: "10px",
+
                         "@media screen and (min-width: 779px)": {
                           gridColumn: "2 / 3",
                           gridRow: "1 / 2 ",
                         },
                       }}
                     >
-                      <a href={`/sucursales/${item.param}`}>
-                        <h1
-                          sx={{
-                            fontSize: 5,
-                            fontFamily: "heading",
-                            color: "primary",
-                            m: 0,
-                          }}
-                        >
-                          {item.sucursal}
-                        </h1>
-                        <p>{item.adress}</p>
-                      </a>
+                      <Link href={`/sucursales/${item.param}`}>
+                        <a sx={{ cursor: "pointer" }}>
+                          <h1
+                            sx={{
+                              fontSize: 5,
+                              fontFamily: "heading",
+                              color: "primary",
+                              m: 0,
+                            }}
+                          >
+                            {item.sucursal}
+                          </h1>
+                          <p>{item.adress}</p>
+                        </a>
+                      </Link>
                       <span>
                         {item.phone.length > 0
                           ? item.phone.map((tel, index) =>
