@@ -58,13 +58,17 @@ const sendMail = (data) => {
       port: 465,
       secure: true,
       auth: {
+        type: "OAuth2",
         user: process.env.SEND_MAIL_EMAIL,
-        pass: process.env.SEND_MAIL_PASSWORD,
+        clientId: process.env.SEND_MAIL_CLIENT_ID,
+        clientSecret: process.env.SEND_MAIL_CLIENT_SECRET,
+        refreshToken: process.env.SEND_MAIL_REFRESH_TOKEN,
+        accessToken: process.env.SEND_MAIL_ACCESS_TOKEN,
       },
     });
 
     let mailOptions = {
-      from: '"INNATE CITAS" <from@example.com>',
+      from: `"Dany Guerra" <${process.env.SEND_MAIL_EMAIL}>`,
       to: process.env.SEND_CITAS_TO_THIS_MAIL,
       subject: "Cita agendada",
       text: "Confirmacion de cita",
